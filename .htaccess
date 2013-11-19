@@ -2,9 +2,13 @@ RewriteEngine on
 
 # redirect (and mask) the staging subdomain to the staging directory
 RewriteCond %{HTTP_HOST} staging.gabeacohn.com$ [NC]
-#RewriteCond %{REQUEST_URI} !/staging.*
-RewriteRule !^staging(/|$) /staging%{REQUEST_URI} [L]
+RewriteRule !^staging(/|$) /staging%{REQUEST_URI} [L] # redirect if not /staging
+RewriteRule ^staging(/|$) - [L] # don't redirect if in /staging
 
-# redirect everything except for staging to sockeye.cs.washington.edu
-RewriteRule ^staging(/|$) - [L]
-#RewriteRule .* http://sockeye.cs.washington.edu%{REQUEST_URI} [L]
+# permanent redirection for old website addresses
+RewriteRule ^research/projects/snupi /SNUPI [NC,R=permanent]
+
+# masked (don't change URL) redirection of specific project names
+RewriteRule ^SNUPI$ /#snupi [NC,NE,L,R]
+RewriteRule ^Humantenna$ /#humantenna [NC,NE,L,R]
+RewriteRule ^StaticEF$ /#sefs [NC,NE,L,R]
