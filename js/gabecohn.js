@@ -251,13 +251,15 @@ var projectsJSON = [
         "summary": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. This technology allows sensor nodes to operate for decades on a single coin cell battery, while still achieving whole-building range!",
         "description": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. In a traditional wireless sensor network, data is communicated over the air between the sensor nodes and a base station, perhaps after making several hops between the nodes. Using this over-the-air wireless communication, the battery life is typically limited by the high transmit power required for wireless signals to reach the receiver. In contrast, SNUPI uses a <i>powerline-coupled</i> wireless channel rather than an <i>over-the-air</i> channel. In a SNUPI network, the base station receiver is plugged into the power line, and uses the entire power line network as its receiving antenna. Therefore, to communicate data to the base station, sensor nodes can wirelessly transmit at extremely low power in order for their wireless signals to couple in the near-field onto the nearest power line, and then travel through the power line infrastructure like a transmission line to the base station receiver. Since the transmit power is so low, SNUPI nodes can operate for decades on a single coin cell battery! In addition, these networks have whole-building range because the power lines reach to all locations within the building.<br/><br/>Since there are many indoor applications of home monitoring, security, and automation, my collaborators and I co-founded a startup company called <a href=\"http://www.snupi.com\">SNUPI Technologies</a> to commercialize this work. The startup company has grown rapidly, and is now offering its first consumer product: <a href=\"http://www.wally-home.com\">WallyHome</a>. WallyHome consists of many sensors that are distributed around the house to continuously monitor for water leaks and measure temperature and humidity in order to alert customers of leaks and potential mold within their homes. In the future, we will continue to produce more easy-to-install sensor products using the SNUPI platform that are geared toward smart applications including home safety, security, automation, and peace of mind.",
         "publications": [
-            "<strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N. <a href=\"pubs/Cohn_SNUPI_ubicomp10.pdf\">SNUPI: Sensor Nodes Utilizing Powerline Infrastructure.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 159-168."
+            "<strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N. <a href=\"pdf/Cohn_SNUPI_ubicomp10.pdf\">SNUPI: Sensor Nodes Utilizing Powerline Infrastructure.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 159-168."
         ],
         "awards": [
             "Runner-Up for the Top Research Prize from Madrona Venture Group (Oct. 2010)",
             "Best Paper Nomination at UbiComp 2010 (Sept. 2010)"
         ],
         "press": [
+            "<a href=\"http://www.xconomy.com/seattle/2013/11/15/snupi-technologies-home-sensor-network-monitors-water-leaks-babies/?single_page=true\">Xconomy</a>",
+            "<a href=\"http://www.geekwire.com/2013/meet-wally-lowpower-wireless-sensor-network-detects-water-leaks-mold/\">GeekWire</a>",
             "<a href=\"http://www.geekwire.com/2013/big-jeremy-jaech-ceo-snupi-technologies/\">GeekWire</a>",
             "<a href=\"http://www.bizjournals.com/seattle/blog/techflash/2013/08/techflash-cup-snupi-technologies.html\">Puget Sound Business Journal</a>",
             "<a href=\"http://www.xconomy.com/seattle/2012/12/11/uw-spinout-funded-by-madrona-to-build-cheap-home-sensor-networks/\">Xconomy</a>",
@@ -282,9 +284,9 @@ var projectsJSON = [
         "summary": "Humantenna is an on-body sensing system that recognizes whole-body gestures using the human body as an antenna that receives the existing electromagnetic interference (EMI) or noise from the power lines and electronic devices in a building. This approach to sensing mobile, whole-body interaction requires no instrumentation to the environment, and only minimal instrumentation to the user.",
         "description": "Humantenna is an on-body sensing system that recognizes whole-body gestures using the human body as an antenna that receives the existing electromagnetic interference (EMI) or noise from the power lines and electronic devices in a building. Specifically, Humantenna uses changes that occur in the observed signal as the body moves to different poses. In addition to demonstrating the ability to recognize various whole-body gestures in real-time at 92.7% accuracy, Humantenna can robustly classify a person's location within a building among a small set of trained locations at 99.5% accuracy. This approach to sensing mobile, whole-body interaction requires no instrumentation to the environment, and only minimal instrumentation to the user.",
         "publications": [
-            "[J.2]",
-            "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction. <em>2012 Annual Conference on Human Factors in Computing Systems (CHI 2012)</em>, Austin, TX, 9 May 2012.",
-            "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. Your Noise is My Command: Sensing Gestures Using the Body as an Antenna. <em>2011 Annual Conference on Human Factors in Computing Systems (CHI 2011)</em>, Vancouver, Canada, 9 May 2011."
+            "<strong>Cohn, G.</strong>, Gupta, S., Goel, M., Chen, K., Patel, S.N. Supporting Ubiquitous Interaction Using Hidden Signals. Under Final Review for <em>Communications of the ACM</em>.",
+            "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. <a href=\"pdf/Cohn_Humantenna_chi12.pdf\">Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction</a>. <em>2012 Annual Conference on Human Factors in Computing Systems (CHI 2012)</em>, Austin, TX, 9 May 2012.",
+            "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. <a href=\"pdf/Cohn_NoiseCommand_chi11.pdf\">Your Noise is My Command: Sensing Gestures Using the Body as an Antenna</a>. <em>2011 Annual Conference on Human Factors in Computing Systems (CHI 2011)</em>, Vancouver, Canada, 9 May 2011."
         ],
         "awards": [
             "Honorable Mention Award at CHI 2012 (May 2012)",
@@ -307,8 +309,7 @@ var projectsJSON = [
             "<a href=\"http://gizmodo.com/5800596/turn-everyday-objects-into-touch+sensitive-controllers\">Gizmodo</a>"
         ],
         "videos": [
-            "<a href=\"pubs/Cohn_Humantenna_chi12_talk.mp4\">talk video</a> (mp4 72MB)",
-            "<a href=\"pubs/Cohn_NoiseCommand_chi11_talk.mp4\">talk video</a> (mp4 68MB)"
+            "Humantenna video (<a href=\"http://www.youtube.com/watch?v=hfAk1Vnj6hM\">youtube</a>, <a href=\"video/Cohn_Humantenna_chi12_video.mp4\">mp4</a> 41MB, <a href=\"video/Cohn_Humantenna_chi12_video.wmv\">wmv</a> 34MB)"
         ]
     },
     {
@@ -320,15 +321,14 @@ var projectsJSON = [
         "summary": "This work explores an ultra-low-power method for passively sensing body motion using static electric fields by measuring the voltage at any single location on the body. Using this sensing is approach it is feasible to infer the amount and type of body motion anywhere on the body while consuming only 3.3 µW.",
         "description": "Wearable sensor systems have been used in the ubiquitous computing community and elsewhere for applications such as activity and gesture recognition, health and wellness monitoring, and elder care. Although the power consumption of accelerometers has already been highly optimized, this work introduces a novel sensing approach which lowers the power requirement for motion sensing by orders of magnitude. We present an ultra-low-power method for passively sensing body motion using static electric fields by measuring the voltage at any single location on the body. We present the feasibility of using this sensing approach to infer the amount and type of body motion anywhere on the body and demonstrate an ultra-low-power motion detector used to wake up more power-hungry sensors. The sensing hardware consumes only 3.3 µW, and wake-up detection is done using an additional 3.3 µW (6.6 µW total).",
         "publications": [
-            "[J.2]",
-            "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N. An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing. <em>14th ACM International Conference on Ubiquitous Computing (UbiComp 2012)</em> Pittsburgh, PA, 5 September 2012."
+            "<strong>Cohn, G.</strong>, Gupta, S., Goel, M., Chen, K., Patel, S.N. Supporting Ubiquitous Interaction Using Hidden Signals. Under Final Review for <em>Communications of the ACM</em>.",
+            "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N. <a href=\"pdf/Cohn_SEFS_ubicomp12.pdf\">An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing</a>. <em>14th ACM International Conference on Ubiquitous Computing (UbiComp 2012)</em> Pittsburgh, PA, 5 September 2012."
         ],
         "awards": [
             "Best Paper Award at UbiComp 2012 (Sept. 2012)"
         ],
         "videos": [
-            "<a href=\"http://youtu.be/Q4EzGqmDEJ8\">video</a> (youtube)",
-            "<a href=\"pubs/Cohn_SEFS_ubicomp12_video.mp4\">video</a> (mp4 19MB)"
+            "Video (<a href=\"http://youtu.be/Q4EzGqmDEJ8\">youtube</a>, <a href=\"video/Cohn_SEFS_ubicomp12_video.mp4\">mp4</a> 19MB)"
         ]
     },
     {
@@ -340,7 +340,8 @@ var projectsJSON = [
         "summary": "GasSense is a prototype system for both detecting and identifying the activity of individual natural gas appliances using only a single acoustic sensor placed on the gas infrastructure of the home. This system can be used to provide eco-feedback to the home user, which studies have shown to result in significant decreases in energy consumption.",
         "description": "GasSense is a prototype system for both detecting and identifying the activity of individual natural gas appliances using only a single acoustic sensor placed on the gas infrastructure of the home. This system can be used to provide eco-feedback to the home user, which studies have shown to result in significant decreases in energy consumption. I worked with a variety of collaborators focused on human-computer interaction, sustainability, signal processing, machine learning, and mechanical engineering.",
         "publications": [
-            "<strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and Patel, S.N. GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home. <em>8th International Conference on Pervasive Computing (Pervasive 2010)</em>, Helsinki, Finland, 19 May 2010."
+            "Froehlich, J., Larson, E., Gupta, S., <strong>Cohn, G.</strong>, Reynolds, M.S., Patel, S.N. <a href=\"pdf/Froehlich_DisagEnergy_IEEEpervasive11.pdf\">Disaggregated End-Use Energy for the Smart Grid.</a> <em>IEEE Pervasive Computing, Special Issue on Smart Energy Systems</em>, 10(1), Jan-Mar 2011, pp. 28-39.",
+            "<strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and Patel, S.N. <a href=\"pdf/Cohn_GasSense_pervasive10.pdf\">GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home</a>. <em>8th International Conference on Pervasive Computing (Pervasive 2010)</em>, Helsinki, Finland, 19 May 2010."
         ],
         "awards": [
             "Top Research Prize from Madrona Venture Group at UW CSE Affiliates Day (Oct. 2009)"
@@ -355,11 +356,11 @@ var projectsJSON = [
         "summary": "uTouch is a system that detects and classifies touches and hovers without any modification to the display, and without adding any sensors to the user. Our approach utilizes existing EMI produced by LCDs and conducted onto the power lines. When a user brings their hand near or touches the LCD?s front panel, the EMI is amplified, which can be detected by a sensor plugged in  elsewhere on the power line infrastructure.",
         "description": "Current solutions for enabling touch interaction on existing non-touch LCD screens require adding additional sensors to the interaction surface. We present uTouch, a system that detects and classifies touches and hovers without any modification to the display, and without adding any sensors to the user. Our approach utilizes existing signals in an LCD that are amplified when a user brings their hand near or touches the LCD?s front panel. These signals are coupled onto the power lines, where they appear as electromagnetic interference (EMI) which can be sensed using a single device connected elsewhere on the power line infrastructure. We validate our approach with an 11 user, 8 LCD study, and demonstrate a real-time system.",
         "publications": [
-            "[J.2]",
-            "[C.9]"
+            "<strong>Cohn, G.</strong>, Gupta, S., Goel, M., Chen, K., Patel, S.N. Supporting Ubiquitous Interaction Using Hidden Signals. Under Final Review for <em>Communications of the ACM</em>.",
+            "<strong>Cohn, G.</strong>, Gupta, S., Patel, S.N. <a href=\"pdf/Chen_uTouch_chi13.pdf\">uTouch: Sensing Touch Gestures on Unmodified LCDs.</a> In the <em>Proceedings of CHI 2013</em> (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054."
         ],
         "press": ["<a href=\"http://www.technologyreview.com/news/514061/a-simple-way-to-turn-any-lcd-into-a-touch-screen/\">MIT Technology Review</a>"],
-        "videos": ["see [C.9] for video links"]
+        "videos": ["<a href=\"http://youtu.be/8p9DkwWVmfI\">Video</a> (youtube)"]
     },
     {
         "key": "wattr",
@@ -369,7 +370,7 @@ var projectsJSON = [
         "org": "<a href=\"http://ubicomplab.cs.washington.edu/\">UW UbiComp Lab</a>",
         "summary": "WATTR is a novel self-powered sensor that uses changes in a home's water pressure as both a powering and sensing source. WATTR is capable of sampling home water pressure and wirelessly transmitting when any water fixture in the home is opened or closed.",
         "description": "WATTR is a novel self-powered sensor that uses changes in a home's water pressure as both a powering and sensing source. WATTR is capable of sampling home water pressure and wirelessly transmitting when any water fixture in the home is opened or closed. WATTR provides an alternative sensing solution to the power intensive Bluetooth-based sensor used in the HydroSense project for single-point whole-home water usage. Unlike other water-based power harvesters, WATTR does not waste water to power itself because it harvests energy from changes in pressure not flow. Finally, WATTR is a viable self-powered sensor capable of monitoring and transmitting water usage data without the use of a battery.",
-        "publications": ["Campbell, T., Larson, E., <strong>Cohn, G.</strong>, Froehlich, J., ALcaide, R., Patel, S.N. <a href=\"pubs/Campbell_WATTR_ubicomp10.pdf\">WATTR: A Method for Self-Powered Wireless Sensing of Water Activity in the Home.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172."]
+        "publications": ["Campbell, T., Larson, E., <strong>Cohn, G.</strong>, Froehlich, J., ALcaide, R., Patel, S.N. <a href=\"pdf/Campbell_WATTR_ubicomp10.pdf\">WATTR: A Method for Self-Powered Wireless Sensing of Water Activity in the Home.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172."]
     },
     {
         "key": "ingen",
@@ -379,7 +380,7 @@ var projectsJSON = [
         "org": "<a href=\"http://ubicomplab.cs.washington.edu/\">UW UbiComp Lab</a>, <a href=http://research.microsoft.com/en-us/labs/cambridge/\">Microsoft Research Cambridge</a>",
         "summary": "InGen is a self-powered wireless rotary input device capable of generating haptic or force feedback without the need for any external power source. Our approach uses a modified servomotor to perform three functions: (1) generating power for wireless communication and embedded electronics, (2) sensing the direction and speed of rotation, and (3) providing force feedback during rotation.",
         "description": "InGen is a self-powered wireless rotary input device capable of generating haptic or force feedback without the need for any external power source. Our approach uses a modified servomotor to perform three functions: (1) generating power for wireless communication and embedded electronics, (2) sensing the direction and speed of rotation, and (3) providing force feedback during rotation. While InGen is rotating, the device is capable of providing the sensation of detents or bumps, changes in stiffness, and stiff stops entirely through power that is harvested during interaction. To the best of our knowledge, InGen is the first self-powered device, which also provides haptic feedback during operation.",
-        "publications": ["Badshah, A., Gupta, S., <strong>Cohn, G.</strong>, Villar, N., Hodges, S., Patel, S.N. <a href=\"pubs/Badshah_InGen_chi11.pdf\">Interactive Generator: A Self-Powered Haptic Feedback Device</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2051-2054."],
+        "publications": ["Badshah, A., Gupta, S., <strong>Cohn, G.</strong>, Villar, N., Hodges, S., Patel, S.N. <a href=\"pdf/Badshah_InGen_chi11.pdf\">Interactive Generator: A Self-Powered Haptic Feedback Device</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2051-2054."],
         "awards": ["Best Note Award at CHI 2011 (May 2011)"]
     },
     {
@@ -391,21 +392,20 @@ var projectsJSON = [
         "summary": "HeatWave is a system that uses digital thermal imaging cameras to detect, track, and support user interaction on arbitrary surfaces. Example interactions include (1) distinguishing hovering above a surface from touch events, (2) shape-based gestures similar to ink strokes, (3) pressure based gestures, and (4) multi-finger gestures.",
         "description": "We present HeatWave, a system that uses digital thermal imaging cameras to detect, track, and support user interaction on arbitrary surfaces. Thermal sensing has had limited examination in the HCI research community and is generally under-explored outside of law enforcement and energy auditing applications. We examine the role of thermal imaging as a new sensing solution for enhancing user surface interaction. In particular, we demonstrate how thermal imaging in combination with existing computer vision techniques can make segmentation and detection of routine interaction techniques possible in real-time, and can be used to complement or simplify algorithms for traditional RGB and depth cameras. Example interactions include (1) distinguishing hovering above a surface from touch events, (2) shape-based gestures similar to ink strokes, (3) pressure based gestures, and (4) multi-finger gestures. We close by discussing the practicality of thermal sensing for naturalistic user interaction and opportunities for future work.",
         "publications": [
-            "Froehlich, J., Larson, E., Gupta, S., <strong>Cohn, G.</strong>, Reynolds, M.S., Patel, S.N. <a href=\"pubs/Froehlich_DisagEnergy_IEEEpervasive11.pdf\">Disaggregated End-Use Energy for the Smart Grid.</a> <em>IEEE Pervasive Computing, Special Issue on Smart Energy Systems</em>, 10(1), Jan-Mar 2011, pp. 28-39.",
-            "Larson, E., <strong>Cohn, G.</strong>, Gupta, S., Ren, X., Harrison, B., Fox, D., Patel, S.N. <a href=\"pubs/Larson_HeatWave_chi11.pdf\">HeatWave: Thermal Imaging for Surface User Interaction</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2565-2574."
+            "Larson, E., <strong>Cohn, G.</strong>, Gupta, S., Ren, X., Harrison, B., Fox, D., Patel, S.N. <a href=\"pdf/Larson_HeatWave_chi11.pdf\">HeatWave: Thermal Imaging for Surface User Interaction</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2565-2574."
         ],
         "awards": ["Honorable Mention Award at CHI 2011 (May 2011)"]
     },
     {
         "key": "electionfraud",
         "title": "Detecting Voter Fraud from Electronic Voting Data",
-        "thumbnail": "img/projects/VoterFraud.jpg",
+        "thumbnail": "img/projects/ElectionFraud.jpg",
         "date": "Spring 2009",
         "org": "<a href=\"http://www.hss.caltech.edu/\">Caltech Political Science</a>",
         "summary": "Implemented new methods for obtaining and processing election data from foreign countries by mining the official election data posted on government websites. The data produced can be used to find anomalies in the official election data that could suggest the presence of election fraud.",
         "description": "This is an interdisciplinary research project that I did with the Caltech political science department. I realized that much of the work being done in the political science group could be performed more efficiently and accurately by applying some basic principles of computer science and engineering. I provided them with new methods of obtaining and processing election data from foreign countries by mining the official election data posted on government websites. This project resulted in a publication that discusses the use of computers in searching for indicators of election fraud based on official election returns.",
         "publications": [
-            "Levin, I., <strong>Cohn, G.A.</strong>, Ordeshook, P.C., Alvarez, R.M. (2009), <a href=\"http://www.usenix.org/events/evtwote09/tech/full_papers/levin.pdf\">Detecting Voter Fraud in an Electronic Voting Context: An Analysis of the Unlimited Reelection Vote in Venezuela.</a> In the <em>Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy Elections</em> (EVT/WOTE '09) (August 10-11, Montreal, Canada), USENIX, 2009."
+            "Levin, I., <strong>Cohn, G.A.</strong>, Ordeshook, P.C., Alvarez, R.M. (2009), <a href=\"Levin_ElectionFraud_EVTWOTE09.pdf\">Detecting Voter Fraud in an Electronic Voting Context: An Analysis of the Unlimited Reelection Vote in Venezuela.</a> In the <em>Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy Elections</em> (EVT/WOTE '09) (August 10-11, Montreal, Canada), USENIX, 2009."
         ]
     },
     {
@@ -417,7 +417,7 @@ var projectsJSON = [
         "summary": "Created computer models of wideband dual-polarized quad-ridge horn antennas using the QuickWave EM analysis software and CST Microwave Studio. These antennas, made by ETS-Lindgren, can be optimized with the aid of my CAD models for use on wideband radio telescopes operating between 0.3 and 18 GHz.",
         "description": "I created computer models of wideband dual-polarized quad-ridge horn antennas using the QuickWave EM analysis software and CST Microwave Studio. These antennas, made by ETS-Lindgren, can be optimized with the aid of my CAD models for use on wideband radio telescopes operating between 0.3 and 18 GHz. The feeds of which I created CAD models are now installed on the Goldstone Apple Valley Radio Telescope (GAVRT) as part of the Lewis Center for Educational Research. GAVRT is a very unique educational telescope that allows schoolchildren to control the 34-meter dish via the Internet, download real data, and process the data in the classroom. The feed design that I worked with is also one of the top candidates for the Square Kilometer Array (SKA), which is an international effort to create the largest radio telescope in the world.",
         "publications": [
-            "<strong>Cohn G.A.</strong> <a href=\"pubs/Cohn_CADFeeds_07.pdf\">Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds.</a> <em>Caltech RF and Microwave Group</em>, 2007."
+            "<strong>Cohn G.A.</strong> <a href=\"pdf/Cohn_CADFeeds_07.pdf\">Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds.</a> <em>Caltech RF and Microwave Group</em>, 2007."
         ]
     },
     {
@@ -438,8 +438,8 @@ var projectsJSON = [
         "summary": "Setup discone and log periodic dipole array (LPDA) antenna arrays at two locations for a passive radar interferometer. Created a full computer model of the new antenna arrays using the Numerical Electromagnetic Code (NEC) modeling software, and generated a spatial likelihood map of a scatter event using the computer simulation.",
         "description": "I setup new hardware systems at two locations for the Radar Remote Sensing Laboratory's passive radar system. Discone and Log Periodic Dipole Array (LPDA) antenna arrays were constructed and made operational. I conducted error calibration tests and created a full computer model of the new antenna array using the Numerical Electromagnetic Code (NEC) modeling software. Phase errors due to transmission line effects were studied, as well as a detailed exploration of the effect of mutual coupling between antennas in the array. The computer model of the array was used to produce an interferometer that can give the likelihood of a scatter event at every position in the sky. Graphical representations of these data were created using MATLAB code that I wrote specifically for this purpose. This new method of interferometry can be considered a vast improvement over traditional interferometry, because it gives not only the position of maximum likelihood of a scatter event such as a meteor, but also a map of likelihood of the meteor location across the whole sky.",
         "publications": [
-            "<strong>Cohn, G.A.</strong>, Sahr, J.D. <a href=\"pubs/Cohn_MeteorInterferometry_06.pdf\">Meteor radar interferometry using NEC antenna array simulations.</a> <em>University of Washington Radar Remote Sensing Laboratory</em>, 2006.",
-            "Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., <strong>Cohn, G.</strong>, Nguyen, K., Sahr, J. <a href=\"pubs/Lind_ISISFirstLight_06.pdf\">RRSL Milestone: First E Region Irregularities on ISIS.</a> <em>University of Washington Radar Remote Sensing Laboratory</em>, 2006."]
+            "<strong>Cohn, G.A.</strong>, Sahr, J.D. <a href=\"pdf/Cohn_MeteorInterferometry_06.pdf\">Meteor radar interferometry using NEC antenna array simulations.</a> <em>University of Washington Radar Remote Sensing Laboratory</em>, 2006.",
+            "Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., <strong>Cohn, G.</strong>, Nguyen, K., Sahr, J. <a href=\"pdf/Lind_ISISFirstLight_06.pdf\">RRSL Milestone: First E Region Irregularities on ISIS.</a> <em>University of Washington Radar Remote Sensing Laboratory</em>, 2006."]
     },
     {
         "key": "rrsl05",
