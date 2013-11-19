@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gabe A. Cohn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+    <!--      <link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/gabecohn.js"></script>
+    <link rel="stylesheet" href="css/gabecohn.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="0">
+
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <ul id="nav-left" class="nav navbar-nav">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="pdf/Cohn_CV.pdf" target="_blank">CV</a></li>
+    </ul>
+    <ul id="nav-right" class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fun Stuff <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="http://sockeye.cs.washington.edu/photos/">Photos</a></li>
+                <li><a href="http://sockeye.cs.washington.edu/projects/">Free Time Projects</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<section id="home">
+    <div id="home-img" data-type="background" data-speed="5">
+        <div class="content">
+            <div class="content-inner">
+                <div class="curtain">
+                    <div class="introduction">
+                        <h1>Gabe A. Cohn</h1>
+
+                        <p class="lead">is a Ph.D. candidate in Electrical Engineering</p>
+
+                        <p class="intro-message">in the <a href="http://ubicomplab.cs.washington.edu/">Ubiquitous
+                            Computing (Ubicomp) Lab</a> at the University of Washington, advised by Shwetak Patel. His
+                            research focuses on (1) designing and implementing <strong>ultra-low-power embedded sensing
+                                systems</strong>, (2) leveraging physical phenomena to enable <strong>new sensing
+                                modalities for human-computer interaction</strong>, and (3) developing sensor systems
+                            targeted at <strong>realizing immediate change in high-impact application domains</strong>.
+                            He was awarded the Microsoft Research Ph.D. Fellowship in 2012, the National Science
+                            Foundation Graduate Research Fellowship in 2010, and 6 Best Paper awards. He is the
+                            co-founder of <a href="http://www.snupi.com/">SNUPI Technologies</a>, a sensor and services
+                            company focused on home safety, security, and loss prevention. He received his B.S. degree
+                            with honors in Electrical Engineering from the California Institute of Technology in 2009,
+                            where he specialized in embedded systems, computer architectures, and digital VLSI.
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <div class="timeline col-md-6">
+                            <dl class="dl-horizontal past">
+                                <dt>Sept 6-15</dt>
+                                <dd>Ubicomp 2013 (Zurich)</dd>
+                            </dl>
+                            <dl class="dl-horizontal past">
+                                <dt>Oct 4-6</dt>
+                                <dd>SNUPI in Seattle Home Show (Seattle)</dd>
+                            </dl>
+                            <dl class="dl-horizontal past">
+                                <dt>Oct 23</dt>
+                                <dd>CSE Affiliates Day (Seattle)</dd>
+                            </dl>
+                            <dl class="dl-horizontal past">
+                                <dt>Nov 4-5</dt>
+                                <dd>Talk at ACEEE Hot Water Forum (Atlanta)</dd>
+                            </dl>
+                            <dl class="dl-horizontal past">
+                                <dt>Nov 5-6</dt>
+                                <dd>Visit Georgia Tech (Atlanta)</dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt>Nov 21</dt>
+                                <dd>SNUPI in TechFlash Cup Finals (Seattle)</dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt>Dec 6-22</dt>
+                                <dd>Vacation in India</dd>
+                            </dl>
+
+                        </div>
+
+                        <div class="contact col-md-6">
+                            <address>
+                                <img src="img/email.png"><br>
+                                <strong>cell</strong> 425 894 4768<br>
+                                <strong>lab</strong> CSE 507<br>
+                            </address>
+
+                            <address>
+                                <strong>Gabe A. Cohn</strong><br>
+                                University of Washington<br>
+                                Electrical Engineering<br>
+                                Paul G. Allen Center<br>
+                                185 Stevens Way<br>
+                                Box 352500<br>
+                                Seattle, WA 98195-2500<br>
+                            </address>
+
+                            <div class="bio-links">
+                                <dl class="dl-horizontal">
+                                    <dt><a href="pdf/Cohn_CV.pdf" target="_blank"><img src="img/bio-icon.png" width="32" height="32"></a></dt>
+                                    <dd>
+                                        <a href="pdf/Cohn_CV.pdf" target="_blank">CV (PDF)</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div id="projects" class="section-divider next-section-link">
+    <a href="#projects"><img src="img/divider.png"></a>
+</div>
+
+<!--        Begin Projects-->
+<section class="section-projects">
+    <div id="projects-img" class="section-img" data-type="moving" data-image-height="596" data-speed="2"></div>
+    <div class="section-body">
+
+        <h1>Projects <span class="trail">// Gabe Cohn</span></h1>
+
+        <div class="section-intro well">
+            My research focuses on (1) designing and implementing <strong>ultra-low-power embedded sensing
+            systems</strong>, (2) leveraging physical phenomena to enable <strong>new sensing modalities for
+            human-computer interaction</strong>, and (3) developing sensor systems targeted at <strong>realizing
+            immediate change in high-impact application domains</strong>. As technology continues to advance, the
+            traditional line between hardware and software will continue to blur, and highly integrated
+            hardware/software systems will be required. My work focuses on building these integrated sensing systems
+            using my expertise in embedded systems, low-energy hardware design, sensing, communications, signal
+            processing, and machine learning. <br/>
+            <br/>
+            This broad, application-driven research agenda is intrinsically interdisciplinary, and I collaborate not
+            only with experts in electrical engineering and computer science, but also broadly across mechanical and
+            biomedical engineering, medicine, and industry. Through these close collaborations I am able to build novel
+            hardware/software systems that incorporate cutting edge research across electrical engineering and computer
+            science.
+        </div>
+
+        <div class="projects-parent">
+
+        </div>
+
+
+    </div>
+
+
+</section>
+<!--        End Projects-->
+
+
+<div id="publications" class="section-divider next-section-link">
+    <a href="#publications"><img src="img/divider.png"></a>
+</div>
+
+
+<!--        Begin Publications-->
+<section class="section-publications">
+<div id="publications-img" class="section-img" data-type="moving" data-image-height="301" data-speed="5"></div>
+<div class="section-body">
+
+<h1>Publications <span class="trail">// Gabe Cohn</span></h1>
+
+<div class="subnav well">
+    <ul class="subnav">
+        <li><a href="#publications-conferences">Conference</a></li>
+        <li><a href="#publications-journals">Journal and Magazine</a></li>
+        <li><a href="#publications-workshops">Workshop</a></li>
+        <li><a href="#publications-reports">Technical Reports</a></li>
+    </ul>
+</div>
+
+<div id="publications-conferences" class="panel panel-default">
+<div class="panel-heading">
+    <h2 class="panel-title">Conference Publications</h2>
+</div>
+<div class="panel-body">
+<h3>2012</h3>
+
+<div class="container">
+    <div class="publication row">
+        <div class="index col-md-1" id="C8">[C.8]</div>
+        <div class="col-md-2"><a href="pubs/Cohn_SEFS_ubicomp12.pdf">
+            <img class="img-thumbnail" src="img/publications/Cohn_SEFS_ubicomp12.jpg" alt=""/></a>
+        </div>
+        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S.,
+            Tan, D.S., Patel, S.N. <a href="pubs/Cohn_SEFS_ubicomp12.pdf">An Ultra-Low-Power Human Body Motion
+                Sensor Using Static Electric Field Sensing</a>. In the <em>Proceedings of Ubicomp 2012</em> (Sept.
+            5-8, Pittsburgh, PA), ACM, New York, 2012, pp. 99-102.
+            <div
+                    class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Best Paper Award
+            </div>
+            <div class="publications-acceptance">[Acceptance Rate: 19% (58/301)]</div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a
+                    href="pubs/Cohn_SEFS_ubicomp12.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://youtu.be/Q4EzGqmDEJ8">video</a> (youtube) ] [ <a
+                    href="pubs/Cohn_SEFS_ubicomp12_video.mp4">video</a> (mp4 19MB) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://dl.acm.org/citation.cfm?doid=2370216.2370233">ACM
+                Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="http://www.gabeacohn.com/StaticEF">project page</a> ]</div>
+        </div>
+    </div>
+    <div class="publication row">
+        <div class="index col-md-1" id="C7">[C.7]</div>
+        <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_Humantenna_chi12.pdf"><img
+                class="img-thumbnail" src="img/publications/Cohn_Humantenna_chi12.jpg" alt=""/></a></div>
+        <div class="col-md-6"><strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. <a
+                href="pubs/Cohn_Humantenna_chi12.pdf">Humantenna: Using the Body as an Antenna for Real-Time
+            Whole-Body Interaction.</a> In the <em>Proceedings of CHI 2012</em> (May 5-10, Austin, TX), ACM, New
+            York, 2012, pp. 1901-1910.
+            <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Honorable Mention Award
+            </div>
+            <div
+                    class="publications-acceptance">[Acceptance Rate: 23% (370/1577)]
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a
+                    href="pubs/Cohn_Humantenna_chi12.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://www.youtube.com/watch?v=hfAk1Vnj6hM">video</a> (youtube)
+                ] [ <a
+                        href="pubs/Cohn_Humantenna_chi12_video.mp4">video</a> (mp4 41MB) ] [ <a
+                        href="pubs/Cohn_Humantenna_chi12_video.wmv">video</a> (wmv 34MB) ]
+            </div>
+
+            <div class="action-link">[ <a href="pubs/Cohn_Humantenna_chi12_talk.mp4">talk video</a> (mp4 72MB) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://dl.acm.org/citation.cfm?id=2207676.2208330">ACM Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="http://research.microsoft.com/cue/Humantenna/">project page</a>
+                ]
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>2011</h3>
+
+<div class="container">
+    <div class="publication row">
+        <div class="index col-md-1" id="C6">[C.6]</div>
+        <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_NoiseCommand_chi11.pdf"><img
+                class="img-thumbnail" src="img/publications/Cohn_NoiseCommand_chi11.jpg" alt=""/></a></div>
+        <div class="col-md-6"><strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. <a
+                href="pubs/Cohn_NoiseCommand_chi11.pdf">Your Noise is My Command: Sensing Gestures Using the
+            Body as an Antenna.</a> In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM,
+            New York, 2011, pp. 791-800.
+            <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Best Paper Award</div>
+            <div
+                    class="publications-acceptance">[Acceptance Rate: 26% (400/1540)]
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a href="pubs/Cohn_NoiseCommand_chi11.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="pubs/Cohn_NoiseCommand_chi11_talk.mp4">talk video</a> (mp4 68MB) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://portal.acm.org/citation.cfm?id=1979058">ACM Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="http://research.microsoft.com/cue/Humantenna/">project page</a>
+                ]
+            </div>
+        </div>
+    </div>
+    <div class="publication row">
+        <div class="index col-md-1" id="C5">[C.5]</div>
+        <div class="publications-thumbnail col-md-2"><img class="img-thumbnail" src="img/publications/Badshah_InGen_chi11.jpg" alt=""/></div>
+        <div class="col-md-6">Badshah, A., Gupta, S., <strong>Cohn, G.</strong>, Villar, N., Hodges, S., Patel, S.N.
+            <a href="pubs/Badshah_InGen_chi11.pdf">Interactive Generator: A Self-Powered Haptic Feedback
+                Device</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York,
+            2011, pp. 2051-2054.
+            <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Best Note Award</div>
+            <div class="publications-acceptance">[Acceptance Rate: 26% (400/1540)]</div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a
+                    href="pubs/Badshah_InGen_chi11.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://portal.acm.org/citation.cfm?id=1979240">ACM Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="http://ubicomplab.cs.washington.edu/wiki/InGen">project
+                page</a> ]
+            </div>
+        </div>
+    </div>
+    <div class="publication row">
+        <div class="index col-md-1" id="C4">[C.4]</div>
+        <div class="publications-thumbnail col-md-2"><img class="img-thumbnail" src="img/publications/Larson_HeatWave_chi11.jpg" alt=""/></div>
+        <div class="col-md-6">Larson, E., <strong>Cohn, G.</strong>, Gupta, S., Ren, X., Harrison, B., Fox, D., Patel,
+            S.N. <a href="pubs/Larson_HeatWave_chi11.pdf">HeatWave: Thermal Imaging for Surface User
+                Interaction</a>. In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New
+            York, 2011, pp. 2565-2574.
+            <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Honorable Mention Award
+            </div>
+            <div
+                    class="publications-acceptance">[Acceptance Rate: 26% (400/1540)]
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a
+                    href="pubs/Larson_HeatWave_chi11.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://portal.acm.org/citation.cfm?id=1979317">ACM Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="#heatwave">project page</a> ]</div>
+        </div>
+    </div>
+</div>
+
+<h3>2010</h3>
+
+<div class="container">
+    <div class="publication row">
+        <div class="index col-md-1" id="C3">[C.3]</div>
+        <div class="publications-thumbnail col-md-2"><a href="pubs/Campbell_WATTR_ubicomp10.pdf"><img
+                class="img-thumbnail" src="img/publications/Campbell_WATTR_ubicomp10.jpg" alt=""/></a></div>
+        <div class="col-md-6">Campbell, T., Larson, E., <strong>Cohn, G.</strong>, Froehlich, J., ALcaide, R., Patel,
+            S.N. <a href="pubs/Campbell_WATTR_ubicomp10.pdf">WATTR: A Method for Self-Powered Wireless Sensing
+                of Water Activity in the Home.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29,
+            Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172.
+            <div class="publications-acceptance">[Acceptance Rate: 19% (39/202)]</div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a href="pubs/Campbell_WATTR_ubicomp10.pdf">paper</a> (pdf)
+                ]
+            </div>
+
+            <div class="action-link">[ <a href="http://portal.acm.org/citation.cfm?id=1864378">ACM Digital
+                Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="http://ubicomplab.cs.washington.edu/wiki/WATTR">project
+                page</a> ]
+            </div>
+        </div>
+    </div>
+    <div class="publication row">
+        <div class="index col-md-1" id="C2">[C.2]</div>
+        <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_SNUPI_ubicomp10.pdf"><img
+                class="img-thumbnail" src="img/publications/Cohn_SNUPI_ubicomp10.jpg"
+                alt=""/></a></div>
+        <div class="col-md-6"><strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel,
+            S.N. <a href="pubs/Cohn_SNUPI_ubicomp10.pdf">SNUPI: Sensor Nodes Utilizing Powerline
+                Infrastructure.</a> In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen,
+            Denmark), ACM, New York, 2010, pp. 159-168.
+            <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> Best Paper Nominee
+            </div>
+            <div
+                    class="publications-acceptance">[Acceptance Rate: 19% (39/202)]
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a
+                    href="pubs/Cohn_SNUPI_ubicomp10.pdf">paper</a> (pdf) ]
+            </div>
+
+            <div class="action-link">[ <a href="http://portal.acm.org/citation.cfm?id=1864349.1864377">ACM
+                Digital Library</a> ]
+            </div>
+
+            <div class="action-link">[ <a href="#snupi">project page</a> ]</div>
+        </div>
+    </div>
+    <div class="publication row">
+        <div class="index col-md-1" id="C1">[C.1]</div>
+        <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_GasSense_pervasive10.pdf"><img
+                class="img-thumbnail" src="img/publications/Cohn_GasSense_pervasive10.jpg" alt=""/></a></div>
+        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and Patel, S.N. <a
+                href="pubs/Cohn_GasSense_pervasive10.pdf">GasSense: Appliance-Level, Single-Point Sensing of Gas
+            Activity in the Home.</a> In the <em>Proceedings of Pervasive 2010</em> (May 17-20, Helsinki,
+            Finland), Springer-Verlag, Heidelberg, 2010, pp. 265-282.
+            <div class="publications-acceptance">[Acceptance Rate: 16% (26/161)]</div>
+        </div>
+        <div class="col-md-3">
+            <div class="action-link">[ <a href="pubs/Cohn_GasSense_pervasive10.pdf">paper</a> (pdf)
+                ]
+            </div>
+
+            <div class="action-link">[ <a href="#gassense">project page</a> ]</div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div id="publications-journals" class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Journal and Magazine Publications</h2>
+    </div>
+    <div class="panel-body">
+        <h3>2011</h3>
+
+        <div class="container">
+            <div class="publication row">
+                <div class="index col-md-1" id="J1">[J.1]</div>
+                <div class="publications-thumbnail col-md-2">
+                    <img class="img-thumbnail" src="img/publications/Froehlich_DisagEnergy_IEEEpervasive11.jpg"
+                                                     alt=""/>
+                </div>
+                <div class="col-md-6">Froehlich, J., Larson, E., Gupta, S., <strong>Cohn, G.</strong>, Reynolds, M.S.,
+                    Patel,
+                    S.N. <a href="pubs/Froehlich_DisagEnergy_IEEEpervasive11.pdf">Disaggregated End-Use Energy for the
+                        Smart Grid.</a> <em>IEEE Pervasive Computing, Special Issue on Smart Energy Systems</em>, 10(1),
+                    Jan-Mar 2011, pp. 28-39.
+                </div>
+                <div class="col-md-3">
+                    <div class="action-link">[ <a href="pubs/Froehlich_DisagEnergy_IEEEpervasive11.pdf">paper</a> (pdf)
+                        ]
+                    </div>
+
+                    <div class="action-link">[ <a
+                            href="http://www.computer.org/portal/web/csdl/doi/10.1109/MPRV.2010.74">IEEE-CS Digital
+                        Library</a> ]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="publications-workshops" class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Workshop Publications</h2>
+    </div>
+    <div class="panel-body">
+        <h3>2009</h3>
+
+        <div class="container">
+            <div class="publication row">
+                <div class="index col-md-1" id="W1">[W.1]</div>
+                <div class="publications-thumbnail col-md-2"><a
+                        href="http://www.usenix.org/events/evtwote09/tech/full_papers/levin.pdf"><img
+                        class="img-thumbnail" src="img/publications/Levin_ElectionFraud_EVTWOTE09.jpg" alt=""/></a></div>
+                <div class="col-md-6">Levin, I., <strong>Cohn, G.A.</strong>, Ordeshook, P.C., Alvarez, R.M. (2009), <a
+                        href="http://www.usenix.org/events/evtwote09/tech/full_papers/levin.pdf">Detecting Voter Fraud
+                    in an Electronic Voting Context: An Analysis of the Unlimited Reelection Vote in Venezuela.</a> In
+                    the <em>Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy
+                        Elections</em> (EVT/WOTE '09) (August 10-11, Montreal, Canada), USENIX, 2009.
+                </div>
+                <div class="col-md-3">
+                    <div class="action-link">[ <a
+                            href="http://www.usenix.org/events/evtwote09/tech/full_papers/levin.pdf">paper</a> (USENIX
+                        pdf, 1.5MB) ]
+                    </div>
+
+                    <div class="action-link">[ <a href="#electionfraud">project page</a> ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="publications-reports" class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Technical Reports</h2>
+    </div>
+    <div class="panel-body">
+        <h3>2007</h3>
+
+        <div class="container">
+            <div class="publication row">
+                <div class="index col-md-1" id="R3">[R.3]</div>
+                <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_CADFeeds_07.pdf"><img
+                        class="img-thumbnail" src="img/publications/Cohn_CADFeeds_07.jpg"
+                        alt=""/></a></div>
+                <div class="col-md-6">
+                    <strong>Cohn G.A.</strong> <a href="pubs/Cohn_CADFeeds_07.pdf">Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds.</a> <em>Caltech RF and Microwave Group</em>, 2007.
+                </div>
+                <div class="col-md-3">
+                    <div class="action-link">[ <a href="pubs/Cohn_CADFeeds_07.pdf">paper</a> (pdf) ]</div>
+
+                    <div class="action-link">[ <a href="#antennacad">project page</a> ]</div>
+                </div>
+            </div>
+        </div>
+        <h3>2006</h3>
+
+        <div class="container">
+            <div class="publication row">
+                <div class="index col-md-1" id="R2">[R.2]</div>
+                <div class="publications-thumbnail col-md-2"><a href="pubs/Cohn_MeteorInterferometry_06.pdf">
+                    <img class="img-thumbnail" src="img/publications/Cohn_MeteorInterferometry_06.jpg" alt=""/></a>
+                </div>
+                <div class="col-md-6"><strong>Cohn, G.A.</strong>, Sahr, J.D. <a
+                        href="pubs/Cohn_MeteorInterferometry_06.pdf">Meteor
+                    radar interferometry using NEC antenna array simulations.</a> <em>University of Washington Radar
+                    Remote Sensing Laboratory</em>, 2006.
+                </div>
+                <div class="col-md-3">
+                    <div class="action-link">[ <a href="pubs/Cohn_MeteorInterferometry_06.pdf">paper</a> (pdf) ]
+                    </div>
+
+                    <div class="action-link">[ <a href="#rrsl06">project page</a> ]</div>
+                </div>
+            </div>
+            <div class="publication row">
+                <div class="index col-md-1" id="R1">[R.1]</div>
+                <div class="publications-thumbnail col-md-2"><a href="pubs/Lind_ISISFirstLight_06.pdf"><img
+                        class="img-thumbnail" src="img/publications/Lind_ISISFirstLight_06.jpg" alt=""/></a></div>
+                <div class="col-md-6">Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., <strong>Cohn,
+                    G.</strong>,
+                    Nguyen, K., Sahr, J. <a href="pubs/Lind_ISISFirstLight_06.pdf">RRSL Milestone: First E Region
+                        Irregularities on ISIS.</a> <em>University of Washington Radar Remote Sensing Laboratory</em>,
+                    2006.
+                </div>
+                <div class="col-md-3">
+                    <div class="action-link">[ <a
+                            href="pubs/Lind_ISISFirstLight_06.pdf">paper</a> (pdf) ]
+                    </div>
+
+                    <div class="action-link">[ <a href="#rrsl06">project page</a> ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+<!--        End Publications-->
+
+
+<div id="talks" class="section-divider next-section-link">
+    <a href="#talks"><img src="img/divider.png"></a>
+</div>
+
+
+<!--        Begin Talks-->
+<section class="section-talks">
+    <div id="talks-img" class="section-img" data-type="moving" data-image-height="445" data-speed="5"></div>
+    <div class="section-body">
+        <h1>Talks <span class="trail">// Gabe Cohn</span></h1>
+
+        <div class="subnav well">
+            <ul class="subnav">
+                <li><a href="#talks-2012">2012</a></li>
+                <li><a href="#talks-2011">2011</a></li>
+                <li><a href="#talks-2010">2010</a></li>
+                <li><a href="#talks-2007">2007</a></li>
+            </ul>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 id="talks-2012">2012</h3>
+
+                <div class="container">
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T5">[T.5]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/t5.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R.,
+                            Reynolds, M.S., Tan, D.S., Patel, S.N. An Ultra-Low-Power Human Body Motion Sensor Using
+                            Static Electric Field Sensing. <em>University of Washington Computer Science &amp;
+                                Engineering Affiliates 2012</em>, Seattle, WA, 24 October 2012.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#sefs">project page</a>
+                                ]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T_C8">[C.8]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/c8.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R.,
+                            Reynolds, M.S., Tan, D.S., Patel, S.N. An Ultra-Low-Power Human Body Motion Sensor Using
+                            Static Electric Field Sensing. <em>14th ACM International Conference on Ubiquitous
+                                Computing (UbiComp 2012)</em> Pittsburgh, PA, 5 September 2012.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#sefs">project page</a>
+                                ]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T4">[T.4]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/t4.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. Humantenna:
+                            Using the Body as an Antenna for Real-Time Whole-Body Interaction. <em>2012 Microsoft
+                                Research Faculty Summit</em>, Redmond, WA, 16 July 2012.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a
+                                    href="http://research.microsoft.com/en-us/um/redmond/groups/cue/HumAntenna/">project
+                                page</a> ]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T3">[T.3]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/t3.jpg" alt=""/></div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R.,
+                            Reynolds, M.S., Tan, D.S., Patel, S.N. An Ultra-Low-Power Human Body Motion Sensor Using
+                            Static Electric Field Sensing. <em>Microsoft Research Recently Written Series</em>,
+                            Redmond, WA, 17 May 2012.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#sefs">project page</a>
+                                ]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T_C7">[C.7]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/c7.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. Humantenna:
+                            Using the Body as an Antenna for Real-Time Whole-Body Interaction. <em>2012 Annual
+                                Conference on Human Factors in Computing Systems (CHI 2012)</em>, Austin, TX, 9 May
+                            2012.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="pubs/Cohn_Humantenna_chi12_talk.mp4">talk video</a>
+                                (mp4 72MB) ]
+                            </div>
+
+                            <div class="action-link">[ <a
+                                    href="http://research.microsoft.com/en-us/um/redmond/groups/cue/HumAntenna/">project
+                                page</a> ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 id="talks-2011">2011</h3>
+
+                <div class="container">
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T_C6">[C.6]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/c6.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S. Your Noise
+                            is
+                            My Command: Sensing Gestures Using the Body as an Antenna. <em>2011 Annual Conference on
+                                Human Factors in Computing Systems (CHI 2011)</em>, Vancouver, Canada, 9 May 2011.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="pubs/Cohn_NoiseCommand_chi11_talk.mp4">talk
+                                video</a> (mp4 68MB) ]
+                            </div>
+
+                            <div class="action-link">[ <a
+                                    href="http://research.microsoft.com/en-us/um/redmond/groups/cue/HumAntenna/">project
+                                page</a> ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 id="talks-2010">2010</h3>
+
+                <div class="container">
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T2">[T.2]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/t2.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Patel, S. SNUPI: Sensor Nodes Utilizing
+                            Powerline
+                            Infrastructure, Ultra-Low-Power, General-Purpose, Wireless Sensing Platform. <em>University
+                                of Washington Computer Science &amp; Engineering Affiliates 2010</em>, Seattle, WA,
+                            27 October 2010.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#snupi">project page</a> ]</div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T_C2">[C.2]</div>
+                        <div class="talks-thumbnail col-md-2">
+                            <img class="img-thumbnail" src="img/talks/c2.jpg" alt=""/>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd,
+                            G.D., Patel, S.N. SNUPI: Sensor Nodes Utilizing Powerline Infrastructure. <em>12th ACM
+                                International Conference on Ubiquitous Computing (UbiComp 2010)</em>, Copenhagen,
+                            Denmark, 28 September 2010.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#snupi">project page</a> ]</div>
+                        </div>
+                    </div>
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T_C1">[C.1]</div>
+                        <div class="talks-thumbnail col-md-2"><img class="img-thumbnail" src="img/talks/c1.jpg" alt=""/></div>
+                        <div class="col-md-6"><strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and
+                            Patel,
+                            S.N. GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home. <em>8th
+                                International Conference on Pervasive Computing (Pervasive 2010)</em>, Helsinki,
+                            Finland, 19 May 2010.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="#gassense">project page</a> ]</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 id="talks-2007">2007</h3>
+
+                <div class="container">
+                    <div class="talk row">
+                        <div class="index col-md-1" id="T1">[T.1]</div>
+                        <div class="talks-thumbnail col-md-2"><a href="pubs/Cohn_CADFeeds_talk07.pdf">
+                            <img class="img-thumbnail" src="img/talks/t1.jpg" alt=""/></a>
+                        </div>
+                        <div class="col-md-6"><strong>Cohn G.A.</strong> <a href="pubs/Cohn_CADFeeds_talk07.pdf">Computer
+                            Modeling of Wideband Tapered-Slot Microwave Antenna Feeds.</a> <em>Caltech Internal
+                            Microwave Seminar</em>, Pasadena, CA, 19 September 2007.
+                        </div>
+                        <div class="col-md-3">
+                            <div class="action-link">[ <a href="pubs/Cohn_CADFeeds_talk07.pdf">slides</a> (pdf) ]
+                            </div>
+
+                            <div class="action-link">[ <a href="#antennacad">project page</a> ]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<!--        End Talks-->
+
+
+<div id="teaching" class="section-divider next-section-link">
+    <a href="#teaching"><img src="img/divider.png"></a>
+</div>
+
+
+<!--        Begin Teaching-->
+<section class="section-teaching">
+    <div id="teaching-img" class="section-img" data-type="moving" data-image-height="492" data-speed="5"></div>
+    <div class="section-body">
+        <h1>Teaching <span class="trail">// Gabe Cohn</span></h1>
+
+        <div class="subnav well">
+            <ul class="subnav">
+                <li><a href="#teaching-courses">Courses Instructed</a></li>
+                <li><a href="#teaching-lectures">Guest Lectures and Tutorials</a></li>
+                <li><a href="#teaching-courses-ta">Courses as Teaching Assistant</a></li>
+            </ul>
+        </div>
+
+        <div id="teaching-courses" class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Courses Instructed</h2>
+            </div>
+            <div class="panel-body">
+                <div class="course" id="cse467">
+                    <h5><a href="http://courses.cs.washington.edu/courses/cse467/13au/">CSE 467 - Advanced Digital
+                        Design</a></h5>
+
+                    <p class="role">Instructor: Autumn 2013</p>
+
+                    <p>CSE 467 builds upon basic digital logic design techniques, focusing primarily on design,
+                        implementation and verification of customized application-specific digital logic designs. In
+                        this course, students learn how to build and optimize algorithms to run very quickly on
+                        custom hardware. Such hardware acceleration is commonly used for high speed computations in
+                        computer vision, artificial intelligence, computational biology, and finance. The class
+                        project will allow students will implement a highly optimized computer vision algorithm on
+                        an FGPA.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="teaching-lectures" class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Guest Lectures and Tutorials</h2>
+            </div>
+            <div class="panel-body">
+                <div class="course" id="pcb">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/pcb">PCB Design Tutorial</a></h5>
+
+                    <p class="role">CSE 599U: Fall 2010; CSE 477: Spring 2013, Spring 2011, Spring 2010</p>
+
+
+                    <p>This tutorial covers schematic entry and PCB design. Most of the material can be applied to
+                        any design tool; however, this tutorial focuses on Altium Designer/DXP/Protel. This tutorial
+                        consists of a set of slides which give an overview of PCB design and describe each step of
+                        the process. There are also a series of videos which go through the PCB design process
+                        step-by-step.</p>
+                </div>
+                <div class="course" id="micro">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/micro">Microcontroller Basics</a></h5>
+
+                    <p class="role">CSE 599U: Winter 2012, Fall 2010, Winter 2010; CSE 477: Spring 2013</p>
+
+
+                    <p>This lecture gives an introduction to microcontrollers, describes common features, and gives
+                        brief guidelines for choosing a microcontroller.</p>
+                </div>
+                <div class="course" id="msp430">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/msp430">MSP 430 Tutorial</a></h5>
+
+                    <p class="role">CSE 599U: Winter 2012, Fall 2010</p>
+
+                    <p>This tutorial covers the basics of the MSP 430 development platforms, provides several
+                        resources for developing MSP 430 projects.</p>
+                </div>
+                <div class="course" id="arduino">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/arduino">Arduino Tutorial</a></h5>
+
+                    <p class="role">CSE 599U: Winter 2012</p>
+
+                    <p>This tutorial covers the basics of the Arduino development platform, provides several
+                        resources for developing Arduino projects.</p>
+                </div>
+                <div class="course" id="phidgets">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/phidgets">Phidgets Tutorial</a></h5>
+
+                    <p class="role">CSE 599U: Winter 2012, Fall 2010</p>
+
+                    <p>This tutorial covers the basics of the Phidgets rapid prototyping platform for sensing and
+                        output over USB.</p>
+                </div>
+                <div class="course" id="make">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/make">Introduction to GNU make</a></h5>
+
+                    <p class="role">EE/CS 51: Winter 2009, Winter 2008</p>
+
+                    <p>This lecture gives an introduction to GNU make. The software is described and shown how
+                        useful it can be for large builds. Basic Makefile syntax is described, and example Makefiles
+                        are given.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="teaching-courses-ta" class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Courses as Teaching Assistant</h2>
+            </div>
+            <div class="panel-body">
+                <div class="course" id="ee52">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/ee52">EE/CS 52 - Embedded Systems Design
+                        (Emphasis on Hardware)</a></h5>
+
+                    <p class="role">TA: Spring 2009, Spring 2008</p>
+
+                    <p>EE/CS 52 continues with the study of the design of embedded systems which was started in
+                        EE/CS 51. In this class, the main focus is on hardware. A complete working project will be
+                        built by each student. While most of the software will be supplied, the hardware will be
+                        almost entirely the students' own design. The lectures focus mainly on hardware, with some
+                        discussion of software and hardware/software integration issues.</p>
+                </div>
+                <div class="course" id="ee51">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/ee51">EE/CS 51 - Embedded Systems Design
+                        (Emphasis on Software)</a></h5>
+
+                    <p class="role">TA: Winter 2009, Winter 2008</p>
+
+                    <p>EE/CS 51 covers the design of embedded systems from both a hardware and software point of
+                        view. In the class approximately equal time is spent on hardware and software issues in
+                        lecture, while the homework focuses mainly on software. The follow-on class (EE/CS 52)
+                        changes the homework focus to hardware.</p>
+                </div>
+                <div class="course" id="ee5">
+                    <h5><a href="http://sockeye.cs.washington.edu/teaching/ee5">EE 5 - Introduction to Embedded
+                        Systems</a></h5>
+
+                    <p class="role">TA: Fall 2008, Fall 2007</p>
+
+                    <p>EE 5 gives students a basic understanding of the major hardware and software principles
+                        involved in the specification and design of embedded systems. The course will cover basic
+                        digital logic, CPU and embedded system architecture, and embedded systems programming
+                        principles (events, user interfaces, and multi-tasking). The class is intended for students
+                        who wish to gain a basic understanding of embedded systems or for those who would like an
+                        introduction to the materials taught in EE/CS 51 and EE/CS 52.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--        End Teaching-->
+
+
+<div id="press" class="section-divider next-section-link">
+    <a href="#press"><img src="img/divider.png"></a>
+</div>
+
+
+<!--        Begin Press-->
+<section class="section-press">
+    <div id="press-img" class="section-img" data-type="moving" data-image-height="661" data-speed="5"></div>
+    <div class="section-body">
+        <h1>Press <span class="trail">// Gabe Cohn</span></h1>
+
+        <div id="press-highlights" class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Featured Press Coverage</h2>
+            </div>
+            <div class="panel-body">
+
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Begin column one -->
+                        <div class="col-md-4">
+
+                            <div class="press-highlight">
+                                <div class="press-date">Sept. 2013</div>
+                                <div class="press-project">SNUPI Technologies</div>
+                                <div class="press-source"><a
+                                        href="http://www.geekwire.com/2013/big-jeremy-jaech-ceo-snupi-technologies/">GeekWire</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://www.bizjournals.com/seattle/blog/techflash/2013/08/techflash-cup-snupi-technologies.html">Puget
+                                    Sound Business Journal</a></div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">April 2013</div>
+                                <div class="press-project">uTouch</div>
+                                <div class="press-source"><a
+                                        href="http://www.technologyreview.com/news/514061/a-simple-way-to-turn-any-lcd-into-a-touch-screen/">MIT
+                                    Technology Review</a></div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Dec. 2012</div>
+                                <div class="press-project">SNUPI Technologies</div>
+                                <div class="press-source"><a
+                                        href="http://www.xconomy.com/seattle/2012/12/11/uw-spinout-funded-by-madrona-to-build-cheap-home-sensor-networks/">Xconomy</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://www.geekwire.com/2012/jeremy-jaechs-home-sensor-startup-snupi-lands-15m-madrona/">GeekWire</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://seattlebusinessmag.com/blog/serial-entrepreneur-jeremy-jaech-launches-new-company-uw-professor-shwetak-patel">Seattle
+                                    Business Magazine</a></div>
+                                <div class="press-source"><a
+                                        href="http://www.bizjournals.com/seattle/blog/techflash/2012/12/snupi-technologies-latest-company-to.html">Puget
+                                    Sound Business Journal</a></div>
+                                <div class="press-source"><a
+                                        href="http://seattletimes.com/html/technologybrierdudleysblog/2019881582_post_61.html">The
+                                    Seattle Times</a></div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Sept. 2012</div>
+                                <div class="press-project">WatchFrog</div>
+                                <div class="press-source"><a
+                                        href="http://www.geekwire.com/2012/jeremy-jaech-shwetak-patel-form-uw-spin-watchfrog/">GeekWire</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End column one -->
+
+                        <!-- Begin column two -->
+                        <div class="col-md-4">
+
+                            <div class="press-highlight">
+                                <div class="press-date">May 2012</div>
+                                <div class="press-project">Humantenna</div>
+                                <div class="press-source"><a
+                                        href="http://www.newscientist.com/article/mg21428645.500-beyond-kinect-gestural-computer-spells-keyboard-death.html">New
+                                    Scientist</a></div>
+                                <div class="press-source"><a href="http://www.pcmag.com/article2/0,2817,2404093,00.asp">PC
+                                    Magazine</a></div>
+                                <div class="press-source"><a
+                                        href="http://www.pcworld.com/article/255310/gesture_sensing_alternatives_use_radio_interference_doppler_effect.html">PCWorld</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://www.youtube.com/watch?v=em-nvzxzC68&amp;feature=BFa&amp;list=UU7iialY1qmmcyFWilHAEVpA">IDG
+                                    News Service</a></div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Oct. 2011</div>
+                                <div class="press-project">"Your Noise is My Command" / Humantenna</div>
+                                <div class="press-source"><a
+                                        href="http://www.geekwire.com/2011/typing-walking-cool-stuff-uw-students">GeekWire</a>
+                                </div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Sept. 2011</div>
+                                <div class="press-project">"Your Noise is My Command"</div>
+                                <div class="press-source"><a
+                                        href="http://www.nytimes.com/2011/09/11/business/using-gestures-to-control-electronic-devices.html">The
+                                    New York Times</a></div>
+                            </div>
+
+                        </div>
+                        <!-- End column two -->
+
+                        <!-- Begin column three -->
+                        <div class="col-md-4">
+
+                            <div class="press-highlight">
+                                <div class="press-date">May 2011</div>
+                                <div class="press-project">"Your Noise is My Command"</div>
+                                <div class="press-source"><a
+                                        href="http://www.technologyreview.com/computing/37514/?p1=A1&amp;a=f">MIT
+                                    Technology Review</a></div>
+                                <div class="press-source"><a
+                                        href="http://news.discovery.com/tech/human-antenna-electromagnetic-interference-110512.html">Discovery
+                                    News</a></div>
+                                <div class="press-source"><a
+                                        href="http://techland.time.com/2011/05/11/could-microsoft-turn-our-bodies-into-antennas/">TIME</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://blogs.wsj.com/tech-europe/2011/05/13/making-your-wall-an-input-device/?mod=google_news_blog">The
+                                    Wall Street Journal</a></div>
+                                <div class="press-source"><a
+                                        href="http://www.newscientist.com/blogs/onepercent/2011/05/jim-giles-contributor-vancouve.html">New
+                                    Scientist</a></div>
+                                <div class="press-source"><a
+                                        href="http://www.engadget.com/2011/05/11/microsoft-motion-controller-concept-kicks-sand-in-kinects-puny/">Engadget</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://gizmodo.com/5800596/turn-everyday-objects-into-touch+sensitive-controllers">Gizmodo</a>
+                                </div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Dec. 2010</div>
+                                <div class="press-project">SNUPI</div>
+                                <div class="press-source">Popular Mechanics</div>
+                            </div>
+
+                            <div class="press-highlight">
+                                <div class="press-date">Sept. 2010</div>
+                                <div class="press-project">SNUPI</div>
+                                <div class="press-source"><a
+                                        href="http://www.technologyreview.com/communications/26319/?p1=A1&amp;a=f">MIT
+                                    Technology Review</a></div>
+                                <div class="press-source"><a
+                                        href="http://www.techflash.com/seattle/2010/09/new_startup_from_uw_to_use_home_electrical_wiring_as_antenna.html?ana=from_rss&amp;utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+TechFlash+%28TechFlash+-+Seattle%27s+Technology+News+Source%29">TechFlash</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://www.popsci.com/technology/article/2010-09/snupis-low-power-smart-home-sensors-communicate-copper-wiring-walls">Popular
+                                    Science</a></div>
+                                <div class="press-source"><a
+                                        href="http://mobile.slashdot.org/story/10/09/16/1722204/Turning-Your-Home-Wiring-Into-a-Giant-Antenna">Slashdot</a>
+                                </div>
+                                <div class="press-source"><a
+                                        href="http://cacm.acm.org/news/98897-homes-electrical-wiring-acts-as-antenna-to-receive-low-power-sensor-data/fulltext">Communications
+                                    of the ACM</a></div>
+                            </div>
+
+                        </div>
+                        <!-- End column three -->
+
+                    </div>
+                </div>
+
+                <div class="section-footer">
+                    <a href="press.html"><span class="glyphicon glyphicon-list"></span> View all press coverage</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--        End Press-->
+
+
+<!--        Begin Footer-->
+<footer>
+    <div>
+        <div>
+            <div>
+                <p>
+                    <small>&copy; 2013 Gabe A. Cohn</small>
+                </p>
+                <p>
+                    <small><a href="http://www.agrummer.com" target="_blank">website by GRUMMER</a></small>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--        End Footer-->
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-16037493-1");
+        pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+
+</body>
+</html>

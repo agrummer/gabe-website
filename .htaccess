@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# redirect (and mask) the staging subdomain to the staging directory
+RewriteCond %{HTTP_HOST} staging.gabeacohn.com$ [NC]
+#RewriteCond %{REQUEST_URI} !/staging.*
+RewriteRule !^staging(/|$) /staging%{REQUEST_URI} [L]
+
+# redirect everything except for staging to sockeye.cs.washington.edu
+RewriteRule ^staging(/|$) - [L]
+RewriteRule .* http://sockeye.cs.washington.edu%{REQUEST_URI} [L]
