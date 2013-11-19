@@ -358,7 +358,7 @@ var projectsJSON = [
             "<strong>Cohn, G.</strong>, Gupta, S., Patel, S.N. <a href=\"pdf/Chen_uTouch_chi13.pdf\">uTouch: Sensing Touch Gestures on Unmodified LCDs.</a> In the <em>Proceedings of CHI 2013</em> (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054."
         ],
         "press": ["<a href=\"http://www.technologyreview.com/news/514061/a-simple-way-to-turn-any-lcd-into-a-touch-screen/\">MIT Technology Review</a>"],
-        "videos": ["<a href=\"http://youtu.be/8p9DkwWVmfI\">Video</a>"]
+        "videos": ["<a href=\"http://youtu.be/8p9DkwWVmfI\">Video</a> (youtube)"]
     },
     {
         "key": "wattr",
