@@ -7,4 +7,4 @@ RewriteRule !^staging(/|$) /staging%{REQUEST_URI} [L]
 
 # redirect everything except for staging to sockeye.cs.washington.edu
 RewriteRule ^staging(/|$) - [L]
-RewriteRule .* http://sockeye.cs.washington.edu%{REQUEST_URI} [L]
+#RewriteRule .* http://sockeye.cs.washington.edu%{REQUEST_URI} [L]
