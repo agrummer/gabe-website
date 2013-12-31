@@ -258,6 +258,7 @@ var projectsJSON = [
             "Best Paper Nomination at UbiComp 2010 (Sept. 2010)"
         ],
         "press": [
+            "<a href=\"http://www.geekwire.com/2013/12-northwest-gifts-geek-love-geekwire-gift-guide-2013/\">GeekWire</a>",
             "<a href=\"http://www.xconomy.com/seattle/2013/11/15/snupi-technologies-home-sensor-network-monitors-water-leaks-babies/?single_page=true\">Xconomy</a>",
             "<a href=\"http://www.geekwire.com/2013/meet-wally-lowpower-wireless-sensor-network-detects-water-leaks-mold/\">GeekWire</a>",
             "<a href=\"http://www.geekwire.com/2013/big-jeremy-jaech-ceo-snupi-technologies/\">GeekWire</a>",
