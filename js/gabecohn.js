@@ -12,6 +12,8 @@ $(function () {
 
     renderProjects(projectsJSON);
 
+    renderPublications(publicationsJSON);
+
     $('body').scrollspy({ target: '#navbar' });
     
     $('div[data-type="background"]').each(function () {
@@ -163,15 +165,15 @@ var renderProjects = function(jsonData) {
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ description }}}</div>' +
         '                        {{#publications}}' +
-        '                        <div class="projects-publication"><span class="glyphicon glyphicon-file"></span> {{{ . }}}</div>' +
+        '                        <div class="badge-publication"><span class="glyphicon glyphicon-file"></span> {{{ . }}}</div>' +
         '                        {{/publications}}' +
         '                        {{#videos}}' +
-        '                        <div class="projects-video"><span class="glyphicon glyphicon-film"></span> {{{ . }}}</div>' +
+        '                        <div class="badge-video"><span class="glyphicon glyphicon-film"></span> {{{ . }}}</div>' +
         '                        {{/videos}}' +
         '                    </div>' +
         '                    <div class="col-md-4">' +
         '                        {{#awards}}' +
-        '                        <div class="projects-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
+        '                        <div class="badge-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
         '                        {{/awards}}' +
         '                        {{#hasPress}}' +
         '                        <div class="projects-press-heading"><h5>Featured in</h5></div>' +
@@ -203,7 +205,7 @@ var renderProjects = function(jsonData) {
         projectJSON = jsonData[projectId];
 
         if(projectJSON["key"]) {
-            projectJSON["permalink"] = "http://www.gabeacohn.com/index.html#" + projectJSON["key"];
+            projectJSON["permalink"] = "http://www.gabeacohn.com/#" + projectJSON["key"];
         }
         if(projectJSON["awards"]) {
             projectJSON["awardCount"] = projectJSON["awards"].length + " award";
@@ -227,6 +229,88 @@ var renderProjects = function(jsonData) {
             projectJSON["hasPress"] = projectJSON["press"].length;
         }
         renderedHTML += Mustache.render(projectTemplate, projectJSON);
+    }
+
+    $parent.append(renderedHTML);
+};
+
+var renderPublications = function(jsonData) {
+    var $parent = $(".publications-parent"),
+        htmlTemplate,
+        htmlGroupStartTemplate,
+        htmlGroupEndTemplate,
+        publication,
+        publicationGroup,
+        groupId,
+        publicationId,
+        renderedHTML;
+
+    htmlGroupStartTemplate = '' +
+        '<div id="publications-{{ id }}" class="panel panel-default">' +
+        '    <div class="panel-heading">' +
+        '        <h2 class="panel-title">{{ title }}</h2>' +
+        '    </div>' +
+        '    <div class="panel-body">' +
+        '        <div class="container">';
+
+    htmlGroupEndTemplate = '' +
+        '        </div>' +
+        '    </div>' +
+        '</div>';
+
+    htmlTemplate = '' +
+        '        <div class="publication row">' +
+        '            <div class="index col-md-1" id="publication-{{ index }}">{{ index }}</div>' +
+        '            <div class="col-md-2"><a href="{{ paperUrl }}">' +
+        '                <img class="img-thumbnail" src="{{ thumbUrl }}" alt=""/></a>' +
+        '            </div>' +
+        '            <div class="col-md-6">' +
+        '                {{ authors }} <a href="{{ paperUrl }}">{{ title }}.</a> <em>{{ context }}</em>' +
+        '                {{#acceptanceRate}}' +
+        '                <div class="publications-acceptance">' +
+        '                    [Acceptance Rate: {{ acceptanceRate }}]' +
+        '                </div>' +
+        '                {{/acceptanceRate}}' +
+        '                {{#awards}}' +
+        '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
+        '                {{/awards}}' +
+        '            </div>' +
+        '            <div class="col-md-3">' +
+        '                {{#paperUrl}}' +
+        '                <a href="{{ paperUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-file"></span> paper (pdf)</span></div></a>' +
+        '                {{/paperUrl}}' +
+        '                {{#videoUrl}}' +
+        '                <a href="{{ videoUrl }}"><div class="badge-video"><span class="label label-info"><span class="glyphicon glyphicon-film"></span> video</span></div></a>' +
+        '                {{/videoUrl}}' +
+        '                {{#acmUrl}}' +
+        '                <a href="{{ acmUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-book"></span> ACM Digital Library</span></div></a>' +
+        '                {{/acmUrl}}' +
+        '                {{#project}}' +
+        '                <a href="#{{ project }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-tag"></span> project info</span></div></a>' +
+        '                {{/project}}' +
+        '            </div>' +
+        '        </div>';
+
+
+    if(!$parent || $parent.length === 0) {
+        return;
+    }
+
+    renderedHTML = '';
+    for(groupId = 0; groupId < jsonData.length; groupId++) {
+        publicationGroup = jsonData[groupId];
+
+        publicationGroup["id"] = groupId;
+
+        renderedHTML += Mustache.render(htmlGroupStartTemplate, publicationGroup);
+
+        for(publicationId = 0; publicationId < publicationGroup["publications"].length; publicationId++) {
+            publication = publicationGroup["publications"][publicationId];
+
+            renderedHTML += Mustache.render(htmlTemplate, publication);
+        }
+
+        renderedHTML += Mustache.render(htmlGroupEndTemplate, publicationGroup);
     }
 
     $parent.append(renderedHTML);
@@ -450,4 +534,283 @@ var projectsJSON = [
         "summary": "Implemented a complex nonlinear least squares curve fitting algorithm based on the Levenberg-Marquardt Algorithm to process cross-correlation data from a passive radar interferometry system.",
         "description": "Using the Python programming language, I wrote software to process cross-correlation data from a passive radar interferometry system. The software included noise and signal splitting algorithms and a complex nonlinear least squares fitting algorithm based on the Levenberg-Marquardt Algorithm (LMA). I incorporated a curve fitter that used several different fitting models, including the Gaussian, Lorentzian, bi-modal, and composite models. The program selected the model with the best fit for each data set, and then output the processed data in a multitude of output formats."
     }
-]
+];
+
+var publicationsJSON = [
+    {
+        "title": "Conference Publications",
+        "publications": [
+            {
+                "index": "C.9",
+                "year": "2013",
+                "authors": "Chen, K., Cohn, G., Gupta, S., Patel, S.N.",
+                "title": "uTouch: Sensing Touch Gestures on Unmodified LCDs",
+                "context": "In the Proceedings of CHI 2013 (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054",
+                "acceptanceRate": "20% (392/1963)",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Chen_uTouch_chi13.jpg",
+                "paperUrl": "df/Chen_uTouch_chi13.pdf",
+                "videoUrl": "http://youtu.be/8p9DkwWVmfI",
+                "acmUrl": "http://dl.acm.org/citation.cfm?id=2481356",
+                "project": "utouch"
+            },
+            {
+                "index": "C.8",
+                "year": "2012",
+                "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+                "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
+                "context": "In the Proceedings of Ubicomp 2012 (Sept. 5-8, Pittsburgh, PA), ACM, New York, 2012, pp. 99-102",
+                "acceptanceRate": "19% (58/301)",
+                "awards": [
+                    "Best Paper Award"
+                ],
+                "thumbUrl": "img/publications/Cohn_SEFS_ubicomp12.jpg",
+                "paperUrl": "pdf/Cohn_SEFS_ubicomp12.pdf",
+                "videoUrl": "http://youtu.be/8p9DkwWVmfI",
+                "acmUrl": "http://dl.acm.org/citation.cfm?id=2481356",
+                "project": "sefs"
+            },
+            {
+                "index": "C.7",
+                "year": "2012",
+                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
+                "context": "In the Proceedings of CHI 2012 (May 5-10, Austin, TX), ACM, New York, 2012, pp. 1901-1910",
+                "acceptanceRate": "23% (370/1577)",
+                "awards": [
+                    "HONORABLE MENTION AWARD"
+                ],
+                "thumbUrl": "img/publications/Cohn_Humantenna_chi12.jpg",
+                "paperUrl": "pdf/Cohn_Humantenna_chi12.pdf",
+                "videoUrl": "http://www.youtube.com/watch?v=hfAk1Vnj6hM",
+                "talkVideoUrl": "video/Cohn_Humantenna_chi12_talk.mp4",
+                "acmUrl": "http://dl.acm.org/citation.cfm?id=2207676.2208330",
+                "project": "humantenna"
+            },
+            {
+                "index": "C.6",
+                "year": "2011",
+                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "title": "Your Noise is My Command: Sensing Gestures Using the Body as an Antenna",
+                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 791-800",
+                "acceptanceRate": "26% (400/1540)",
+                "awards": [
+                    "Best Paper Award"
+                ],
+                "thumbUrl": "img/publications/Cohn_NoiseCommand_chi11.jpg",
+                "paperUrl": "pdf/Cohn_NoiseCommand_chi11.pdf",
+                "talkVideoUrl": "video/Cohn_NoiseCommand_chi11_talk.mp4",
+                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979058",
+                "project": "humantenna"
+            },
+            {
+                "index": "C.5",
+                "year": "2011",
+                "authors": "Badshah, A., Gupta, S., Cohn, G., Villar, N., Hodges, S., Patel, S.N.",
+                "title": "Interactive Generator: A Self-Powered Haptic Feedback Device",
+                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2051-2054",
+                "acceptanceRate": "26% (400/1540)",
+                "awards": [
+                    "Best Note Award"
+                ],
+                "thumbUrl": "img/publications/Badshah_InGen_chi11.jpg",
+                "paperUrl": "pdf/Badshah_InGen_chi11.pdf",
+                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979240",
+                "project": "ingen"
+            },
+            {
+                "index": "C.4",
+                "year": "2011",
+                "authors": "Larson, E., Cohn, G., Gupta, S., Ren, X., Harrison, B., Fox, D., Patel, S.N.",
+                "title": "HeatWave: Thermal Imaging for Surface User Interaction",
+                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2565-2574",
+                "acceptanceRate": "26% (400/1540)",
+                "awards": [
+                    "Honorable Mention Award"
+                ],
+                "thumbUrl": "img/publications/Larson_HeatWave_chi11.jpg",
+                "paperUrl": "pdf/Larson_HeatWave_chi11.pdf",
+                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979317",
+                "project": "heatwave"
+            },
+            {
+                "index": "C.3",
+                "year": "2010",
+                "authors": "Campbell, T., Larson, E., Cohn, G., Froehlich, J., ALcaide, R., Patel, S.N.",
+                "title": "WATTR: A Method for Self-Powered Wireless Sensing of Water Activity in the Home",
+                "context": "In the Proceedings of UbiComp 2010 (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172",
+                "acceptanceRate": "19% (39/202)",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Campbell_WATTR_ubicomp10.jpg",
+                "paperUrl": "pdf/Campbell_WATTR_ubicomp10.pdf",
+                "acmUrl": "http://portal.acm.org/citation.cfm?id=1864378",
+                "project": "wattr"
+            },
+            {
+                "index": "C.2",
+                "year": "2010",
+                "authors": "Cohn, G., Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
+                "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure",
+                "context": "In the Proceedings of UbiComp 2010 (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 159-168",
+                "acceptanceRate": "19% (39/202)",
+                "awards": [
+                    "Best Paper Nominee"
+                ],
+                "thumbUrl": "img/publications/Cohn_SNUPI_ubicomp10.jpg",
+                "paperUrl": "pdf/Cohn_SNUPI_ubicomp10.pdf",
+                "acmUrl": "http://portal.acm.org/citation.cfm?id=1864349.1864377",
+                "project": "snupi"
+            },
+            {
+                "index": "C.1",
+                "year": "2010",
+                "authors": "Cohn, G., Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
+                "title": "GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home",
+                "context": "In the Proceedings of Pervasive 2010 (May 17-20, Helsinki, Finland), Springer-Verlag, Heidelberg, 2010, pp. 265-282",
+                "acceptanceRate": "16% (26/161)",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Cohn_GasSense_pervasive10.jpg",
+                "paperUrl": "http://gabeacohn.com/pdf/Cohn_GasSense_pervasive10.pdf",
+                "project": "gassense"
+            }
+        ]
+    },
+    {
+        "title": "Journal and Magazine Publications",
+        "publications": [
+            {
+                "index": "J.2",
+                "year": "2014",
+                "authors": "Cohn, G., Gupta, S., Goel, M., Chen, K., Patel, S.N.",
+                "title": "Supporting Ubiquitous Interaction Using Hidden Signals",
+                "context": "Under Final Review for Communications of the ACM",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Cohn_UbiInterfaces_CACM14.jpg",
+                "paperUrl": "",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": ""
+            },
+            {
+                "index": "J.1",
+                "year": "2011",
+                "authors": "Froehlich, J., Larson, E., Gupta, S., Cohn, G., Reynolds, M.S., Patel, S.N.",
+                "title": "Disaggregated End-Use Energy for the Smart Grid",
+                "context": "IEEE Pervasive Computing, Special Issue on Smart Energy Systems, 10(1), Jan-Mar 2011, pp. 28-39",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Froehlich_DisagEnergy_IEEEpervasive11.jpg",
+                "paperUrl": "pdf/Froehlich_DisagEnergy_IEEEpervasive11.pdf",
+                "videoUrl": "",
+                "acmUrl": "http://www.computer.org/portal/web/csdl/doi/10.1109/MPRV.2010.74",
+                "project": ""
+            }
+        ]
+    },
+    {
+        "title": "Workshop Publications",
+        "publications": [
+            {
+                "index": "W.1",
+                "year": "2009",
+                "authors": "Levin, I., Cohn, G.A., Ordeshook, P.C., Alvarez, R.M. (2009),",
+                "title": "Detecting Voter Fraud in an Electronic Voting Context: An Analysis of the Unlimited Reelection Vote in Venezuela",
+                "context": "In the Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy Elections (EVT/WOTE '09) (August 10-11, Montreal, Canada), USENIX, 2009",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Levin_ElectionFraud_EVTWOTE09.jpg",
+                "paperUrl": "pdf/Levin_ElectionFraud_EVTWOTE09.pdf",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": "electionfraud"
+            }
+        ]
+    },
+    {
+        "title": "Other Articles",
+        "publications": [
+            {
+                "index": "O.1",
+                "year": "2012",
+                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole- Body Interaction",
+                "context": "University of Washington Electrical Engineering Kaleidoscope (EEK) Magazine, 2012, p. 7",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Levin_ElectionFraud_EVTWOTE09.jpg",
+                "paperUrl": "pdf/Cohn_Humantenna_EEK12.pdf",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": "humantenna"
+            }
+        ]
+    },
+    {
+        "title": "Technical Reports",
+        "publications": [
+            {
+                "index": "R.3",
+                "year": "2007",
+                "authors": "Cohn G.A.",
+                "title": "Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds",
+                "context": "Caltech RF and Microwave Group, 2007",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Cohn_CADFeeds_07.jpg",
+                "paperUrl": "pdf/Cohn_CADFeeds_07.pdf",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": "antennacad"
+            },
+            {
+                "index": "R.2",
+                "year": "2006",
+                "authors": "Cohn, G.A., Sahr, J.D.",
+                "title": "Meteor radar interferometry using NEC antenna array simulations",
+                "context": "University of Washington Radar Remote Sensing Laboratory, 2006",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Cohn_MeteorInterferometry_06.jpg",
+                "paperUrl": "pdf/Cohn_MeteorInterferometry_06.pdf",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": "rrsl06"
+            },
+            {
+                "index": "R.1",
+                "year": "2006",
+                "authors": "Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., Cohn, G., Nguyen, K., Sahr, J.",
+                "title": "RRSL Milestone: First E Region Irregularities on ISIS",
+                "context": "University of Washington Radar Remote Sensing Laboratory, 2006",
+                "acceptanceRate": "",
+                "awards": [
+
+                ],
+                "thumbUrl": "img/publications/Lind_ISISFirstLight_06.jpg",
+                "paperUrl": "pdf/Lind_ISISFirstLight_06.pdf",
+                "videoUrl": "",
+                "acmUrl": "",
+                "project": "rrsl06"
+            }
+        ]
+    }
+];

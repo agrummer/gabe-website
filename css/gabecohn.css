@@ -306,6 +306,29 @@ h1 .trail{
     text-align: center;
 }
 
+.badge-publication{
+    font-size:9pt;
+    letter-spacing:1px;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.badge-award{
+    font-size:8pt;
+    text-transform:uppercase;
+    color:rgb(215,17,17);
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.badge-video{
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+
 /* PROJECTS */
 .projects-anchor{
 
@@ -373,13 +396,6 @@ h1 .trail{
     margin-bottom:10px;
 }
 
-.section-projects .projects-project .projects-publication{
-    font-size:9pt;
-    letter-spacing:1px;
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
 .section-projects .projects-project .projects-press-heading h5{
     font-weight: bold;
 }
@@ -387,21 +403,6 @@ h1 .trail{
 .section-projects .projects-project .projects-press{
     font-size: 9pt;
     margin-bottom: 10px;
-}
-
-.section-projects .projects-project .projects-award{
-    font-size:8pt;
-    text-transform:uppercase;
-    color:rgb(215,17,17);
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
-.section-projects .projects-project .projects-video{
-    font-size:8pt;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:10px;
 }
 
 .section-projects .projects-project .projects-permalink {
@@ -435,10 +436,13 @@ h1 .trail{
     text-transform: uppercase;
     font-size: 8pt;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .section-publications .publications-acceptance{
     color: grey;
+    font-size: 9pt;
+    margin-top: 10px;
 }
 
 /* TALKS */
