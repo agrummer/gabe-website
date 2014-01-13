@@ -239,7 +239,7 @@ section{
 
 .section-intro{
     color:rgb(100,100,100);
-    margin:25px 0 25px 0;
+    margin:25px 0 0 0;
     text-align: justify;
 }
 
@@ -247,6 +247,7 @@ section{
     max-width:1200px;
     margin-left:auto;
     margin-right:auto;
+    padding-bottom: 40px;
 }
 
 .section-body .container{
@@ -281,7 +282,6 @@ section{
     border-width:1px;
     border-style:solid;
     border-color:rgba(103,140,195,0.4);
-    margin-bottom:50px;
 }
 
 .section-body .panel-heading{
@@ -330,12 +330,12 @@ h1 .trail{
 
 
 /* PROJECTS */
-.projects-anchor{
-
-}
-
 .section-projects{
     
+}
+
+.section-projects .projects-anchor{
+    height: 30px;
 }
 
 .section-projects .panel {
@@ -351,7 +351,7 @@ h1 .trail{
 }
 
 .section-projects .projects-project{
-    margin-bottom:50px;
+    margin-top:0;
 }
 
 .section-projects .projects-project .thumbnail-container {
@@ -427,8 +427,19 @@ h1 .trail{
 
 
 /* PUBLICATIONS */
+.section-publications .publications-anchor{
+    height: 30px;
+}
+
 .section-publications .publication{
-    margin-bottom:50px;
+    margin-bottom: 25px;
+}
+
+.section-publications .publications-date{
+    font-size: 8pt;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:lightgrey;
 }
 
 .section-publications .publications-award{
