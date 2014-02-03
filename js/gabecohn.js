@@ -259,8 +259,8 @@ var projectsJSON = [
         ],
         "press": [
             "<a href=\"http://www.technologyreview.com/news/523741/nest-competitor-monitors-your-houses-leaks-on-the-cheap/\">MIT Technology Review</a>",
-            "<a href=\"http://www.geekwire.com/2014/snupi-raises-7-5m-series-home-sensor-network-wally/\">GeekWire</a>",
             "<a href=\"http://www.xconomy.com/seattle/2014/01/13/snupi-technologies-raises-7-5m-from-wrf-madrona-to-take-wally-to-market/\">Xconomy</a>",
+            "<a href=\"http://www.geekwire.com/2014/snupi-raises-7-5m-series-home-sensor-network-wally/\">GeekWire</a>",
             "<a href=\"http://www.bizjournals.com/seattle/blog/techflash/2014/01/snupi-technologies-gets-75m-for.html?utm_campaign=Feed%3A+bizj_seattle+%28Puget+Sound+Business+Journal%29&s=article_search&utm_medium=feed&ana=RSS&utm_source=feedburner\">Puget Sound Business Journal</a>",
             "<a href=\"http://www.geekwire.com/2013/12-northwest-gifts-geek-love-geekwire-gift-guide-2013/\">GeekWire</a>",
             "<a href=\"http://www.xconomy.com/seattle/2013/11/15/snupi-technologies-home-sensor-network-monitors-water-leaks-babies/?single_page=true\">Xconomy</a>",
