@@ -258,6 +258,8 @@ var projectsJSON = [
             "Best Paper Nomination at UbiComp 2010 (Sept. 2010)"
         ],
         "press": [
+            "<a href=\"http://seattlebusinessmag.com/article/bright-idea-snupi-technologies-wally\">Seattle Business Magazine</a>",
+            "<a href=\"http://www.geekwire.com/2014/review-home-test-wally-water-leak-sensor-network/\">GeekWire</a>",
             "<a href=\"http://www.technologyreview.com/news/523741/nest-competitor-monitors-your-houses-leaks-on-the-cheap/\">MIT Technology Review</a>",
             "<a href=\"http://www.xconomy.com/seattle/2014/01/13/snupi-technologies-raises-7-5m-from-wrf-madrona-to-take-wally-to-market/\">Xconomy</a>",
             "<a href=\"http://www.geekwire.com/2014/snupi-raises-7-5m-series-home-sensor-network-wally/\">GeekWire</a>",
