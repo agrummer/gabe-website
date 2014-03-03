@@ -14,6 +14,8 @@ $(function () {
 
     renderPublications(publicationsJSON);
 
+    renderTalks(talksJSON);
+
     $('body').scrollspy({ target: '#navbar' });
     
     $('div[data-type="background"]').each(function () {
@@ -315,6 +317,51 @@ var renderPublications = function(jsonData) {
         }
 
         renderedHTML += Mustache.render(htmlGroupEndTemplate, publicationGroup);
+    }
+
+    $parent.append(renderedHTML);
+};
+
+var renderTalks = function(jsonData) {
+    var $parent = $(".talks-parent"),
+        htmlTemplate,
+        talk,
+        talkId,
+        renderedHTML;
+
+    htmlTemplate = '' +
+        '        <div class="talk row">' +
+        '            <div class="index col-md-1" id="talk-{{ index }}">{{ index }}</div>' +
+        '            <div class="col-md-2"><a href="{{ slidesUrl }}">' +
+        '                <img class="img-thumbnail" src="{{ thumbUrl }}" alt=""/></a>' +
+        '            </div>' +
+        '            <div class="col-md-6">' +
+        '                <div class="talks-date">{{{ date }}}</div>' +
+        '                {{{ authors }}}. {{#slidesUrl}}<a href="{{ slidesUrl }}">{{/slidesUrl}}{{{ title }}}{{#slidesUrl}}</a>{{/slidesUrl}}. <em>{{{ context }}}</em>' +
+        '            </div>' +
+        '            <div class="col-md-3">' +
+        '                {{#slidesUrl}}' +
+        '                <a href="{{ slidesUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-file"></span> slides (pdf)</span></div></a>' +
+        '                {{/slidesUrl}}' +
+        '                {{#videoUrl}}' +
+        '                <a href="{{ videoUrl }}"><div class="badge-video"><span class="label label-info"><span class="glyphicon glyphicon-film"></span> video</span></div></a>' +
+        '                {{/videoUrl}}' +
+        '                {{#project}}' +
+        '                <a href="#{{ project }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-tag"></span> project info</span></div></a>' +
+        '                {{/project}}' +
+        '            </div>' +
+        '        </div>';
+
+
+    if(!$parent || $parent.length === 0) {
+        return;
+    }
+
+    renderedHTML = '';
+    for(talkId = 0; talkId < jsonData.length; talkId++) {
+        talk = jsonData[talkId];
+
+        renderedHTML += Mustache.render(htmlTemplate, talk);
     }
 
     $parent.append(renderedHTML);
@@ -821,5 +868,195 @@ var publicationsJSON = [
                 "project": "rrsl06"
             }
         ]
+    }
+];
+
+var talksJSON = [
+    {
+        "index": "T.12",
+        "date": "2013",
+        "authors": "Cohn, G.",
+        "title": "SNUPI: Sensor Network Utilizing Powerline Infrastructure",
+        "context": "2013 ACEEE Hot Water Forum, Atlanta, GA, 5 November 2013",
+        "thumbUrl": "img/talks/t12.jpg",
+        "slidesUrl": "pdf/Cohn_SNUPI_HotWater13_talk.pdf",
+        "videoUrl": "",
+        "project": "snupi"
+    },
+    {
+        "index": "T.11",
+        "date": "2013",
+        "authors": "Cohn, G.",
+        "title": "The University of Washington Ubicomp Lab: A Research Overview",
+        "context": "Georgia Tech Invited Talk, Atlanta, GA, 5 November 2013",
+        "thumbUrl": "img/talks/t11.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "T.10",
+        "date": "2013",
+        "authors": "Cohn, G. and Gupta, S.",
+        "title": "Hacks for Innovation: Our Approach to Technology Innovations by Hacking Our Surroundings",
+        "context": "Hack Things Meetup, Seattle, WA, 2 August 2013",
+        "thumbUrl": "img/talks/t10.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "T.9",
+        "date": "2013",
+        "authors": "Cohn, G. and Gupta, S.",
+        "title": "Ubiquitous Computing: Sensing Systems for Human Activity, Context, and Everywhere Interactions",
+        "context": "University of Washington Arch 498D: Creating Responsive Environments, Guest Lecture, Seattle, WA, 22 January 2013",
+        "thumbUrl": "img/talks/t9.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "T.8",
+        "date": "2012",
+        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
+        "context": "University of Washington Computer Science & Engineering Affiliates 2012, Seattle, WA, 24 October 2012",
+        "thumbUrl": "img/talks/t8.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": "sefs"
+    },
+    {
+        "index": "T.7",
+        "date": "2012",
+        "authors": "Cohn, G., Gupta, S., Goel, M.",
+        "title": "An Overview of the Research in UW Ubicomp Lab",
+        "context": "Disney Research Pittsburgh, Pittsburgh, PA, 7 September 2012",
+        "thumbUrl": "img/talks/t7.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "C.8",
+        "date": "2012",
+        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
+        "context": "14th ACM International Conference on Ubiquitous Computing (UbiComp 2012) Pittsburgh, PA, 5 September 2012",
+        "thumbUrl": "img/talks/c8.jpg",
+        "slidesUrl": "pdf/Cohn_SEFS_ubicomp12_talk.pdf",
+        "videoUrl": "",
+        "project": "sefs"
+    },
+    {
+        "index": "T.6",
+        "date": "2012",
+        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
+        "context": "2012 Microsoft Research Faculty Summit, Redmond, WA, 16 July 2012",
+        "thumbUrl": "img/talks/t6.jpg",
+        "slidesUrl": "pdf/Cohn_Humantenna_MSRFacultySummit12_talk.pdf",
+        "videoUrl": "",
+        "project": "humantenna"
+    },
+    {
+        "index": "T.5",
+        "date": "2012",
+        "authors": "Cohn, G. and Gupta, S.",
+        "title": "Sensor Based Interactions",
+        "context": "University of Washington INFO 463: Input and Interaction, Guest Lecture, Seattle, WA, 23 May 2012",
+        "thumbUrl": "img/talks/t5.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "T.4",
+        "date": "2012",
+        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
+        "context": "Microsoft Research Recently Written Series, Redmond, WA, 17 May 2012",
+        "thumbUrl": "img/talks/t4.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": "sefs"
+    },
+    {
+        "index": "C.7",
+        "date": "2012",
+        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
+        "context": "2012 Annual Conference on Human Factors in Computing Systems (CHI 2012), Austin, TX, 9 May 2012",
+        "thumbUrl": "img/talks/c7.jpg",
+        "slidesUrl": "pdf/Cohn_Humantenna_chi12_talk.pdf",
+        "videoUrl": "video/Cohn_Humantenna_chi12_talk.mp4",
+        "project": "humantenna"
+    },
+    {
+        "index": "C.6",
+        "date": "2011",
+        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "title": "Your Noise is My Command: Sensing Gestures Using the Body as an Antenna",
+        "context": "2011 Annual Conference on Human Factors in Computing Systems (CHI 2011), Vancouver, Canada, 9 May 2011",
+        "thumbUrl": "img/talks/c6.jpg",
+        "slidesUrl": "pdf/Cohn_NoiseCommand_chi11_talk.pdf",
+        "videoUrl": "video/Cohn_NoiseCommand_chi11_talk.mp4",
+        "project": "humantenna"
+    },
+    {
+        "index": "T.3",
+        "date": "2011",
+        "authors": "Cohn, G.",
+        "title": "Repurposing the Home Powerlines",
+        "context": "University of Washington EE 592 Seminar, Seattle, WA, 18 February 2011",
+        "thumbUrl": "img/talks/t3.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": ""
+    },
+    {
+        "index": "T.2",
+        "date": "2010",
+        "authors": "Cohn, G., Patel, S.",
+        "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure, Ultra-Low-Power, General-Purpose, Wireless Sensing Platform",
+        "context": "University of Washington Computer Science & Engineering Affiliates 2010, Seattle, WA, 27 October 2010",
+        "thumbUrl": "img/talks/t2.jpg",
+        "slidesUrl": "pdf/Cohn_SNUPI_affiliates10_talk.pdf",
+        "videoUrl": "",
+        "project": "snupi"
+    },
+    {
+        "index": "C.2",
+        "date": "2010",
+        "authors": "Cohn, G., Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
+        "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure",
+        "context": "12th ACM International Conference on Ubiquitous Computing (UbiComp 2010), Copenhagen, Denmark, 28 September 2010",
+        "thumbUrl": "img/talks/c2.jpg",
+        "slidesUrl": "pdf/Cohn_SNUPI_ubicomp10_talk.pdf",
+        "videoUrl": "",
+        "project": "snupi"
+    },
+    {
+        "index": "C.1",
+        "date": "2010",
+        "authors": "Cohn, G., Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
+        "title": "GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home",
+        "context": "8th International Conference on Pervasive Computing (Pervasive 2010), Helsinki, Finland, 19 May 2010",
+        "thumbUrl": "img/talks/c1.jpg",
+        "slidesUrl": "",
+        "videoUrl": "",
+        "project": "gassense"
+    },
+    {
+        "index": "T.1",
+        "date": "2007",
+        "authors": "Cohn G.A.",
+        "title": "Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds",
+        "context": "Caltech Internal Microwave Seminar, Pasadena, CA, 19 September 2007",
+        "thumbUrl": "img/talks/t1.jpg",
+        "slidesUrl": "pdf/Cohn_CADFeeds_talk07.pdf",
+        "videoUrl": "",
+        "project": "antennacad"
     }
 ];
