@@ -121,11 +121,11 @@ h2,h3,h4,h5,h6{
 
 #home .timeline{
     font-size:8pt;
-    padding:5px 20px 20px 20px;
+    padding:20px 20px 20px 20px;
 }
 
 #home .timeline dl{
-    margin: 0 0 10px 0;
+    margin: 0 0 20px 0;
 }
 
 #home .timeline dl dt{
@@ -148,7 +148,7 @@ h2,h3,h4,h5,h6{
 #home .contact{
     font-size:12px;
     background-color:rgba(103,140,195,0.1);
-    padding:20px 40px 62px 40px;
+    padding:20px 40px 5px 40px;
     border-left: solid 2px rgb(103,140,195);
 }
 
