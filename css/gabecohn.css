@@ -243,7 +243,7 @@ section{
 
 .section-intro{
     color:rgb(100,100,100);
-    margin:25px 0 25px 0;
+    margin:25px 0 0 0;
     text-align: justify;
 }
 
@@ -251,6 +251,7 @@ section{
     max-width:1200px;
     margin-left:auto;
     margin-right:auto;
+    padding-bottom: 40px;
 }
 
 .section-body .container{
@@ -285,7 +286,6 @@ section{
     border-width:1px;
     border-style:solid;
     border-color:rgba(103,140,195,0.4);
-    margin-bottom:50px;
 }
 
 .section-body .panel-heading{
@@ -310,13 +310,36 @@ h1 .trail{
     text-align: center;
 }
 
-/* PROJECTS */
-.projects-anchor{
-
+.badge-publication{
+    font-size:9pt;
+    letter-spacing:1px;
+    font-weight:bold;
+    margin-bottom: 10px;
 }
 
+.badge-award{
+    font-size:8pt;
+    text-transform:uppercase;
+    color:rgb(215,17,17);
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.badge-video{
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+
+/* PROJECTS */
 .section-projects{
     
+}
+
+.section-projects .projects-anchor{
+    height: 30px;
 }
 
 .section-projects .panel {
@@ -332,7 +355,7 @@ h1 .trail{
 }
 
 .section-projects .projects-project{
-    margin-bottom:50px;
+    margin-top:0;
 }
 
 .section-projects .projects-project .thumbnail-container {
@@ -377,13 +400,6 @@ h1 .trail{
     margin-bottom:10px;
 }
 
-.section-projects .projects-project .projects-publication{
-    font-size:9pt;
-    letter-spacing:1px;
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
 .section-projects .projects-project .projects-press-heading h5{
     font-weight: bold;
 }
@@ -391,21 +407,6 @@ h1 .trail{
 .section-projects .projects-project .projects-press{
     font-size: 9pt;
     margin-bottom: 10px;
-}
-
-.section-projects .projects-project .projects-award{
-    font-size:8pt;
-    text-transform:uppercase;
-    color:rgb(215,17,17);
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
-.section-projects .projects-project .projects-video{
-    font-size:8pt;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:10px;
 }
 
 .section-projects .projects-project .projects-permalink {
@@ -430,8 +431,19 @@ h1 .trail{
 
 
 /* PUBLICATIONS */
+.section-publications .publications-anchor{
+    height: 30px;
+}
+
 .section-publications .publication{
-    margin-bottom:50px;
+    margin-bottom: 25px;
+}
+
+.section-publications .publications-date{
+    font-size: 8pt;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:lightgrey;
 }
 
 .section-publications .publications-award{
@@ -439,10 +451,13 @@ h1 .trail{
     text-transform: uppercase;
     font-size: 8pt;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .section-publications .publications-acceptance{
     color: grey;
+    font-size: 9pt;
+    margin-top: 10px;
 }
 
 /* TALKS */
@@ -450,6 +465,12 @@ h1 .trail{
     margin-bottom:50px;
 }
 
+.section-talks .talks-date{
+    font-size: 8pt;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:lightgrey;
+}
 
 /* TEACHING */
 .section-teaching .course{
