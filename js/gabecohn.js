@@ -877,7 +877,7 @@ var talksJSON = [
     {
         "index": "T.12",
         "date": "2013",
-        "authors": "Cohn, G.",
+        "authors": "<strong>Cohn, G.</strong>",
         "title": "SNUPI: Sensor Network Utilizing Powerline Infrastructure",
         "context": "<em>2013 ACEEE Hot Water Forum</em>, Atlanta, GA, 5 November 2013.",
         "thumbUrl": "img/talks/t12.jpg",
@@ -888,7 +888,7 @@ var talksJSON = [
     {
         "index": "T.11",
         "date": "2013",
-        "authors": "Cohn, G.",
+        "authors": "<strong>Cohn, G.</strong>",
         "title": "The University of Washington Ubicomp Lab: A Research Overview",
         "context": "<em>Georgia Tech Invited Talk</em>, Atlanta, GA, 5 November 2013.",
         "thumbUrl": "img/talks/t11.jpg",
@@ -899,7 +899,7 @@ var talksJSON = [
     {
         "index": "T.10",
         "date": "2013",
-        "authors": "Cohn, G. and Gupta, S.",
+        "authors": "<strong>Cohn, G.</strong> and Gupta, S.",
         "title": "Hacks for Innovation: Our Approach to Technology Innovations by Hacking Our Surroundings",
         "context": "<em>Hack Things Meetup</em>, Seattle, WA, 2 August 2013.",
         "thumbUrl": "img/talks/t10.jpg",
@@ -910,7 +910,7 @@ var talksJSON = [
     {
         "index": "T.9",
         "date": "2013",
-        "authors": "Cohn, G. and Gupta, S.",
+        "authors": "<strong>Cohn, G.</strong> and Gupta, S.",
         "title": "Ubiquitous Computing: Sensing Systems for Human Activity, Context, and Everywhere Interactions",
         "context": "<em>University of Washington Arch 498D: Creating Responsive Environments</em>, Guest Lecture, Seattle, WA, 22 January 2013.",
         "thumbUrl": "img/talks/t9.jpg",
@@ -921,7 +921,7 @@ var talksJSON = [
     {
         "index": "T.8",
         "date": "2012",
-        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "authors": "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
         "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
         "context": "<em>University of Washington Computer Science & Engineering Affiliates 2012</em>, Seattle, WA, 24 October 2012.",
         "thumbUrl": "img/talks/t8.jpg",
@@ -932,7 +932,7 @@ var talksJSON = [
     {
         "index": "T.7",
         "date": "2012",
-        "authors": "Cohn, G., Gupta, S., Goel, M.",
+        "authors": "<strong>Cohn, G.</strong>, Gupta, S., Goel, M.",
         "title": "An Overview of the Research in UW Ubicomp Lab",
         "context": "<em>Disney Research Pittsburgh</em>, Pittsburgh, PA, 7 September 2012.",
         "thumbUrl": "img/talks/t7.jpg",
@@ -943,7 +943,7 @@ var talksJSON = [
     {
         "index": "C.8",
         "date": "2012",
-        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "authors": "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
         "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
         "context": "<em>14th ACM International Conference on Ubiquitous Computing (UbiComp 2012)</em>, Pittsburgh, PA, 5 September 2012.",
         "thumbUrl": "img/talks/c8.jpg",
@@ -954,7 +954,7 @@ var talksJSON = [
     {
         "index": "T.6",
         "date": "2012",
-        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
         "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
         "context": "<em>2012 Microsoft Research Faculty Summit</em>, Redmond, WA, 16 July 2012.",
         "thumbUrl": "img/talks/t6.jpg",
@@ -965,7 +965,7 @@ var talksJSON = [
     {
         "index": "T.5",
         "date": "2012",
-        "authors": "Cohn, G. and Gupta, S.",
+        "authors": "<strong>Cohn, G.</strong> and Gupta, S.",
         "title": "Sensor Based Interactions",
         "context": "<em>University of Washington INFO 463: Input and Interaction</em>, Guest Lecture, Seattle, WA, 23 May 2012.",
         "thumbUrl": "img/talks/t5.jpg",
@@ -976,7 +976,7 @@ var talksJSON = [
     {
         "index": "T.4",
         "date": "2012",
-        "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+        "authors": "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
         "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
         "context": "<em>Microsoft Research Recently Written Series</em>, Redmond, WA, 17 May 2012.",
         "thumbUrl": "img/talks/t4.jpg",
@@ -987,7 +987,7 @@ var talksJSON = [
     {
         "index": "C.7",
         "date": "2012",
-        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
         "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
         "context": "<em>2012 Annual Conference on Human Factors in Computing Systems (CHI 2012)</em>, Austin, TX, 9 May 2012.",
         "thumbUrl": "img/talks/c7.jpg",
@@ -998,7 +998,7 @@ var talksJSON = [
     {
         "index": "C.6",
         "date": "2011",
-        "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+        "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
         "title": "Your Noise is My Command: Sensing Gestures Using the Body as an Antenna",
         "context": "<em>2011 Annual Conference on Human Factors in Computing Systems (CHI 2011)</em>, Vancouver, Canada, 9 May 2011.",
         "thumbUrl": "img/talks/c6.jpg",
@@ -1009,7 +1009,7 @@ var talksJSON = [
     {
         "index": "T.3",
         "date": "2011",
-        "authors": "Cohn, G.",
+        "authors": "<strong>Cohn, G.</strong>",
         "title": "Repurposing the Home Powerlines",
         "context": "<em>University of Washington EE 592 Seminar</em>, Seattle, WA, 18 February 2011.",
         "thumbUrl": "img/talks/t3.jpg",
@@ -1020,7 +1020,7 @@ var talksJSON = [
     {
         "index": "T.2",
         "date": "2010",
-        "authors": "Cohn, G., Patel, S.",
+        "authors": "<strong>Cohn, G.</strong>, Patel, S.",
         "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure, Ultra-Low-Power, General-Purpose, Wireless Sensing Platform",
         "context": "<em>University of Washington Computer Science & Engineering Affiliates 2010</em>, Seattle, WA, 27 October 2010.",
         "thumbUrl": "img/talks/t2.jpg",
@@ -1031,7 +1031,7 @@ var talksJSON = [
     {
         "index": "C.2",
         "date": "2010",
-        "authors": "Cohn, G., Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
+        "authors": "<strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
         "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure",
         "context": "<em>12th ACM International Conference on Ubiquitous Computing (UbiComp 2010)</em>, Copenhagen, Denmark, 28 September 2010.",
         "thumbUrl": "img/talks/c2.jpg",
@@ -1042,7 +1042,7 @@ var talksJSON = [
     {
         "index": "C.1",
         "date": "2010",
-        "authors": "Cohn, G., Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
+        "authors": "<strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
         "title": "GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home",
         "context": "<em>8th International Conference on Pervasive Computing (Pervasive 2010)</em>, Helsinki, Finland, 19 May 2010.",
         "thumbUrl": "img/talks/c1.jpg",
@@ -1053,7 +1053,7 @@ var talksJSON = [
     {
         "index": "T.1",
         "date": "2007",
-        "authors": "Cohn G.A.",
+        "authors": "<strong>Cohn G.A.</strong>",
         "title": "Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds",
         "context": "<em>Caltech Internal Microwave Seminar</em>, Pasadena, CA, 19 September 2007.",
         "thumbUrl": "img/talks/t1.jpg",
