@@ -271,7 +271,7 @@ var renderPublications = function(jsonData) {
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="publications-date">{{{ date }}}</div>' +
-        '                {{{ authors }}}. <a href="{{ paperUrl }}">{{{ title }}}</a>. <em>{{{ context }}}</em>' +
+        '                {{{ authors }}} <a href="{{ paperUrl }}"><strong>{{{ title }}}</strong></a>. {{{ context }}}' +
         '                {{#acceptanceRate}}' +
         '                <div class="publications-acceptance">' +
         '                    [Acceptance Rate: {{ acceptanceRate }}]' +
@@ -283,14 +283,17 @@ var renderPublications = function(jsonData) {
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#paperUrl}}' +
-        '                <a href="{{ paperUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-file"></span> paper (pdf)</span></div></a>' +
+        '                <a href="{{ paperUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-file"></span> paper</span></div></a>' +
         '                {{/paperUrl}}' +
         '                {{#videoUrl}}' +
         '                <a href="{{ videoUrl }}"><div class="badge-video"><span class="label label-info"><span class="glyphicon glyphicon-film"></span> video</span></div></a>' +
         '                {{/videoUrl}}' +
-        '                {{#acmUrl}}' +
-        '                <a href="{{ acmUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-book"></span> ACM Digital Library</span></div></a>' +
-        '                {{/acmUrl}}' +
+        '                {{#talkVideoUrl}}' +
+        '                <a href="{{ talkVideoUrl }}"><div class="badge-video"><span class="label label-info"><span class="glyphicon glyphicon-film"></span> talk video</span></div></a>' +
+        '                {{/talkVideoUrl}}' +
+        '                {{#dlUrl}}' +
+        '                <a href="{{ dlUrl }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-book"></span> Digital Library</span></div></a>' +
+        '                {{/dlUrl}}' +
         '                {{#project}}' +
         '                <a href="#{{ project }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-tag"></span> project info</span></div></a>' +
         '                {{/project}}' +
@@ -601,9 +604,9 @@ var publicationsJSON = [
             {
                 "index": "C.9",
                 "date": "2013",
-                "authors": "Chen, K., Cohn, G., Gupta, S., Patel, S.N.",
+                "authors": "Chen, K., <strong>Cohn, G.</strong>, Gupta, S., Patel, S.N.",
                 "title": "uTouch: Sensing Touch Gestures on Unmodified LCDs",
-                "context": "In the Proceedings of CHI 2013 (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054",
+                "context": "In the <em>Proceedings of CHI 2013</em> (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054.",
                 "acceptanceRate": "20% (392/1963)",
                 "awards": [
 
@@ -611,15 +614,15 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Chen_uTouch_chi13.jpg",
                 "paperUrl": "df/Chen_uTouch_chi13.pdf",
                 "videoUrl": "http://youtu.be/8p9DkwWVmfI",
-                "acmUrl": "http://dl.acm.org/citation.cfm?id=2481356",
+                "dlUrl": "http://dl.acm.org/citation.cfm?id=2481356",
                 "project": "utouch"
             },
             {
                 "index": "C.8",
                 "date": "2012",
-                "authors": "Cohn, G., Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
+                "authors": "<strong>Cohn, G.</strong>, Gupta, S., Lee, T., Morris, D., Smith, J.R., Reynolds, M.S., Tan, D.S., Patel, S.N.",
                 "title": "An Ultra-Low-Power Human Body Motion Sensor Using Static Electric Field Sensing",
-                "context": "In the Proceedings of Ubicomp 2012 (Sept. 5-8, Pittsburgh, PA), ACM, New York, 2012, pp. 99-102",
+                "context": "In the <em>Proceedings of Ubicomp 2012</em> (Sept. 5-8, Pittsburgh, PA), ACM, New York, 2012, pp. 99-102.",
                 "acceptanceRate": "19% (58/301)",
                 "awards": [
                     "Best Paper Award"
@@ -627,15 +630,15 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Cohn_SEFS_ubicomp12.jpg",
                 "paperUrl": "pdf/Cohn_SEFS_ubicomp12.pdf",
                 "videoUrl": "http://youtu.be/8p9DkwWVmfI",
-                "acmUrl": "http://dl.acm.org/citation.cfm?id=2481356",
+                "dlUrl": "http://dl.acm.org/citation.cfm?id=2481356",
                 "project": "sefs"
             },
             {
                 "index": "C.7",
                 "date": "2012",
-                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
                 "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole-Body Interaction",
-                "context": "In the Proceedings of CHI 2012 (May 5-10, Austin, TX), ACM, New York, 2012, pp. 1901-1910",
+                "context": "In the <em>Proceedings of CHI 2012</em> (May 5-10, Austin, TX), ACM, New York, 2012, pp. 1901-1910.",
                 "acceptanceRate": "23% (370/1577)",
                 "awards": [
                     "HONORABLE MENTION AWARD"
@@ -644,15 +647,15 @@ var publicationsJSON = [
                 "paperUrl": "pdf/Cohn_Humantenna_chi12.pdf",
                 "videoUrl": "http://www.youtube.com/watch?v=hfAk1Vnj6hM",
                 "talkVideoUrl": "video/Cohn_Humantenna_chi12_talk.mp4",
-                "acmUrl": "http://dl.acm.org/citation.cfm?id=2207676.2208330",
+                "dlUrl": "http://dl.acm.org/citation.cfm?id=2207676.2208330",
                 "project": "humantenna"
             },
             {
                 "index": "C.6",
                 "date": "2011",
-                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
                 "title": "Your Noise is My Command: Sensing Gestures Using the Body as an Antenna",
-                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 791-800",
+                "context": "In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 791-800.",
                 "acceptanceRate": "26% (400/1540)",
                 "awards": [
                     "Best Paper Award"
@@ -660,75 +663,75 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Cohn_NoiseCommand_chi11.jpg",
                 "paperUrl": "pdf/Cohn_NoiseCommand_chi11.pdf",
                 "talkVideoUrl": "video/Cohn_NoiseCommand_chi11_talk.mp4",
-                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979058",
+                "dlUrl": "http://portal.acm.org/citation.cfm?id=1979058",
                 "project": "humantenna"
             },
             {
                 "index": "C.5",
                 "date": "2011",
-                "authors": "Badshah, A., Gupta, S., Cohn, G., Villar, N., Hodges, S., Patel, S.N.",
+                "authors": "Badshah, A., Gupta, S., <strong>Cohn, G.</strong>, Villar, N., Hodges, S., Patel, S.N.",
                 "title": "Interactive Generator: A Self-Powered Haptic Feedback Device",
-                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2051-2054",
+                "context": "In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2051-2054.",
                 "acceptanceRate": "26% (400/1540)",
                 "awards": [
                     "Best Note Award"
                 ],
                 "thumbUrl": "img/publications/Badshah_InGen_chi11.jpg",
                 "paperUrl": "pdf/Badshah_InGen_chi11.pdf",
-                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979240",
+                "dlUrl": "http://portal.acm.org/citation.cfm?id=1979240",
                 "project": "ingen"
             },
             {
                 "index": "C.4",
                 "date": "2011",
-                "authors": "Larson, E., Cohn, G., Gupta, S., Ren, X., Harrison, B., Fox, D., Patel, S.N.",
+                "authors": "Larson, E., <strong>Cohn, G.</strong>, Gupta, S., Ren, X., Harrison, B., Fox, D., Patel, S.N.",
                 "title": "HeatWave: Thermal Imaging for Surface User Interaction",
-                "context": "In the Proceedings of CHI 2011 (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2565-2574",
+                "context": "In the <em>Proceedings of CHI 2011</em> (May 7-12, Vancouver, Canada), ACM, New York, 2011, pp. 2565-2574.",
                 "acceptanceRate": "26% (400/1540)",
                 "awards": [
                     "Honorable Mention Award"
                 ],
                 "thumbUrl": "img/publications/Larson_HeatWave_chi11.jpg",
                 "paperUrl": "pdf/Larson_HeatWave_chi11.pdf",
-                "acmUrl": "http://portal.acm.org/citation.cfm?id=1979317",
+                "dlUrl": "http://portal.acm.org/citation.cfm?id=1979317",
                 "project": "heatwave"
             },
             {
                 "index": "C.3",
                 "date": "2010",
-                "authors": "Campbell, T., Larson, E., Cohn, G., Froehlich, J., ALcaide, R., Patel, S.N.",
+                "authors": "Campbell, T., Larson, E., <strong>Cohn, G.</strong>, Froehlich, J., ALcaide, R., Patel, S.N.",
                 "title": "WATTR: A Method for Self-Powered Wireless Sensing of Water Activity in the Home",
-                "context": "In the Proceedings of UbiComp 2010 (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172",
+                "context": "In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 169-172.",
                 "acceptanceRate": "19% (39/202)",
                 "awards": [
 
                 ],
                 "thumbUrl": "img/publications/Campbell_WATTR_ubicomp10.jpg",
                 "paperUrl": "pdf/Campbell_WATTR_ubicomp10.pdf",
-                "acmUrl": "http://portal.acm.org/citation.cfm?id=1864378",
+                "dlUrl": "http://portal.acm.org/citation.cfm?id=1864378",
                 "project": "wattr"
             },
             {
                 "index": "C.2",
                 "date": "2010",
-                "authors": "Cohn, G., Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
+                "authors": "<strong>Cohn, G.</strong>, Stuntebeck, E., Pandey, J., Otis, B., Abowd, G.D., Patel, S.N.",
                 "title": "SNUPI: Sensor Nodes Utilizing Powerline Infrastructure",
-                "context": "In the Proceedings of UbiComp 2010 (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 159-168",
+                "context": "In the <em>Proceedings of UbiComp 2010</em> (Sept. 26-29, Copenhagen, Denmark), ACM, New York, 2010, pp. 159-168.",
                 "acceptanceRate": "19% (39/202)",
                 "awards": [
                     "Best Paper Nominee"
                 ],
                 "thumbUrl": "img/publications/Cohn_SNUPI_ubicomp10.jpg",
                 "paperUrl": "pdf/Cohn_SNUPI_ubicomp10.pdf",
-                "acmUrl": "http://portal.acm.org/citation.cfm?id=1864349.1864377",
+                "dlUrl": "http://portal.acm.org/citation.cfm?id=1864349.1864377",
                 "project": "snupi"
             },
             {
                 "index": "C.1",
                 "date": "2010",
-                "authors": "Cohn, G., Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
+                "authors": "<strong>Cohn, G.</strong>, Gupta, S., Froehlich, J., Larson, E., and Patel, S.N.",
                 "title": "GasSense: Appliance-Level, Single-Point Sensing of Gas Activity in the Home",
-                "context": "In the Proceedings of Pervasive 2010 (May 17-20, Helsinki, Finland), Springer-Verlag, Heidelberg, 2010, pp. 265-282",
+                "context": "In the <em>Proceedings of Pervasive 2010</em> (May 17-20, Helsinki, Finland), Springer-Verlag, Heidelberg, 2010, pp. 265-282.",
                 "acceptanceRate": "16% (26/161)",
                 "awards": [
 
@@ -745,9 +748,9 @@ var publicationsJSON = [
             {
                 "index": "J.2",
                 "date": "2014",
-                "authors": "Cohn, G., Gupta, S., Goel, M., Chen, K., Patel, S.N.",
+                "authors": "<strong>Cohn, G.</strong>, Gupta, S., Goel, M., Chen, K., Patel, S.N.",
                 "title": "Supporting Ubiquitous Interaction Using Hidden Signals",
-                "context": "Under Final Review for Communications of the ACM",
+                "context": "Under Final Review for <em>Communications of the ACM</em>.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -755,15 +758,15 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Cohn_UbiInterfaces_CACM14.jpg",
                 "paperUrl": "",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": ""
             },
             {
                 "index": "J.1",
                 "date": "2011",
-                "authors": "Froehlich, J., Larson, E., Gupta, S., Cohn, G., Reynolds, M.S., Patel, S.N.",
+                "authors": "Froehlich, J., Larson, E., Gupta, S., <strong>Cohn, G.</strong>, Reynolds, M.S., Patel, S.N.",
                 "title": "Disaggregated End-Use Energy for the Smart Grid",
-                "context": "IEEE Pervasive Computing, Special Issue on Smart Energy Systems, 10(1), Jan-Mar 2011, pp. 28-39",
+                "context": "<em>IEEE Pervasive Computing, Special Issue on Smart Energy Systems</em>, 10(1), Jan-Mar 2011, pp. 28-39.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -771,7 +774,7 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Froehlich_DisagEnergy_IEEEpervasive11.jpg",
                 "paperUrl": "pdf/Froehlich_DisagEnergy_IEEEpervasive11.pdf",
                 "videoUrl": "",
-                "acmUrl": "http://www.computer.org/portal/web/csdl/doi/10.1109/MPRV.2010.74",
+                "dlUrl": "http://www.computer.org/portal/web/csdl/doi/10.1109/MPRV.2010.74",
                 "project": ""
             }
         ]
@@ -782,9 +785,9 @@ var publicationsJSON = [
             {
                 "index": "W.1",
                 "date": "2009",
-                "authors": "Levin, I., Cohn, G.A., Ordeshook, P.C., Alvarez, R.M. (2009),",
+                "authors": "Levin, I., <strong>Cohn, G.A.</strong>, Ordeshook, P.C., Alvarez, R.M. (2009),",
                 "title": "Detecting Voter Fraud in an Electronic Voting Context: An Analysis of the Unlimited Reelection Vote in Venezuela",
-                "context": "In the Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy Elections (EVT/WOTE '09) (August 10-11, Montreal, Canada), USENIX, 2009",
+                "context": "In the <em>Proceedings of 2009 Electronic Voting Technology Workshop/ Workshop on Trustworthy Elections (EVT/WOTE '09)</em> (August 10-11, Montreal, Canada), USENIX, 2009.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -792,7 +795,7 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Levin_ElectionFraud_EVTWOTE09.jpg",
                 "paperUrl": "pdf/Levin_ElectionFraud_EVTWOTE09.pdf",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": "electionfraud"
             }
         ]
@@ -803,9 +806,9 @@ var publicationsJSON = [
             {
                 "index": "O.1",
                 "date": "2012",
-                "authors": "Cohn, G., Morris, D., Patel, S.N., Tan, D.S.",
+                "authors": "<strong>Cohn, G.</strong>, Morris, D., Patel, S.N., Tan, D.S.",
                 "title": "Humantenna: Using the Body as an Antenna for Real-Time Whole- Body Interaction",
-                "context": "University of Washington Electrical Engineering Kaleidoscope (EEK) Magazine, 2012, p. 7",
+                "context": "<em>University of Washington Electrical Engineering Kaleidoscope (EEK) Magazine</em>, 2012, p. 7.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -813,7 +816,7 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Levin_ElectionFraud_EVTWOTE09.jpg",
                 "paperUrl": "pdf/Cohn_Humantenna_EEK12.pdf",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": "humantenna"
             }
         ]
@@ -824,9 +827,9 @@ var publicationsJSON = [
             {
                 "index": "R.3",
                 "date": "2007",
-                "authors": "Cohn G.A.",
+                "authors": "<strong>Cohn G.A.</strong>",
                 "title": "Computer Modeling of Wideband Tapered-Slot Microwave Antenna Feeds",
-                "context": "Caltech RF and Microwave Group, 2007",
+                "context": "<em>Caltech RF and Microwave Group</em>, 2007.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -834,15 +837,15 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Cohn_CADFeeds_07.jpg",
                 "paperUrl": "pdf/Cohn_CADFeeds_07.pdf",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": "antennacad"
             },
             {
                 "index": "R.2",
                 "date": "2006",
-                "authors": "Cohn, G.A., Sahr, J.D.",
+                "authors": "<strong>Cohn, G.A.</strong>, Sahr, J.D.",
                 "title": "Meteor radar interferometry using NEC antenna array simulations",
-                "context": "University of Washington Radar Remote Sensing Laboratory, 2006",
+                "context": "<em>University of Washington Radar Remote Sensing Laboratory</em>, 2006.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -850,15 +853,15 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Cohn_MeteorInterferometry_06.jpg",
                 "paperUrl": "pdf/Cohn_MeteorInterferometry_06.pdf",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": "rrsl06"
             },
             {
                 "index": "R.1",
                 "date": "2006",
-                "authors": "Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., Cohn, G., Nguyen, K., Sahr, J.",
+                "authors": "Lind F., Berkowitz, Z., Morabito, A., Vertatschitsch, L., <strong>Cohn, G.</strong>, Nguyen, K., Sahr, J.",
                 "title": "RRSL Milestone: First E Region Irregularities on ISIS",
-                "context": "University of Washington Radar Remote Sensing Laboratory, 2006",
+                "context": "<em>University of Washington Radar Remote Sensing Laboratory</em>, 2006.",
                 "acceptanceRate": "",
                 "awards": [
 
@@ -866,7 +869,7 @@ var publicationsJSON = [
                 "thumbUrl": "img/publications/Lind_ISISFirstLight_06.jpg",
                 "paperUrl": "pdf/Lind_ISISFirstLight_06.pdf",
                 "videoUrl": "",
-                "acmUrl": "",
+                "dlUrl": "",
                 "project": "rrsl06"
             }
         ]
