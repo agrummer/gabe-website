@@ -337,7 +337,7 @@ var renderTalks = function(jsonData) {
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="talks-date">{{{ date }}}</div>' +
-        '                {{{ authors }}} {{#slidesUrl}}<a href="{{ slidesUrl }}">{{/slidesUrl}}{{{ title }}}{{#slidesUrl}}</a>{{/slidesUrl}}. {{{ context }}}' +
+        '                {{{ authors }}} {{#slidesUrl}}<a href="{{ slidesUrl }}">{{/slidesUrl}}<strong>{{{ title }}}</strong>{{#slidesUrl}}</a>{{/slidesUrl}}. {{{ context }}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#slidesUrl}}' +
