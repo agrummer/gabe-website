@@ -10,6 +10,12 @@ $(function () {
 //        renderProjects(json);
 //    });
 
+    // apply ie11 class
+    var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
+    if (isIE11) {
+        $('body').addClass("ie11");
+    }
+
     renderProjects(projectsJSON);
 
     renderPublications(publicationsJSON);
