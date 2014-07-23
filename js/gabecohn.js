@@ -10,10 +10,21 @@ $(function () {
 //        renderProjects(json);
 //    });
 
-    // apply ie11 class
+    // detect and apply Internet Explorer (IE) class (for IE 9-11)
+    var isIE9 = !!navigator.userAgent.match(/MSIE 9\./);
+    if (isIE9) {
+        $('body').addClass("ie9");
+    }
+    var isIE10 = !!navigator.userAgent.match(/MSIE 10\./);
+    if (isIE10) {
+        $('body').addClass("ie10");
+    }
     var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
     if (isIE11) {
         $('body').addClass("ie11");
+    }
+    if (isIE9 || isIE10 || isIE11) {
+        $('body').addClass("msie");
     }
 
     renderProjects(projectsJSON);

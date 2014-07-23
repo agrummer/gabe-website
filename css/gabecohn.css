@@ -105,11 +105,11 @@ h2,h3,h4,h5,h6{
     line-height:70px;
 }
 
-/* hack for IE11 */
-.ie11 #home h1{
+/* hack for IE */
+.msie #home h1{
     font-size:75px;
 }
-.ie11 #home .lead{
+.msie #home .lead{
     font-size:25px;
 }
 
