@@ -388,20 +388,20 @@ var renderTalks = function(jsonData) {
 };
 
 var projectsJSON = [
-    {
-        "key": "hydration",
-        "title": "Continuous, Non-Invasive Hydration Monitoring",
-        "thumbnail": "img/projects/Hydration.jpg",
-        "date": "2013-Today",
-        "org": "<a href=\"http://research.microsoft.com/en-us/labs/redmond/default.aspx\">Microsoft Research Redmond</a>",
-        "summary": "This project is aimed at developing a non-invasive system to continuously monitor a person's \"hydration level\" throughout the day from a wearable device. The device uses bioimpedance spectroscopy in order to get a continuous measure of hydration.",
-        "description": "To realize such a device, I hypothesize that bioimpedance spectroscopy can be used. Bioimpedance analysis has been widely used in consumer body composition scales for determining an estimate for a person's fat content. In clinical practice, these measurements have been shown to be accurate <i>assuming constant hydration level</i>. My hypothesis is that on the time-scale of minutes to hours, a person's body composition doesn't change significantly, and therefore variations in bioimpedance are due to changes in hydration. I have built custom analog circuitry to accurately perform bioimpedance spectroscopy, and am currently conducting experiments to test my hypothesis"
-    },
+    // {
+    //     "key": "hydration",
+    //     "title": "Continuous, Non-Invasive Hydration Monitoring",
+    //     "thumbnail": "img/projects/Hydration.jpg",
+    //     "date": "2013-Today",
+    //     "org": "<a href=\"http://research.microsoft.com/en-us/labs/redmond/default.aspx\">Microsoft Research Redmond</a>",
+    //     "summary": "This project is aimed at developing a non-invasive system to continuously monitor a person's \"hydration level\" throughout the day from a wearable device. The device uses bioimpedance spectroscopy in order to get a continuous measure of hydration.",
+    //     "description": "To realize such a device, I hypothesize that bioimpedance spectroscopy can be used. Bioimpedance analysis has been widely used in consumer body composition scales for determining an estimate for a person's fat content. In clinical practice, these measurements have been shown to be accurate <i>assuming constant hydration level</i>. My hypothesis is that on the time-scale of minutes to hours, a person's body composition doesn't change significantly, and therefore variations in bioimpedance are due to changes in hydration. I have built custom analog circuitry to accurately perform bioimpedance spectroscopy, and am currently conducting experiments to test my hypothesis"
+    // },
     {
         "key": "snupi",
         "title": "SNUPI: Ultra-Low-Power, General-Purpose Wireless Sensing Platform",
         "thumbnail": "img/projects/SNUPI.jpg",
-        "date": "2009-Today",
+        "date": "2009-2014",
         "org": "<a href=\"http://ubicomplab.cs.washington.edu/\">UW UbiComp Lab</a>, <a href=\"http://ubicomp.cc.gatech.edu/\">Georgia Tech UbiComp Group</a>",
         "summary": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. This technology allows sensor nodes to operate for decades on a single coin cell battery, while still achieving whole-building range!",
         "description": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. In a traditional wireless sensor network, data is communicated over the air between the sensor nodes and a base station, perhaps after making several hops between the nodes. Using this over-the-air wireless communication, the battery life is typically limited by the high transmit power required for wireless signals to reach the receiver. In contrast, SNUPI uses a <i>powerline-coupled</i> wireless channel rather than an <i>over-the-air</i> channel. In a SNUPI network, the base station receiver is plugged into the power line, and uses the entire power line network as its receiving antenna. Therefore, to communicate data to the base station, sensor nodes can wirelessly transmit at extremely low power in order for their wireless signals to couple in the near-field onto the nearest power line, and then travel through the power line infrastructure like a transmission line to the base station receiver. Since the transmit power is so low, SNUPI nodes can operate for decades on a single coin cell battery! In addition, these networks have whole-building range because the power lines reach to all locations within the building.<br/><br/>Since there are many indoor applications of home monitoring, security, and automation, my collaborators and I co-founded a startup company called <a href=\"http://www.snupi.com\">SNUPI Technologies</a> to commercialize this work. The startup company has grown rapidly, and is now offering its first consumer product: <a href=\"http://www.wally-home.com\">WallyHome</a>. WallyHome consists of many sensors that are distributed around the house to continuously monitor for water leaks and measure temperature and humidity in order to alert customers of leaks and potential mold within their homes. In the future, we will continue to produce more easy-to-install sensor products using the SNUPI platform that are geared toward smart applications including home safety, security, automation, and peace of mind.",
