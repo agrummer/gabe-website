@@ -35,6 +35,21 @@ $(function () {
 
     $('body').scrollspy({ target: '#navbar' });
     
+    // automatically color timeline events based on current date
+    // get today's date (but remove everything other than the date)
+    var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today.setMilliseconds(0);
+    // set 'past' class for timeline events in the past
+    $('.timeline').children('dl').each(function() {
+        var endDate = new Date($(this).children('dt').attr('data-end-date'));
+        if (today > endDate) {
+            $(this).addClass('past');
+        }
+    });
+
     $('div[data-type="background"]').each(function () {
         var $bgobj = $(this);
      
