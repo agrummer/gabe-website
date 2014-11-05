@@ -661,8 +661,8 @@ var publicationsJSON = [
                 ],
                 "thumbUrl": "img/publications/Cohn_SEFS_ubicomp12.jpg",
                 "paperUrl": "pdf/Cohn_SEFS_ubicomp12.pdf",
-                "videoUrl": "http://youtu.be/8p9DkwWVmfI",
-                "dlUrl": "http://dl.acm.org/citation.cfm?id=2481356",
+                "videoUrl": "http://youtu.be/Q4EzGqmDEJ8",
+                "dlUrl": "http://dl.acm.org/citation.cfm?id=2370216.2370233",
                 "project": "sefs"
             },
             {
