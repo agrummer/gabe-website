@@ -1097,3 +1097,175 @@ var talksJSON = [
         "project": "antennacad"
     }
 ];
+
+
+/* New JSON structures */
+
+/* Projects JSON structure
+    The projects should appear in the order of the objects in the JSON structure.
+    Each project object contains the following:
+        id - string, for referencing this project in other JSON objects and the id of the <div>
+             the URL for the thumbnail will be "img/projects/<id>.jpg" where <id> is replaced with the id
+             always starts with proj_
+        title - string, title of Project to display
+        date - string, as it should appear on the page (not used for sorting)
+        shortDesc - string (with HTML), short description that is shown when the project is collapsed
+        longDesc - string (with HTML), long description that is shown when the project is expanded
+*/
+var projectsJSON_new = [
+    {
+        "id": "proj_snupi",
+        "title": "SNUPI: Ultra-Low-Power, General-Purpose Wireless Sensing Platform",
+        "date": "2009-2014",
+        "shortDesc": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. This technology allows sensor nodes to operate for decades on a single coin cell battery, while still achieving whole-building range!",
+        "longDesc": "SNUPI (<u>S</u>ensor <u>N</u>etwork <u>U</u>tilizing <u>P</u>owerline <u>I</u>nfrastructure) is an ultra-low-power wireless sensor network platform that leverages the power line infrastructure of the building and uses it as part of the communications channel. In a traditional wireless sensor network, data is communicated over the air between the sensor nodes and a base station, perhaps after making several hops between the nodes. Using this over-the-air wireless communication, the battery life is typically limited by the high transmit power required for wireless signals to reach the receiver. In contrast, SNUPI uses a <i>powerline-coupled</i> wireless channel rather than an <i>over-the-air</i> channel. In a SNUPI network, the base station receiver is plugged into the power line, and uses the entire power line network as its receiving antenna. Therefore, to communicate data to the base station, sensor nodes can wirelessly transmit at extremely low power in order for their wireless signals to couple in the near-field onto the nearest power line, and then travel through the power line infrastructure like a transmission line to the base station receiver. Since the transmit power is so low, SNUPI nodes can operate for decades on a single coin cell battery! In addition, these networks have whole-building range because the power lines reach to all locations within the building.<br/><br/>Since there are many indoor applications of home monitoring, security, and automation, my collaborators and I co-founded a startup company called <a href=\"http://www.snupi.com\">SNUPI Technologies</a> to commercialize this work. The startup company has grown rapidly, and is now offering its first consumer product: <a href=\"http://www.wally-home.com\">WallyHome</a>. WallyHome consists of many sensors that are distributed around the house to continuously monitor for water leaks and measure temperature and humidity in order to alert customers of leaks and potential mold within their homes. In the future, we will continue to produce more easy-to-install sensor products using the SNUPI platform that are geared toward smart applications including home safety, security, automation, and peace of mind."
+    }
+];
+
+/* Publications JSON structure
+    The publication should be grouped by the "type" tag, in the following order, with the following group titles:
+        "conference" - "Conference Publications"
+        "journal" - "Journal and Magazine Publications"
+        "workshop" - "Workshop Publications"
+        "thesis" - "Theses"
+        "other" - "Other Articles"
+        "report" - "Technical Reports"
+    Within each group, the publications should appear in the order of the objects in the JSON structure.
+    Each publication object contains the following:
+        id - string, for referencing this pub in other JSON objects and the id of the <div>
+             the URL for the thumbnail will be "img/publications/<id>.jpg" where <id> is replaced with the id
+             always starts with pub_
+        index - string, CV reference index that is displayed on the page
+        type - string, determines which category the publication is displayed in, must be from the list of types shown at the top of this comment block
+        link - URL, jump to this URL if the thumbnail or title is clicked. If empty, then the thumbnail and title are not clickable.
+        year - string, year of publication to display
+        authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
+        title - string, title of paper (clickable if link is not empty)
+        publication - string (with HTML), all text in the citation that appears after the title
+        acceptance - string, acceptance rate message to display. If empty, no acceptance rate is displayed.
+        links - an array of the following object. Links are to appear in the order listed
+            title - string, display text
+            type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+            url - string, URL of the link (use #proj_id if a project link)
+        relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project.
+*/
+var publicationsJSON_new = [
+    {
+        "id": "pub_C9",
+        "index": "C.9",
+        "type": "conference",
+        "link": "df/Chen_uTouch_chi13.pdf",
+        "year": "2013",
+        "authors": "Chen, K., <div class=\"authorHighlight\">Cohn, G.</div>, Gupta, S., Patel, S.N.",
+        "title": "uTouch: Sensing Touch Gestures on Unmodified LCDs",
+        "publication": "In the <em>Proceedings of CHI 2013</em> (April 27 - May 2, Paris, France), ACM, New York, 2013, pp. 2051-2054.",
+        "acceptance": "20% (392/1963)",
+        "links": [
+            {
+                "title": "paper",
+                "type": "doc",
+                "url": "df/Chen_uTouch_chi13.pdf"
+            },
+            {
+                "title": "video",
+                "type": "video",
+                "url": "http://youtu.be/8p9DkwWVmfI"
+            },
+            {
+                "title": "ACM Digital Library",
+                "type": "dl",
+                "url": "http://dl.acm.org/citation.cfm?id=2481356"
+            },
+            {
+                "title": "project info",
+                "type": "proj",
+                "url": "#proj_utouch"
+            }
+        ],
+        "relatedProjects": [ "proj_utouch" ]
+    }
+];
+
+/* Talks JSON structure
+    The talks should appear in the order of the objects in the JSON structure.
+    Each talk object contains the following:
+        id - string, for referencing this talk in other JSON objects and the id of the <div>
+             the URL for the thumbnail will be "img/talks/<id>.jpg" where <id> is replaced with the id
+             always starts with talk_
+        index - string, CV reference index that is displayed on the page
+        type - string, determines which category of the talk (not currently used).
+        link - URL, jump to this URL if the thumbnail or title is clicked. If empty, then the thumbnail and title are not clickable.
+        year - string, year of talk to display
+        sortDate - string in the form YYYY-MM-DD, not currently used, but could be used to sort talks by date
+        authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
+        title - string, title of talk (clickable if link is not empty)
+        publication - string (with HTML), all text in the citation that appears after the title
+        links - an array of the following object. Links are to appear in the order listed
+            title - string, display text
+            type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+            url - string, URL of the link (use #proj_id if a project link)
+        relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list talks for each project.
+        relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list talks for each publication.
+*/
+var talksJSON_new = [
+    {
+        "id": "talk_T11",
+        "index": "T.11",
+        "type": "invited",
+        "link": "",
+        "year": "2013",
+        "sortDate": "2013-11-05",
+        "authors": "<div class=\"authorHighlight\">Cohn, G.</div>",
+        "title": "The University of Washington Ubicomp Lab: A Research Overview",
+        "publication": "<em>Georgia Tech Invited Talk</em>, Atlanta, GA, 5 November 2013.",
+        "links": [
+        ],
+        "relatedProjects": [ ]
+    }
+];
+
+/* Awards JSON structure
+    Each award object contains the following:
+        shortName - string, short name of award to display in publications/talks section
+        longName - string, long name/description of award to display in projects section
+        sortDate - string in the form YYYY-MM-DD. Used to sort awards by date
+        displayDate - string, date to be displayed
+        relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list awards for each project.
+        relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list awards for each publication.
+        relatedTalks - an array of talk id (talk_id) strings. This allows the talks section of the page to list awards for each talk.
+*/
+var awardsJSON_new = [
+    {
+        "shortName": "Best Paper Award",
+        "longName": "Best Paper Award at Ubicomp 2012",
+        "sortDate": "2012-09-05",
+        "displayDate": "Sept. 2012",
+        "relatedProjects": [ "proj_sefs" ],
+        "relatedPublications": [ "pub_C8" ],
+        "relatedTalks": [ ]
+    }
+];
+
+/* Press JSON structure
+    Each press object contains the following:
+        title - string, title of the press article to display
+        author - string, author of the press article to display
+        publication - string, publication of the press article to display
+        sortDate - string in the form YYYY-MM-DD. Used to sort awards by date
+        displayDate - string, date to be displayed
+        subject - string, subject of the article to display as a heading in the "Featured Press" section
+        featured - boolean, if True include this press article in the "Featured Press" section
+        relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list press for each project.
+*/
+var pressJSON_new = [
+    {
+        "title": "Bright Idea: SNUPI Technologies & Wally",
+        "author": "John Levesque",
+        "publication": "Seattle Business Magazine",
+        "sortDate": "2014-03-00",
+        "displayDate": "March 2014",
+        "subject": "SNUPI Technologies",
+        "featured": true,
+        "relatedProjects": [ "proj_snupi" ]
+    }
+];
