@@ -1127,7 +1127,7 @@ var projectsJSON_new = [
         "conference" - "Conference Publications"
         "journal" - "Journal and Magazine Publications"
         "workshop" - "Workshop Publications"
-        "thesis" - "Theses"
+        "thesis" - "Thesis"
         "other" - "Other Articles"
         "report" - "Technical Reports"
     Within each group, the publications should appear in the order of the objects in the JSON structure.
