@@ -1137,12 +1137,12 @@ var projectsJSON_new = [
              always starts with pub_
         index - string, CV reference index that is displayed on the page
         type - string, determines which category the publication is displayed in, must be from the list of types shown at the top of this comment block
-        link - URL, jump to this URL if the thumbnail or title is clicked. If empty, then the thumbnail and title are not clickable.
+        link - string or NULL, jump to this URL if the thumbnail or title is clicked. If NULL, then the thumbnail and title are not clickable.
         year - string, year of publication to display
         authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
-        title - string, title of paper (clickable if link is not empty)
+        title - string, title of paper (clickable if link is not NULL)
         publication - string (with HTML), all text in the citation that appears after the title
-        acceptance - string, acceptance rate message to display. If empty, no acceptance rate is displayed.
+        acceptance - string or NULL, acceptance rate message to display. If NULL, no acceptance rate is displayed.
         links - an array of the following object. Links are to appear in the order listed
             title - string, display text
             type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
@@ -1194,11 +1194,11 @@ var publicationsJSON_new = [
              always starts with talk_
         index - string, CV reference index that is displayed on the page
         type - string, determines which category of the talk (not currently used).
-        link - URL, jump to this URL if the thumbnail or title is clicked. If empty, then the thumbnail and title are not clickable.
+        link - string or NULL, jump to this URL if the thumbnail or title is clicked. If NULL, then the thumbnail and title are not clickable.
         year - string, year of talk to display
         sortDate - string in the form YYYY-MM-DD, not currently used, but could be used to sort talks by date
         authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
-        title - string, title of talk (clickable if link is not empty)
+        title - string, title of talk (clickable if link is not NULL)
         publication - string (with HTML), all text in the citation that appears after the title
         links - an array of the following object. Links are to appear in the order listed
             title - string, display text
@@ -1212,7 +1212,7 @@ var talksJSON_new = [
         "id": "talk_T11",
         "index": "T.11",
         "type": "invited",
-        "link": "",
+        "link": null,
         "year": "2013",
         "sortDate": "2013-11-05",
         "authors": "<div class=\"authorHighlight\">Cohn, G.</div>",
