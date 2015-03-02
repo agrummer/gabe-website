@@ -1,2 +1,4 @@
 pdf
 video
+*.iml
+.idea
