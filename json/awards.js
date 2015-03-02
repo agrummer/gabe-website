@@ -28,6 +28,15 @@ var awardsJSON = [
         "relatedTalks": [ ]
     },
     {
+        "shortName": "Top Research Prize",
+        "longName": "Top Research Prize from Madrona Venture Group",
+        "sortDate": "2011-10-19",
+        "displayDate": "Oct. 2011",
+        "relatedProjects": [ "proj_humantenna" ],
+        "relatedPublications": [ ],
+        "relatedTalks": [ ]
+    },
+    {
         "shortName": "Best Paper Award",
         "longName": "Best Paper Award at CHI 2011",
         "sortDate": "2011-05-07",
@@ -55,12 +64,30 @@ var awardsJSON = [
         "relatedTalks": [ ]
     },
     {
-        "shortName": "Best Paper Nominee",
-        "longName": "Best Paper Nominee at Ubicomp 2010",
+        "shortName": "Runner-Up for the Top Research Prize",
+        "longName": "Runner-Up for the Top Research Prize from Madrona Venture Group",
+        "sortDate": "2010-10-27",
+        "displayDate": "Oct. 2010",
+        "relatedProjects": [ "proj_snupi" ],
+        "relatedPublications": [ ],
+        "relatedTalks": [ ]
+    },
+    {
+        "shortName": "Best Paper Nomination",
+        "longName": "Best Paper Nomination at Ubicomp 2010",
         "sortDate": "2010-09-26",
         "displayDate": "Sept. 2010",
         "relatedProjects": [ "proj_snupi" ],
         "relatedPublications": [ "pub_C2" ],
+        "relatedTalks": [ ]
+    },
+    {
+        "shortName": "Top Research Prize",
+        "longName": "Top Research Prize from Madrona Venture Group",
+        "sortDate": "2009-10-29",
+        "displayDate": "Oct. 2009",
+        "relatedProjects": [ "proj_gassense" ],
+        "relatedPublications": [ ],
         "relatedTalks": [ ]
     }
 ];
