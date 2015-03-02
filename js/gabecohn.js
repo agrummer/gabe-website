@@ -11,20 +11,19 @@ $(function () {
 //    });
 
     // detect and apply Internet Explorer (IE) class (for IE 9-11)
-    var isIE9 = !!navigator.userAgent.match(/MSIE 9\./);
+    var $body = $('body'),
+        isIE9 = !!navigator.userAgent.match(/MSIE 9\./),
+        isIE10 = !!navigator.userAgent.match(/MSIE 10\./),
+        isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
     if (isIE9) {
-        $('body').addClass("ie9");
-    }
-    var isIE10 = !!navigator.userAgent.match(/MSIE 10\./);
-    if (isIE10) {
-        $('body').addClass("ie10");
-    }
-    var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
-    if (isIE11) {
-        $('body').addClass("ie11");
+        $body.addClass("ie9");
+    } else if (isIE10) {
+        $body.addClass("ie10");
+    } else if (isIE11) {
+        $body.addClass("ie11");
     }
     if (isIE9 || isIE10 || isIE11) {
-        $('body').addClass("msie");
+        $body.addClass("msie");
     }
 
     renderProjects(projectsJSON);
@@ -33,7 +32,7 @@ $(function () {
 
     renderTalks(talksJSON);
 
-    $('body').scrollspy({ target: '#navbar' });
+    $body.scrollspy({ target: '#navbar' });
     
     // automatically color timeline events based on current date
     // get today's date (but remove everything other than the date)
