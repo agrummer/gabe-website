@@ -1,12 +1,12 @@
 /* Awards JSON structure
- Each award object contains the following:
- shortName - string, short name of award to display in publications/talks section
- longName - string, long name/description of award to display in projects section
- sortDate - string in the form YYYY-MM-DD. Used to sort awards by date
- displayDate - string, date to be displayed
- relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list awards for each project.
- relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list awards for each publication.
- relatedTalks - an array of talk id (talk_id) strings. This allows the talks section of the page to list awards for each talk.
+ *  Each award object contains the following:
+ *      shortName - string, short name of award to display in publications/talks section
+ *      longName - string, long name/description of award to display in projects section
+ *      sortDate - string in the form YYYY-MM-DD. Used to sort awards by date
+ *      displayDate - string, date to be displayed
+ *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list awards for each project.
+ *      relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list awards for each publication.
+ *      relatedTalks - an array of talk id (talk_id) strings. This allows the talks section of the page to list awards for each talk.
  */
 var awardsJSON = [
     {

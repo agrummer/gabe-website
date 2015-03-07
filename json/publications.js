@@ -1,31 +1,10 @@
-/* Publications JSON structure
- The publication should be grouped by the "type" tag, in the following order, with the following group titles:
-     "conference" - "Conference Publications"
-     "journal" - "Journal and Magazine Publications"
-     "workshop" - "Workshop Publications"
-     "thesis" - "Thesis"
-     "other" - "Other Articles"
-     "report" - "Technical Reports"
- Within each group, the publications should appear in the order of the objects in the JSON structure.
- Each publication object contains the following:
-     id - string, for referencing this pub in other JSON objects and the id of the <div>
-     the URL for the thumbnail will be "img/publications/<id>.jpg" where <id> is replaced with the id
-     always starts with pub_
-     index - string, CV reference index that is displayed on the page
-     type - string, determines which category the publication is displayed in, must be from the list of types shown at the top of this comment block
-     link - string or NULL, jump to this URL if the thumbnail or title is clicked. If NULL, then the thumbnail and title are not clickable.
-     year - string, year of publication to display // TODO - GRUMMER
-     authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
-     title - string, title of paper (clickable if link is not NULL)
-     publication - string (with HTML), all text in the citation that appears after the title
-     acceptance - string or NULL, acceptance rate message to display. If NULL, no acceptance rate is displayed.
-     links - an array of the following object. Links are to appear in the order listed
-         title - string, display text
-         type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
-         url - string, URL of the link (use #proj_id if a project link)
-     relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project. // TODO - GRUMMER
+/* Publication Type JSON structure
+ *  Defines the different types of publications and how to sort them.
+ *  Each type object contains the following:
+ *      name - the name of the type used in the "type" field of the projects JSON structure
+ *      displayName - name of group displayed on the page
+ *      sortOrder - order in which the groups are displayed on the page, low numbers first
  */
-
 var publicationTypesJSON = [
     {
         "name": "conference",
@@ -59,6 +38,27 @@ var publicationTypesJSON = [
     }
 ];
 
+/* Publications JSON structure
+ *  The publication should be grouped by the "type" tag, with the display name and order defined by the publicationTypesJSON structure
+ *  Within each group, the publications should appear in the order of the objects in the JSON structure.
+ *  Each publication object contains the following:
+ *      id - string, for referencing this pub in other JSON objects and the id of the <div>
+ *           the URL for the thumbnail will be "img/publications/<id>.jpg" where <id> is replaced with the id
+ *           always starts with pub_
+ *      index - string, CV reference index that is displayed on the page
+ *      type - string, determines which category the publication is displayed in, must be from the list of types described in publicationTypesJSON
+ *      link - string or NULL, jump to this URL if the thumbnail or title is clicked. If NULL, then the thumbnail and title are not clickable.
+ *      year - string, year of publication to display // TODO - GRUMMER
+ *      authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
+ *      title - string, title of paper (clickable if link is not NULL)
+ *      publication - string (with HTML), all text in the citation that appears after the title
+ *      acceptance - string or NULL, acceptance rate message to display. If NULL, no acceptance rate is displayed.
+ *      links - an array of the following object. Links are to appear in the order listed
+ *          title - string, display text
+ *          type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+ *          url - string, URL of the link (use #proj_id if a project link)
+ *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project. // TODO - GRUMMER
+ */
 var publicationsJSON = [
     {
         "id": "pub_C9",

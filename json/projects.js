@@ -1,13 +1,13 @@
 /* Projects JSON structure
- The projects should appear in the order of the objects in the JSON structure.
- Each project object contains the following:
- id - string, for referencing this project in other JSON objects and the id of the <div>
- the URL for the thumbnail will be "img/projects/<id>.jpg" where <id> is replaced with the id
- always starts with proj_
- title - string, title of Project to display
- date - string, as it should appear on the page (not used for sorting)
- shortDesc - string (with HTML), short description that is shown when the project is collapsed
- longDesc - string (with HTML), long description that is shown when the project is expanded
+ *  The projects should appear in the order of the objects in the JSON structure.
+ *  Each project object contains the following:
+ *      id - string, for referencing this project in other JSON objects and the id of the <div>
+ *           the URL for the thumbnail will be "img/projects/<id>.jpg" where <id> is replaced with the id
+ *           always starts with proj_
+ *      title - string, title of Project to display
+ *      date - string, as it should appear on the page (not used for sorting)
+ *      shortDesc - string (with HTML), short description that is shown when the project is collapsed
+ *      longDesc - string (with HTML), long description that is shown when the project is expanded
  */
 var projectsJSON = [
     {
