@@ -269,29 +269,29 @@ var renderProjects = function(jsonData) {
         '                <div class="row">' +
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ longDesc }}}</div>' +
+        '                        {{#publications}}' +
+        '                            <div class="badge-publication"><span class="glyphicon glyphicon-file"></span> {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div>' +
+        '                        {{/publications}}' +
         '                        {{#links}}' +
-        '                            <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
+        '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</a></div>' +
         '                        {{/links}}' +
         '                    </div>' +
         '                    <div class="col-md-4">' +
         '                        {{#awards}}' +
         '                            <div class="badge-award" title="{{ longName }}{{#displayDate}}, {{ displayDate }}{{/displayDate}}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
         '                        {{/awards}}' +
-        '                        {{#publications}}' +
-        '                            <div class="badge-publication"><a href="#{{ id }}"><span class="glyphicon glyphicon-file"></span> {{ title }}</a></div>' +
-        '                        {{/publications}}' +
         '                        {{#hasPress}}' +
         '                            <div class="projects-press-heading"><h5>Featured in</h5></div>' +
         '                            <div class="projects-press">' +
         '                                {{#press}}' +
-        '                                    <div class="projects-press-item" title="{{ displayDate }}">"{{ title }}" - {{ publication }}</div>' +
+        '                                    <div class="projects-press-item" title="{{ displayDate }}"><strong>{{ title }}</strong> - {{ publication }}</div>' +
         '                                {{/press}}' +
         '                            </div>' +
         '                        {{/hasPress}}' +
         '                        {{#permalink}}' +
-        '                        <div class="projects-permalink" title="{{ permalink }}"> ' +
-        '                            <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
-        '                        </div>' +
+        '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
+        '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
+        '                            </div>' +
         '                        {{/permalink}}' +
         '                    </div>' +
         '                </div>' +
