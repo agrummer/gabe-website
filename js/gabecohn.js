@@ -270,7 +270,7 @@ var renderProjects = function(jsonData) {
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ longDesc }}}</div>' +
         '                        {{#publications}}' +
-        '                            <div class="badge-publication"><span class="glyphicon glyphicon-file"></span> {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div>' +
+        '                            <div class="projects-publication-item"><span class="glyphicon glyphicon-file"></span> {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div>' +
         '                        {{/publications}}' +
         '                        {{#links}}' +
         '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</a></div>' +
