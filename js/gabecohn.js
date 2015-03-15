@@ -361,7 +361,7 @@ var renderPublications = function(typesJsonData, jsonData) {
         '                <img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/></a>' +
         '            </div>' +
         '            <div class="col-md-6">' +
-        '                <div class="publications-date">{{{ date }}}</div>' +
+        '                <div class="publications-date">{{{ year }}}</div>' +
         '                {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}' +
         '                {{#acceptanceRate}}' +
         '                <div class="publications-acceptance">' +
