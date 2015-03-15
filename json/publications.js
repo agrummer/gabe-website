@@ -57,7 +57,7 @@ var publicationTypesJSON = [
  *          title - string, display text
  *          type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
  *          url - string, URL of the link (use #proj_id if a project link)
- *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project. // TODO - GRUMMER
+ *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project.
  */
 var publicationsJSON = [
     {
