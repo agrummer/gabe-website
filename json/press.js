@@ -19,9 +19,9 @@ var pressJSON = [
         "author": "John Levesque",
         "publication": "Seattle Business Magazine",
         "sortDate": "2014-03-00",
-        "displayDate": "March 2014",
-        "subject": "SNUPI Technologies",
+        "displayDate": "Mar 2014",
         "featured": true,
+        "primaryProject": "proj_snupi",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]

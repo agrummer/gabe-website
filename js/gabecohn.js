@@ -32,6 +32,8 @@ $(function () {
 
     renderTalks(talksJSON);
 
+    renderFeaturedPress(pressJSON);
+
     $body.scrollspy({ target: '#navbar' });
     
     // automatically color timeline events based on current date
@@ -278,13 +280,13 @@ var renderProjects = function(jsonData) {
         '                    </div>' +
         '                    <div class="col-md-4">' +
         '                        {{#awards}}' +
-        '                            <div class="badge-award" title="{{ longName }}{{#displayDate}}, {{ displayDate }}{{/displayDate}}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                        {{/awards}}' +
         '                        {{#hasPress}}' +
         '                            <div class="projects-press-heading"><h5>Featured in</h5></div>' +
         '                            <div class="projects-press">' +
         '                                {{#press}}' +
-        '                                    <div class="projects-press-item" title="{{ displayDate }}"><strong>{{ title }}</strong> - {{ publication }}</div>' +
+        '                                    <div class="projects-press-item" title="{{ title }}">{{ publication }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                                {{/press}}' +
         '                            </div>' +
         '                        {{/hasPress}}' +
@@ -302,6 +304,7 @@ var renderProjects = function(jsonData) {
         '</div>';
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display projects data because the container could not be found on the page.");
         return;
     }
 
@@ -420,6 +423,7 @@ var renderPublications = function(typesJsonData, jsonData) {
 
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display publications data because the container could not be found on the page.");
         return;
     }
 
@@ -535,11 +539,12 @@ var renderTalks = function(jsonData) {
 
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display talks data because the container could not be found on the page.");
         return;
     }
 
     renderedHTML = '';
-    for(talkId = 0; talkId < jsonData.length; talkId++) {
+    for (talkId = 0; talkId < jsonData.length; talkId++) {
         talk = jsonData[talkId];
 
         if (talk.links) {
@@ -547,6 +552,101 @@ var renderTalks = function(jsonData) {
         }
 
         renderedHTML += Mustache.render(htmlTemplate, talk);
+    }
+
+    $parent.append(renderedHTML);
+};
+
+var renderFeaturedPress = function(jsonData) {
+    var $parent = $(".press-parent"),
+        htmlTemplate,
+        htmlRowStartTemplate,
+        htmlRowEndTemplate,
+        htmlSourceStartTemplate,
+        htmlSourceEndTemplate,
+        pressProjectGroup,
+        PressProjectGroups = [],
+        pressSourceGroup,
+        renderedHTML;
+
+    htmlRowStartTemplate = '' +
+        '<div class="row press-subject">' +
+        '    <a href="#{{ id }}"><h3>{{ title }}</h3></a>';
+    htmlRowEndTemplate = '</div>';
+
+    htmlSourceStartTemplate = '' +
+        '<div class="press-source">' +
+        '    <h4>{{ name }}</h4>';
+    htmlSourceEndTemplate = '</div>';
+
+    htmlTemplate = '' +
+        '        <div class="press">' +
+        '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
+        '        </div>';
+
+
+    if(!$parent || $parent.length === 0) {
+        console.log("Unable to display press data because the container could not be found on the page.");
+        return;
+    }
+
+    // Group press by project and source
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].featured && jsonData[i].primaryProject) {
+            pressProjectGroup = getArrayElementWithAttribute(PressProjectGroups, {"name":"projectId", "value":jsonData[i].primaryProject});
+            if (pressProjectGroup) {
+                if (pressProjectGroup.sources) {
+                    pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
+                    if (source) {
+                        pressProjectGroup.sources[jsonData[i].publication].rows.push(jsonData[i]);
+                    } else {
+                        pressSourceGroup = {
+                            "name": jsonData[i].publication,
+                            "rows": [jsonData[i]]
+                        };
+                        pressProjectGroup.sources.push(pressSourceGroup);
+                    }
+                }
+            } else {
+                pressProjectGroup = {
+                    "projectId": jsonData[i].primaryProject,
+                    "sources":[
+                        {
+                            "name": jsonData[i].publication,
+                            "rows": [jsonData[i]]
+                        }
+                    ]
+                };
+                PressProjectGroups.push(pressProjectGroup);
+            }
+        }
+    }
+
+    // TODO - GRUMMER - Sort press by dates
+
+
+    // Render the HTML for the page
+    renderedHTML = '';
+
+    for (var k = 0; k < PressProjectGroups.length; k++) {
+        var project = getArrayElementWithAttribute(projectsJSON, {"name":"id", "value":PressProjectGroups[k].projectId}),
+            sources = PressProjectGroups[k].sources;
+
+        renderedHTML += Mustache.render(htmlRowStartTemplate, project);
+
+        for (var j = 0; j < sources.length; j += 1) {
+            var source = sources[j];
+            renderedHTML += Mustache.render(htmlSourceStartTemplate, source);
+
+            for (var p = 0; p < source.rows.length; p += 1) {
+                var press = source.rows[p];
+                renderedHTML += Mustache.render(htmlTemplate, press);
+            }
+
+            renderedHTML += Mustache.render(htmlSourceEndTemplate, source);
+        }
+
+        renderedHTML += Mustache.render(htmlRowEndTemplate, project);
     }
 
     $parent.append(renderedHTML);
