@@ -571,12 +571,12 @@ var renderFeaturedPress = function(jsonData) {
 
     htmlRowStartTemplate = '' +
         '<div class="row press-subject">' +
-        '    <a href="#{{ id }}"><h3>{{ title }}</h3></a>';
+        '    <a href="#{{ id }}"><h4>{{ title }}</h4></a>';
     htmlRowEndTemplate = '</div>';
 
     htmlSourceStartTemplate = '' +
         '<div class="press-source">' +
-        '    <h4>{{ name }}</h4>';
+        '    <h5>{{ name }}</h5>';
     htmlSourceEndTemplate = '</div>';
 
     htmlTemplate = '' +
