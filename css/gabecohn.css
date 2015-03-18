@@ -405,15 +405,15 @@ h1 .trail{
 }
 
 .section-projects .projects-project .projects-description{
-    margin-bottom:10px;
+    margin-bottom:30px;
 }
 
 .section-projects .projects-project .projects-press-heading h5{
     font-weight: bold;
 }
 
-.section-projects .projects-project .projects-press{
-    font-size: 9pt;
+.section-projects .projects-press-item {
+    font-size: 8pt;
     margin-bottom: 10px;
 }
 
@@ -427,6 +427,11 @@ h1 .trail{
 
 .section-projects .projects-project .projects-award-count {
     margin-bottom: 5px;
+}
+
+.section-projects .projects-project .projects-publication-item {
+    font-size: 8pt;
+    margin-bottom: 15px;
 }
 
 .section-projects .projects-project .projects-publication-count {

@@ -32,6 +32,8 @@ $(function () {
 
     renderTalks(talksJSON);
 
+    renderFeaturedPress(pressJSON);
+
     $body.scrollspy({ target: '#navbar' });
     
     // automatically color timeline events based on current date
@@ -127,9 +129,11 @@ var handleAnchor = function(anchor) {
     }
 
     // adjust for page offset when jumping to page anchors
-    $('html, body').animate({
-        scrollTop: ($target.offset().top - NAVBAR_VERTICAL_OFFSET)
-    }, 500);
+    if ($target && $target.length > 0) {
+        $('html, body').animate({
+            scrollTop: ($target.offset().top - NAVBAR_VERTICAL_OFFSET)
+        }, 500);
+    }
 
     // expand any collapsed elements
     if($project) {
@@ -162,18 +166,43 @@ var addIconsToLinks = function(links) {
 
 // Helper method to find an element within an array which has an attribute of a specified name and value
 var getArrayElementWithAttribute = function(array, nameValue) {
-    for (var i = 0; i < array.length; i += 1) {
-        if (array[i] && array[i][nameValue.name] && array[i][nameValue.name] === nameValue.value) {
-            return array[i];
+    if (array && nameValue) {
+        for (var i = 0; i < array.length; i += 1) {
+            if (array[i] && array[i][nameValue.name] && array[i][nameValue.name] === nameValue.value) {
+                return array[i];
+            }
         }
+    } else {
+        console.log("ERROR: Must provide valid array and name-value pair to lookup element in array. array = " + array + ", nameValue = " + nameValue);
     }
     return undefined;
+};
+
+var getArrayElementsRelatedToProject = function(array, projectId) {
+    var results = [];
+
+    if (array && projectId) {
+        for (var i = 0; i < array.length; i += 1) {
+            if (array[i].relatedProjects) {
+                for (var k = 0; k < array[i].relatedProjects.length; k += 1) {
+                    if (array[i].relatedProjects[k] === projectId) {
+                        results.push(array[i]);
+                    }
+                }
+            }
+        }
+    } else {
+        console.log("ERROR: Must provide valid array and projectId to lookup related items for project. array = " + array + ", projectId = " + projectId);
+    }
+
+    return results;
 };
 
 var renderProjects = function(jsonData) {
     var $parent = $(".projects-parent"),
         projectTemplate,
         projectJSON,
+        p,
         projectId,
         renderedHTML;
 
@@ -191,11 +220,11 @@ var renderProjects = function(jsonData) {
 
     projectTemplate = '' +
         '<div class="projects-anchor">' +
-        '    <a name="{{ key }}"></a>' +
+        '    <a name="{{ id }}"></a>' +
         '</div>' +
-        '<div id="project-{{ key }}" class="projects-project panel-group">' +
+        '<div id="project-{{ id }}" class="projects-project panel-group">' +
         '<div class="panel panel-default">' +
-        '    <a data-toggle="collapse" data-parent="#project-{{ key }}" href="#project-{{ key }}-body">' +
+        '    <a data-toggle="collapse" data-parent="#project-{{ id }}" href="#project-{{ id }}-body">' +
         '        <div class="panel-heading">' +
         '            <div class="container">' +
         '                <div class="row">' +
@@ -236,35 +265,35 @@ var renderProjects = function(jsonData) {
         '            </div>' +
         '        </div>' +
         '    </a>' +
-        '    <div id="project-{{ key }}-body" class="panel-collapse collapse">' +
+        '    <div id="project-{{ id }}-body" class="panel-collapse collapse">' +
         '        <div class="panel-body">' +
         '            <div class="container">' +
         '                <div class="row">' +
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ longDesc }}}</div>' +
         '                        {{#publications}}' +
-        '                        <div class="badge-publication"><span class="glyphicon glyphicon-file"></span> {{{ . }}}</div>' +
+        '                            <div class="projects-publication-item"><span class="glyphicon glyphicon-file"></span> {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div>' +
         '                        {{/publications}}' +
-        '                        {{#videos}}' +
-        '                        <div class="badge-video"><span class="glyphicon glyphicon-film"></span> {{{ . }}}</div>' +
-        '                        {{/videos}}' +
+        '                        {{#links}}' +
+        '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</a></div>' +
+        '                        {{/links}}' +
         '                    </div>' +
         '                    <div class="col-md-4">' +
         '                        {{#awards}}' +
-        '                        <div class="badge-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
+        '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                        {{/awards}}' +
         '                        {{#hasPress}}' +
-        '                        <div class="projects-press-heading"><h5>Featured in</h5></div>' +
-        '                        <div class="projects-press">' +
-        '                            {{#press}}' +
-        '                            <div class="projects-press-item">{{{ . }}}</div>' +
-        '                            {{/press}}' +
-        '                        </div>' +
+        '                            <div class="projects-press-heading"><h5>Featured in</h5></div>' +
+        '                            <div class="projects-press">' +
+        '                                {{#press}}' +
+        '                                    <div class="projects-press-item" title="{{ title }}">{{ publication }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
+        '                                {{/press}}' +
+        '                            </div>' +
         '                        {{/hasPress}}' +
         '                        {{#permalink}}' +
-        '                        <div class="projects-permalink" title="{{ permalink }}"> ' +
-        '                            <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
-        '                        </div>' +
+        '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
+        '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
+        '                            </div>' +
         '                        {{/permalink}}' +
         '                    </div>' +
         '                </div>' +
@@ -275,38 +304,48 @@ var renderProjects = function(jsonData) {
         '</div>';
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display projects data because the container could not be found on the page.");
         return;
     }
 
     renderedHTML = '';
-    for(projectId = 0; projectId < jsonData.length; projectId++) {
-        projectJSON = jsonData[projectId];
+    for(p = 0; p < jsonData.length; p++) {
+        projectJSON = jsonData[p];
+        projectId = projectJSON["id"];
 
-        if(projectJSON["key"]) {
-            projectJSON["permalink"] = "http://www.gabeacohn.com/#" + projectJSON["key"];
+        // Create permalink
+        if(projectId) {
+            projectJSON["permalink"] = "http://www.gabeacohn.com/#" + projectId;
         }
-        if(projectJSON["awards"]) {
-            projectJSON["awardCount"] = projectJSON["awards"].length + " award";
-            if(projectJSON["awards"].length > 1){
+
+        // Add related awards
+        var awards = getArrayElementsRelatedToProject(awardsJSON, projectId);
+        if(awards.length > 0) {
+            projectJSON["awards"] = awards;
+            projectJSON["awardCount"] = awards.length + " award";
+            if(awards.length > 1){
                 projectJSON["awardCount"] += "s";
             }
         }
-        if(projectJSON["publications"]) {
-            projectJSON["publicationCount"] = projectJSON["publications"].length + " publication";
-            if(projectJSON["publications"].length > 1){
+
+        // Add related publications
+        var publications = getArrayElementsRelatedToProject(publicationsJSON, projectId);
+        if(publications.length > 0) {
+            projectJSON["publications"] = publications;
+            projectJSON["publicationCount"] = publications.length + " publication";
+            if(publications.length > 1){
                 projectJSON["publicationCount"] += "s";
             }
         }
-        if(projectJSON["videos"]) {
-            projectJSON["videoCount"] = projectJSON["videos"].length + " video";
-            if(projectJSON["videos"].length > 1){
-                projectJSON["videoCount"] += "s";
-            }
-        }
-        if(projectJSON["press"]) {
-            projectJSON["hasPress"] = projectJSON["press"].length;
+
+        // Add related press
+        var press = getArrayElementsRelatedToProject(pressJSON, projectId);
+        if(press.length > 0) {
+            projectJSON["press"] = press;
+            projectJSON["hasPress"] = press.length;
         }
 
+        // Add appropriate icons to links
         if (projectJSON.links) {
             projectJSON.links = addIconsToLinks(projectJSON.links);
         }
@@ -355,13 +394,16 @@ var renderPublications = function(typesJsonData, jsonData) {
         '</div>';
 
     htmlTemplate = '' +
+        '        <div class="publications-anchor">' +
+        '            <a name="{{ id }}"></a>' +
+        '        </div>' +
         '        <div class="publication row">' +
         '            <div class="index col-md-1" id="publication-{{ index }}">{{ index }}</div>' +
         '            <div class="col-md-2"><a href="{{ link }}">' +
         '                <img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/></a>' +
         '            </div>' +
         '            <div class="col-md-6">' +
-        '                <div class="publications-date">{{{ date }}}</div>' +
+        '                <div class="publications-date">{{{ year }}}</div>' +
         '                {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}' +
         '                {{#acceptanceRate}}' +
         '                <div class="publications-acceptance">' +
@@ -381,6 +423,7 @@ var renderPublications = function(typesJsonData, jsonData) {
 
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display publications data because the container could not be found on the page.");
         return;
     }
 
@@ -473,6 +516,9 @@ var renderTalks = function(jsonData) {
         renderedHTML;
 
     htmlTemplate = '' +
+        '        <div class="talks-anchor">' +
+        '            <a name="{{ id }}"></a>' +
+        '        </div>' +
         '        <div id="{{ id }}" class="talk row">' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
@@ -493,11 +539,12 @@ var renderTalks = function(jsonData) {
 
 
     if(!$parent || $parent.length === 0) {
+        console.log("Unable to display talks data because the container could not be found on the page.");
         return;
     }
 
     renderedHTML = '';
-    for(talkId = 0; talkId < jsonData.length; talkId++) {
+    for (talkId = 0; talkId < jsonData.length; talkId++) {
         talk = jsonData[talkId];
 
         if (talk.links) {
@@ -505,6 +552,101 @@ var renderTalks = function(jsonData) {
         }
 
         renderedHTML += Mustache.render(htmlTemplate, talk);
+    }
+
+    $parent.append(renderedHTML);
+};
+
+var renderFeaturedPress = function(jsonData) {
+    var $parent = $(".press-parent"),
+        htmlTemplate,
+        htmlRowStartTemplate,
+        htmlRowEndTemplate,
+        htmlSourceStartTemplate,
+        htmlSourceEndTemplate,
+        pressProjectGroup,
+        PressProjectGroups = [],
+        pressSourceGroup,
+        renderedHTML;
+
+    htmlRowStartTemplate = '' +
+        '<div class="row press-subject">' +
+        '    <a href="#{{ id }}"><h4>{{ title }}</h4></a>';
+    htmlRowEndTemplate = '</div>';
+
+    htmlSourceStartTemplate = '' +
+        '<div class="press-source">' +
+        '    <h5>{{ name }}</h5>';
+    htmlSourceEndTemplate = '</div>';
+
+    htmlTemplate = '' +
+        '        <div class="press">' +
+        '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
+        '        </div>';
+
+
+    if(!$parent || $parent.length === 0) {
+        console.log("Unable to display press data because the container could not be found on the page.");
+        return;
+    }
+
+    // Group press by project and source
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].featured && jsonData[i].primaryProject) {
+            pressProjectGroup = getArrayElementWithAttribute(PressProjectGroups, {"name":"projectId", "value":jsonData[i].primaryProject});
+            if (pressProjectGroup) {
+                if (pressProjectGroup.sources) {
+                    pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
+                    if (source) {
+                        pressProjectGroup.sources[jsonData[i].publication].rows.push(jsonData[i]);
+                    } else {
+                        pressSourceGroup = {
+                            "name": jsonData[i].publication,
+                            "rows": [jsonData[i]]
+                        };
+                        pressProjectGroup.sources.push(pressSourceGroup);
+                    }
+                }
+            } else {
+                pressProjectGroup = {
+                    "projectId": jsonData[i].primaryProject,
+                    "sources":[
+                        {
+                            "name": jsonData[i].publication,
+                            "rows": [jsonData[i]]
+                        }
+                    ]
+                };
+                PressProjectGroups.push(pressProjectGroup);
+            }
+        }
+    }
+
+    // TODO - GRUMMER - Sort press by dates
+
+
+    // Render the HTML for the page
+    renderedHTML = '';
+
+    for (var k = 0; k < PressProjectGroups.length; k++) {
+        var project = getArrayElementWithAttribute(projectsJSON, {"name":"id", "value":PressProjectGroups[k].projectId}),
+            sources = PressProjectGroups[k].sources;
+
+        renderedHTML += Mustache.render(htmlRowStartTemplate, project);
+
+        for (var j = 0; j < sources.length; j += 1) {
+            var source = sources[j];
+            renderedHTML += Mustache.render(htmlSourceStartTemplate, source);
+
+            for (var p = 0; p < source.rows.length; p += 1) {
+                var press = source.rows[p];
+                renderedHTML += Mustache.render(htmlTemplate, press);
+            }
+
+            renderedHTML += Mustache.render(htmlSourceEndTemplate, source);
+        }
+
+        renderedHTML += Mustache.render(htmlRowEndTemplate, project);
     }
 
     $parent.append(renderedHTML);
