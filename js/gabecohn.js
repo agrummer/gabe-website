@@ -558,14 +558,14 @@ var renderTalks = function(jsonData) {
 };
 
 var renderFeaturedPress = function(jsonData) {
-    var $parent = $(".press-parent"),
+    var i, $parent = $(".press-parent"),
         htmlTemplate,
         htmlRowStartTemplate,
         htmlRowEndTemplate,
         htmlSourceStartTemplate,
         htmlSourceEndTemplate,
         pressProjectGroup,
-        PressProjectGroups = [],
+        pressProjectGroups = [],
         pressSourceGroup,
         renderedHTML;
 
@@ -591,14 +591,14 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     // Group press by project and source
-    for (var i = 0; i < jsonData.length; i++) {
+    for (i = 0; i < jsonData.length; i++) {
         if (jsonData[i].featured && jsonData[i].primaryProject) {
-            pressProjectGroup = getArrayElementWithAttribute(PressProjectGroups, {"name":"projectId", "value":jsonData[i].primaryProject});
+            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"projectId", "value":jsonData[i].primaryProject});
             if (pressProjectGroup) {
                 if (pressProjectGroup.sources) {
                     pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
-                    if (source) {
-                        pressProjectGroup.sources[jsonData[i].publication].rows.push(jsonData[i]);
+                    if (pressSourceGroup) {
+                        pressSourceGroup.rows.push(jsonData[i]);
                     } else {
                         pressSourceGroup = {
                             "name": jsonData[i].publication,
@@ -617,20 +617,30 @@ var renderFeaturedPress = function(jsonData) {
                         }
                     ]
                 };
-                PressProjectGroups.push(pressProjectGroup);
+                pressProjectGroups.push(pressProjectGroup);
             }
         }
     }
 
-    // TODO - GRUMMER - Sort press by dates
-
+    for (i = 0; i < pressProjectGroups.length; i++) {
+        for (var s = 0; s < pressProjectGroups[i].sources.length; s++) {
+            pressProjectGroups[i].sources[s].rows.sort(function(a, b){
+                if (a.sortDate > b.sortDate) {
+                    return 1;
+                } else if (a.sortDate < b.sortDate) {
+                    return -1;
+                }
+                return 0;
+            });
+        }
+    }
 
     // Render the HTML for the page
     renderedHTML = '';
 
-    for (var k = 0; k < PressProjectGroups.length; k++) {
-        var project = getArrayElementWithAttribute(projectsJSON, {"name":"id", "value":PressProjectGroups[k].projectId}),
-            sources = PressProjectGroups[k].sources;
+    for (var k = 0; k < pressProjectGroups.length; k++) {
+        var project = getArrayElementWithAttribute(projectsJSON, {"name":"id", "value":pressProjectGroups[k].projectId}),
+            sources = pressProjectGroups[k].sources;
 
         renderedHTML += Mustache.render(htmlRowStartTemplate, project);
 
