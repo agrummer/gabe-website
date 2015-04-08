@@ -592,8 +592,8 @@ var renderFeaturedPress = function(jsonData) {
 
     // Group press by project and source
     for (i = 0; i < jsonData.length; i++) {
-        if (jsonData[i].featured && jsonData[i].primaryProject) {
-            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"projectId", "value":jsonData[i].primaryProject});
+        if (jsonData[i].featured) {
+            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"group", "value":jsonData[i].featured});
             if (pressProjectGroup) {
                 if (pressProjectGroup.sources) {
                     pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
@@ -609,7 +609,7 @@ var renderFeaturedPress = function(jsonData) {
                 }
             } else {
                 pressProjectGroup = {
-                    "projectId": jsonData[i].primaryProject,
+                    "group": jsonData[i].featured,
                     "sources":[
                         {
                             "name": jsonData[i].publication,
