@@ -275,7 +275,7 @@ section{
 }
 
 .section-body .index{
-    color: rgb(231,238,244);
+    color: rgb(182,201,217);
     letter-spacing: 2px;
     font-weight:bold;
     font-size:18pt;
@@ -310,7 +310,7 @@ section{
 }
 
 h1 .trail{
-    color:rgb(237,237,237);
+    color:rgb(177,179,186);
 }
 
 .section-footer{
@@ -387,7 +387,7 @@ h1 .trail{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-projects .projects-project .projects-action-link{
@@ -460,7 +460,7 @@ h1 .trail{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-publications .publications-award{
@@ -486,7 +486,7 @@ h1 .trail{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 /* TEACHING */
@@ -502,24 +502,17 @@ h1 .trail{
 
 /* PRESS */
 
-.section-press .press-highlight{
-    margin-top:5px;
-    margin-bottom:20px;
+.section-press .press-featured-date{
+    display: inline;
 }
 
-.section-press .press-highlight .press-date{
-    font-size: 8pt;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:lightgrey;
-}
-
-.section-press .press-highlight .press-project{
+.section-press .press-featured-subject{
+    margin-bottom: 20px;
     font-size: 16pt;
 }
 
-.section-press .press-highlight .press-source{
-    font-size: 10pt;
+.section-press .press-featured-source{
+    font-size: 9pt;
 }
 
 /* PRESS FULL-PAGE */
@@ -533,7 +526,7 @@ h1 .trail{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-press .press-article .press-author{
