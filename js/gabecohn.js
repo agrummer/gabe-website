@@ -570,17 +570,17 @@ var renderFeaturedPress = function(jsonData) {
         renderedHTML;
 
     htmlRowStartTemplate = '' +
-        '<div class="row press-subject">' +
-        '    <a href="#{{ id }}"><h4>{{ title }}</h4></a>';
+        '<div class="row press-featured-subject">' +
+        '    <h4>{{ subject }}</h4>';
     htmlRowEndTemplate = '</div>';
 
     htmlSourceStartTemplate = '' +
-        '<div class="press-source">' +
+        '<div class="press-featured-source">' +
         '    <h5>{{ name }}</h5>';
     htmlSourceEndTemplate = '</div>';
 
     htmlTemplate = '' +
-        '        <div class="press">' +
+        '        <div class="press-featured-date">' +
         '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
         '        </div>';
 
@@ -593,7 +593,7 @@ var renderFeaturedPress = function(jsonData) {
     // Group press by project and source
     for (i = 0; i < jsonData.length; i++) {
         if (jsonData[i].featured) {
-            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"group", "value":jsonData[i].featured});
+            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"subject", "value":jsonData[i].featured});
             if (pressProjectGroup) {
                 if (pressProjectGroup.sources) {
                     pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
@@ -609,7 +609,7 @@ var renderFeaturedPress = function(jsonData) {
                 }
             } else {
                 pressProjectGroup = {
-                    "group": jsonData[i].featured,
+                    "subject": jsonData[i].featured,
                     "sources":[
                         {
                             "name": jsonData[i].publication,
@@ -639,10 +639,9 @@ var renderFeaturedPress = function(jsonData) {
     renderedHTML = '';
 
     for (var k = 0; k < pressProjectGroups.length; k++) {
-        var project = getArrayElementWithAttribute(projectsJSON, {"name":"id", "value":pressProjectGroups[k].projectId}),
-            sources = pressProjectGroups[k].sources;
+        var sources = pressProjectGroups[k].sources;
 
-        renderedHTML += Mustache.render(htmlRowStartTemplate, project);
+        renderedHTML += Mustache.render(htmlRowStartTemplate, pressProjectGroups[k]);
 
         for (var j = 0; j < sources.length; j += 1) {
             var source = sources[j];
@@ -656,7 +655,7 @@ var renderFeaturedPress = function(jsonData) {
             renderedHTML += Mustache.render(htmlSourceEndTemplate, source);
         }
 
-        renderedHTML += Mustache.render(htmlRowEndTemplate, project);
+        renderedHTML += Mustache.render(htmlRowEndTemplate, pressProjectGroups[k]);
     }
 
     $parent.append(renderedHTML);
