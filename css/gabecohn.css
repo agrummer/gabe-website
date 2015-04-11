@@ -517,9 +517,13 @@ h1 .trail{
 
 /* PRESS FULL-PAGE */
 
+.section-press .press-title{
+    font-style: italic;
+}
+
 .section-press .press-article{
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 
 .section-press .press-article .press-date{
