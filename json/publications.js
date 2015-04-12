@@ -152,7 +152,7 @@ var publicationsJSON = [
             {
                 "title": "Talk Video",
                 "type": "video",
-                "url": "video/Cohn_Humantenna_chi12_talk.mp4"
+                "url": "https://youtu.be/IkaYsGrgdbU"
             },
             {
                 "title": "Digital Library",
@@ -186,7 +186,7 @@ var publicationsJSON = [
             {
                 "title": "Talk Video",
                 "type": "video",
-                "url": "video/Cohn_NoiseCommand_chi11_talk.mp4"
+                "url": "https://youtu.be/x0GvoYdAy6U"
             },
             {
                 "title": "Digital Library",
