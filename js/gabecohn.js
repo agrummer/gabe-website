@@ -26,13 +26,23 @@ $(function () {
         $body.addClass("msie");
     }
 
-    renderProjects(projectsJSON);
+    if (window['projectsJSON']) {
+        renderProjects(projectsJSON);
+    }
 
-    renderPublications(publicationTypesJSON, publicationsJSON);
+    if (window['publicationTypesJSON'] && window['publicationsJSON']) {
+        renderPublications(publicationTypesJSON, publicationsJSON);
+    }
 
-    renderTalks(talksJSON);
+    if (window['talksJSON']) {
+        renderTalks(talksJSON);
+    }
 
-    renderFeaturedPress(pressJSON);
+    if (window['pressJSON']) {
+        renderFeaturedPress(pressJSON);
+        renderAllPress(pressJSON);
+    }
+
 
     $body.scrollspy({ target: '#navbar' });
     
@@ -206,6 +216,11 @@ var renderProjects = function(jsonData) {
         projectId,
         renderedHTML;
 
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
     /* Projects JSON structure
      The projects should appear in the order of the objects in the JSON structure.
      Each project object contains the following:
@@ -303,11 +318,6 @@ var renderProjects = function(jsonData) {
         '</div>' +
         '</div>';
 
-    if(!$parent || $parent.length === 0) {
-        console.log("Unable to display projects data because the container could not be found on the page.");
-        return;
-    }
-
     renderedHTML = '';
     for(p = 0; p < jsonData.length; p++) {
         projectJSON = jsonData[p];
@@ -369,6 +379,11 @@ var renderPublications = function(typesJsonData, jsonData) {
         publicationId,
         renderedHTML;
 
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
     htmlNavTemplate  = '<div class="subnav well">';
     htmlNavTemplate += '    <ul class="subnav">';
     htmlNavTemplate += '        {{#types}}';
@@ -421,11 +436,6 @@ var renderPublications = function(typesJsonData, jsonData) {
         '            </div>' +
         '        </div>';
 
-
-    if(!$parent || $parent.length === 0) {
-        console.log("Unable to display publications data because the container could not be found on the page.");
-        return;
-    }
 
     // Group publications by publication.type
     for (var i = 0; i < jsonData.length; i += 1) {
@@ -515,6 +525,11 @@ var renderTalks = function(jsonData) {
         talkId,
         renderedHTML;
 
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
     htmlTemplate = '' +
         '        <div class="talks-anchor">' +
         '            <a name="{{ id }}"></a>' +
@@ -538,11 +553,6 @@ var renderTalks = function(jsonData) {
         '        </div>';
 
 
-    if(!$parent || $parent.length === 0) {
-        console.log("Unable to display talks data because the container could not be found on the page.");
-        return;
-    }
-
     renderedHTML = '';
     for (talkId = 0; talkId < jsonData.length; talkId++) {
         talk = jsonData[talkId];
@@ -558,7 +568,7 @@ var renderTalks = function(jsonData) {
 };
 
 var renderFeaturedPress = function(jsonData) {
-    var i, $parent = $(".press-parent"),
+    var i, $parent = $(".press-featured-parent"),
         htmlTemplate,
         htmlRowStartTemplate,
         htmlRowEndTemplate,
@@ -568,6 +578,11 @@ var renderFeaturedPress = function(jsonData) {
         pressProjectGroups = [],
         pressSourceGroup,
         renderedHTML;
+
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
 
     htmlRowStartTemplate = '' +
         '<div class="row press-featured-subject">' +
@@ -584,11 +599,6 @@ var renderFeaturedPress = function(jsonData) {
         '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
         '        </div>';
 
-
-    if(!$parent || $parent.length === 0) {
-        console.log("Unable to display press data because the container could not be found on the page.");
-        return;
-    }
 
     // Group press by project and source
     for (i = 0; i < jsonData.length; i++) {
@@ -659,4 +669,93 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     $parent.append(renderedHTML);
+};
+
+var renderAllPress = function(jsonData) {
+    var i, j,
+        $parent = $(".press-parent"),
+        htmlNavTemplate,
+        htmlTemplate,
+        htmlGroupStartTemplate,
+        htmlGroupEndTemplate,
+        years,
+        pressGroup,
+        pressGroups = [],
+        renderedHTML;
+
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
+    htmlNavTemplate =  '<div class="subnav well">';
+    htmlNavTemplate += '    <ul class="subnav">';
+    htmlNavTemplate += '        {{#years}}';
+    htmlNavTemplate += '            <li><a href="#press-{{ . }}">{{ . }}</a></li>';
+    htmlNavTemplate += '        {{/years}}';
+    htmlNavTemplate += '    </ul>';
+    htmlNavTemplate += '</div>';
+
+    htmlGroupStartTemplate =  '<div id="press-{{ year }}" class="panel panel-default">';
+    htmlGroupStartTemplate += '    <div class="panel-heading">';
+    htmlGroupStartTemplate += '        <h2 class="panel-title">{{ year }}</h2>';
+    htmlGroupStartTemplate += '    </div>';
+    htmlGroupStartTemplate += '    <div class="panel-body">';
+
+    htmlTemplate =  '<div class="press-article">';
+    htmlTemplate += '    <div class="press-date">{{ displayDate }}</div>';
+    htmlTemplate += '    <div class="press-title">';
+    htmlTemplate += '        <a href="{{{ url }}}">{{ title }}</a>';
+    htmlTemplate += '    </div> ';
+    htmlTemplate += '    <div class="press-author">{{ author }}</div>';
+    htmlTemplate += '</div>';
+
+    htmlGroupEndTemplate =  '    </div>';
+    htmlGroupEndTemplate += '</div>';
+
+    years = parseDistinctYears(jsonData, "sortDate");
+
+    renderedHTML = Mustache.render(htmlNavTemplate, {"years":years});
+
+    for (i = 0; i < years.length; i++) {
+        renderedHTML += Mustache.render(htmlGroupStartTemplate, {"year":years[i]});
+
+        for (j = 0; j < jsonData.length; j++) {
+            var year = parseYear(jsonData[j].sortDate);
+            if (year != null && year === years[i]) {
+                renderedHTML += Mustache.render(htmlTemplate, jsonData[j]);
+            }
+        }
+
+        renderedHTML += Mustache.render(htmlGroupEndTemplate, {"year":years[i]});
+    }
+
+    $parent.append(renderedHTML);
+
+};
+
+var parseDistinctYears = function(objects, attributeName){
+    var years = [];
+
+    for (var i = 0; i < objects.length; i ++) {
+        if (objects[i][attributeName]) {
+            var year = parseYear(objects[i][attributeName]);
+
+            if (year != null) {
+                if (years.indexOf(year) === -1) {
+                    years.push(year);
+                }
+            }
+
+        }
+    }
+
+    return years;
+};
+
+var parseYear = function (sortDateString) {
+    if (sortDateString && sortDateString.length > 4) {
+        return sortDateString.substr(0, 4);
+    }
+    return null;
 };
