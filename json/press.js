@@ -27,7 +27,7 @@ var pressJSON = [
         "relatedProjects": [ "proj_snupi" ]
     },
     {
-        "title": "Bright Idea: SNUPI Technologies &amp; Wally",
+        "title": "Bright Idea: SNUPI Technologies & Wally",
         "url": "http://seattlebusinessmag.com/article/bright-idea-snupi-technologies-wally",
         "author": "John Levesque",
         "publication": "Seattle Business Magazine",
@@ -418,7 +418,7 @@ var pressJSON = [
     },
     {
         "title": "Microsoft Research projects offer new takes on gesture sensing",
-        "url": "http://www.youtube.com/watch?v=em-nvzxzC68&amp;feature=BFa&amp;list=UU7iialY1qmmcyFWilHAEVpA",
+        "url": "https://youtu.be/em-nvzxzC68?list=UU7iialY1qmmcyFWilHAEVpA",
         "author": "Nick Barber",
         "publication": "IDG News Service",
         "sortDate": "2012-05-09",
@@ -524,7 +524,7 @@ var pressJSON = [
         "title": "CHI '11: Enhancing the Human Condition",
         "url": "http://www.rdmag.com/News/Feeds/2011/05/information-tech-chi-11-enhancing-the-human-condition/",
         "author": null,
-        "publication": "R&amp;D Magazine",
+        "publication": "R&D Magazine",
         "sortDate": "2011-05-10",
         "displayDate": "May 2011",
         "featured": null,
@@ -665,7 +665,7 @@ var pressJSON = [
     },
     {
         "title": "Talking to the Wall: An experimental interface from Microsoft turns any wall into an interactive surface",
-        "url": "http://www.technologyreview.com/computing/37514/?p1=A1&amp;a=f",
+        "url": "http://www.technologyreview.com/news/423905/talking-to-the-wall/",
         "author": "Kate Greene",
         "publication": "MIT Technology Review",
         "sortDate": "2011-05-03",
@@ -691,7 +691,7 @@ var pressJSON = [
     },
     {
         "title": "Sensors Use Building's Electrical Wiring as Antenna",
-        "url": "http://www.technologyreview.com/communications/26319/?p1=A1&amp;a=f",
+        "url": "http://www.technologyreview.com/news/420870/sensors-use-buildings-electrical-wiring-as-antenna/",
         "author": "Kate Greene",
         "publication": "MIT Technology Review",
         "sortDate": "2010-09-21",
@@ -717,7 +717,7 @@ var pressJSON = [
     },
     {
         "title": "Home wiring as an antenna: Discovery spawns UW startup",
-        "url": "http://www.techflash.com/seattle/2010/09/new_startup_from_uw_to_use_home_electrical_wiring_as_antenna.html?ana=from_rss&amp;utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+TechFlash+%28TechFlash+-+Seattle%27s+Technology+News+Source%29",
+        "url": "http://www.bizjournals.com/seattle/blog/techflash/2010/09/new_startup_from_uw_to_use_home_electrical_wiring_as_antenna.html",
         "author": "Todd Bishop",
         "publication": "Puget Sound Business Journal",
         "sortDate": "2010-09-15",
@@ -810,7 +810,7 @@ var pressJSON = [
         "title": "Home's electrical wiring acts as antenna to receive low-power sensor data",
         "url": "http://www.rdmag.com/News/2010/09/Information-Tech-Wireless-Home-s-electrical-wiring-acts-as-antenna-to-receive-low-power-sensor-data/",
         "author": null,
-        "publication": "R&amp;D Magazine",
+        "publication": "R&D Magazine",
         "sortDate": "2010-09-16",
         "displayDate": "Sep 2010",
         "featured": null,
@@ -836,7 +836,7 @@ var pressJSON = [
         "title": "Low-power sensor data over power lines",
         "url": "http://eetweb.com/energy-monitoring/SNUPI_092410/",
         "author": null,
-        "publication": "Energy Efficiency &amp; Technology (EET)",
+        "publication": "Energy Efficiency & Technology (EET)",
         "sortDate": "2010-09-24",
         "displayDate": "Sep 2010",
         "featured": null,
