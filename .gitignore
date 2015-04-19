@@ -2,3 +2,4 @@ pdf
 video
 *.iml
 .idea
+*.pyc
