@@ -401,11 +401,12 @@ h1 .trail{
 }
 
 .section-projects .projects-project .projects-summary{
-    
+    text-align: justify;
 }
 
 .section-projects .projects-project .projects-description{
     margin-bottom:30px;
+    text-align: justify;
 }
 
 .section-projects .projects-project .projects-press-heading h5{
