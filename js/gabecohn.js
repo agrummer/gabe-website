@@ -703,9 +703,9 @@ var renderAllPress = function(jsonData) {
     htmlTemplate =  '<div class="press-article">';
     htmlTemplate += '    <div class="press-date">{{ displayDate }}</div>';
     htmlTemplate += '    <div class="press-title">';
-    htmlTemplate += '        <a href="{{{ url }}}">{{ title }}</a>';
+    htmlTemplate += '        {{#url}}<a href="{{{ . }}}">{{/url}}{{ title }}{{#url}}</a>{{/url}}';
     htmlTemplate += '    </div> ';
-    htmlTemplate += '    <div class="press-author">{{ author }}</div>';
+    htmlTemplate += '    <div class="press-author">{{ author }}{{#author}}, {{/author}}</div><div class="press-publication">{{ publication }}</div>';
     htmlTemplate += '</div>';
 
     htmlGroupEndTemplate =  '    </div>';

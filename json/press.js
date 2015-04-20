@@ -157,7 +157,7 @@ var pressJSON = [
         "relatedProjects": [ "proj_snupi" ]
     },
     {
-        "title": "Ubiquitous Computing (UbiComp) Research Lab: A Computing Research in Action Showcase <em>(video)</em>",
+        "title": "Ubiquitous Computing (UbiComp) Research Lab: A Computing Research in Action Showcase (video)",
         "url": "http://www.cccblog.org/2014/01/13/ubiquitous-computing-ubicomp-research-lab-a-computing-research-in-action-showcase/",
         "author": "Kenneth Hines",
         "publication": "The Computing Community Consortium (CCC)",

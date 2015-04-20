@@ -523,7 +523,7 @@ h1 .trail{
 /* PRESS FULL-PAGE */
 
 .section-press .press-title{
-    font-style: italic;
+    font-size: large;
 }
 
 .section-press .press-article{
@@ -532,19 +532,19 @@ h1 .trail{
 }
 
 .section-press .press-article .press-date{
-    font-size: 8pt;
+    font-size: x-small;
     text-transform:uppercase;
     letter-spacing:2px;
     color:#808080;
 }
 
 .section-press .press-article .press-author{
-    font-size: 8pt;
+    display:inline;
 }
 
-.section-press .press-article .press-source{
+.section-press .press-article .press-publication{
+    display:inline;
     font-style:italic;
-    font-size: 8pt;
 }
 
 /* FOOTER */
