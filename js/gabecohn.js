@@ -422,7 +422,7 @@ var renderPublications = function(typesJsonData, jsonData) {
         '                {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}' +
         '                {{#acceptance}}' +
         '                <div class="publications-acceptance">' +
-        '                    [Acceptance Rate: {{ acceptance }}]' +
+        '                    [Acceptance Rate: {{ . }}]' +
         '                </div>' +
         '                {{/acceptance}}' +
         '                {{#awards}}' +
