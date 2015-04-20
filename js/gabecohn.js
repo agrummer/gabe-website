@@ -414,12 +414,12 @@ var renderPublications = function(typesJsonData, jsonData) {
         '        </div>' +
         '        <div class="publication row">' +
         '            <div class="index col-md-1" id="publication-{{ index }}">{{ index }}</div>' +
-        '            <div class="col-md-2"><a href="{{ link }}">' +
-        '                <img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/></a>' +
+        '            <div class="col-md-2">' +
+        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="publications-date">{{{ year }}}</div>' +
-        '                {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}' +
+        '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
         '                {{#acceptance}}' +
         '                <div class="publications-acceptance">' +
         '                    [Acceptance Rate: {{ . }}]' +
@@ -537,13 +537,11 @@ var renderTalks = function(jsonData) {
         '        <div id="{{ id }}" class="talk row">' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
-        '                <a href="{{ link }}">' +
-        '                    <img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt=""/>' +
-        '                </a>' +
+        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="talks-date">{{{ year }}}</div>' +
-        '                {{{ authors }}} {{#link}}<a href="{{ link }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
+        '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#links}}' +
