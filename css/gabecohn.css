@@ -489,6 +489,10 @@ h1 .trail{
     color:#808080;
 }
 
+.section-talks .authorHighlight{
+    font-weight: bold;
+}
+
 /* TEACHING */
 .section-teaching .course{
     margin-bottom:50px;

@@ -49,7 +49,7 @@ var publicationTypesJSON = [
  *      type - string, determines which category the publication is displayed in, must be from the list of types described in publicationTypesJSON
  *      link - string or NULL, jump to this URL if the thumbnail or title is clicked. If NULL, then the thumbnail and title are not clickable.
  *      year - string, year of publication to display
- *      authors - string (with HTML), list of authors as displayed in citation. <div class="authorHighlight"> should be around my name.
+ *      authors - string (with HTML), list of authors as displayed in citation. <span class="authorHighlight"> should be around my name.
  *      title - string, title of paper (clickable if link is not NULL)
  *      publication - string (with HTML), all text in the citation that appears after the title
  *      acceptance - string or NULL, acceptance rate message to display. If NULL, no acceptance rate is displayed.
