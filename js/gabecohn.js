@@ -420,11 +420,11 @@ var renderPublications = function(typesJsonData, jsonData) {
         '            <div class="col-md-6">' +
         '                <div class="publications-date">{{{ year }}}</div>' +
         '                {{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}' +
-        '                {{#acceptanceRate}}' +
+        '                {{#acceptance}}' +
         '                <div class="publications-acceptance">' +
-        '                    [Acceptance Rate: {{ acceptanceRate }}]' +
+        '                    [Acceptance Rate: {{ acceptance }}]' +
         '                </div>' +
-        '                {{/acceptanceRate}}' +
+        '                {{/acceptance}}' +
         '                {{#awards}}' +
         '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
         '                {{/awards}}' +
