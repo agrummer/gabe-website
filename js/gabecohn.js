@@ -244,7 +244,7 @@ var renderProjects = function(jsonData) {
         '            <div class="container">' +
         '                <div class="row">' +
         '                    <div class="projects-thumbnail col-md-2">' +
-        '                        <img class="img-thumbnail" src="img/projects/{{ id }}.jpg">' +
+        '                        <img class="img-thumbnail" src="img/projects/{{ id }}.jpg" alt="{{ id }}">' +
         '                    </div>' +
         '                    <div class="col-md-8">' +
         '                        <div class="projects-date">{{{ date }}}</div>' +
@@ -415,7 +415,7 @@ var renderPublications = function(typesJsonData, jsonData) {
         '        <div class="publication row">' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
-        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
+        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="publications-date">{{{ year }}}</div>' +
@@ -537,7 +537,7 @@ var renderTalks = function(jsonData) {
         '        <div class="talk row">' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
-        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
+        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
         '                <div class="talks-date">{{{ year }}}</div>' +
