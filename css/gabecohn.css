@@ -445,11 +445,11 @@ h1 .trail{
 
 /* PUBLICATIONS */
 .section-publications .publications-anchor{
-    height: 30px;
+    height: 0px;
 }
 
 .section-publications .publication{
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 .section-publications .authorHighlight{
