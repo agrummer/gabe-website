@@ -148,7 +148,7 @@ h2,h3,h4,h5,h6{
 }
 
 #home .timeline .past {
-    color: grey;
+    color:#B0B0B0;
 }
 
 
@@ -472,7 +472,7 @@ h1 .trail{
 }
 
 .section-publications .publications-acceptance{
-    color: grey;
+    color: #808080;
     font-size: 9pt;
     margin-top: 10px;
 }
@@ -499,7 +499,7 @@ h1 .trail{
 }
 
 .section-teaching .course .role{
-    color:grey;
+    color:#808080;
     font-size:9pt;
 }
 
