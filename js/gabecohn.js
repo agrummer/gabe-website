@@ -413,7 +413,7 @@ var renderPublications = function(typesJsonData, jsonData) {
         '            <a name="{{ id }}"></a>' +
         '        </div>' +
         '        <div class="publication row">' +
-        '            <div class="index col-md-1" id="publication-{{ index }}">{{ index }}</div>' +
+        '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
         '            </div>' +
@@ -534,7 +534,7 @@ var renderTalks = function(jsonData) {
         '        <div class="talks-anchor">' +
         '            <a name="{{ id }}"></a>' +
         '        </div>' +
-        '        <div id="{{ id }}" class="talk row">' +
+        '        <div class="talk row">' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt=""/>{{#link}}</a>{{/link}}' +
