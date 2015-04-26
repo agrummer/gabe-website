@@ -35,5 +35,11 @@ var eventsJSON = [
         "location": "Charlotte",
         "displayDate": "Nov 8-11",
         "endDate": "11-11-2015"
+    },
+    {
+        "title": "CHI 2016 PC",
+        "location": "San Jose",
+        "displayDate": "Dec 11-12",
+        "endDate": "12-11-2015"
     }
 ];
