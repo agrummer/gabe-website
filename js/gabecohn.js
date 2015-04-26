@@ -198,7 +198,7 @@ var getArrayElementsRelatedToProject = function(array, projectId) {
 };
 
 var renderEvents = function(jsonData) {
-    var $parent = $(".timeline"),
+    var $parent = $(".timeline-parent"),
         htmlTemplate,
         eventObj,
         eventId,
@@ -240,6 +240,22 @@ var renderEvents = function(jsonData) {
     }
 
     $parent.append(renderedHTML);
+
+
+    // modify the spacing between the events in the list so that they fit perfectly in the same height as the 'contact' column
+    var contactHeight = parseFloat($("#home .contact").css("height"));
+    var timelinePaddingTop = parseFloat($("#home .timeline").css("padding-top"));
+    var timelinePaddingBot = parseFloat($("#home .timeline").css("padding-bottom"));
+    var timelineHeight = parseFloat($("#home .timeline-parent").css("height"));
+    var heightToFill = contactHeight - timelinePaddingTop - timelinePaddingBot - timelineHeight;
+    if (heightToFill > 0) {
+        var numEvents = $("#home .timeline-parent dl").length;
+        var paddingBetweenEvents = heightToFill / (numEvents - 1);
+
+        $("#home .timeline-parent dl:not(:last-child)").each(function() { // set bottom margin on all events except for the last one
+            $(this).css("margin-bottom", paddingBetweenEvents + "px");
+        });
+    }
 };
 
 var renderProjects = function(jsonData) {
