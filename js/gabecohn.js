@@ -26,6 +26,10 @@ $(function () {
         $body.addClass("msie");
     }
 
+    if (window['eventsJSON']) {
+        renderEvents(eventsJSON);
+    }
+
     if (window['projectsJSON']) {
         renderProjects(projectsJSON);
     }
@@ -45,21 +49,6 @@ $(function () {
 
 
     $body.scrollspy({ target: '#navbar' });
-    
-    // automatically color timeline events based on current date
-    // get today's date (but remove everything other than the date)
-    var today = new Date();
-    today.setHours(0);
-    today.setMinutes(0);
-    today.setSeconds(0);
-    today.setMilliseconds(0);
-    // set 'past' class for timeline events in the past
-    $('.timeline').children('dl').each(function() {
-        var endDate = new Date($(this).children('dt').attr('data-end-date'));
-        if (today > endDate) {
-            $(this).addClass('past');
-        }
-    });
 
     $('div[data-type="background"]').each(function () {
         var $bgobj = $(this);
@@ -206,6 +195,51 @@ var getArrayElementsRelatedToProject = function(array, projectId) {
     }
 
     return results;
+};
+
+var renderEvents = function(jsonData) {
+    var $parent = $(".timeline"),
+        htmlTemplate,
+        eventObj,
+        eventId,
+        renderedHTML;
+
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
+    htmlTemplate = '' +
+        '                            <dl class="dl-horizontal {{ pastClass }}">' +
+        '                                <dt>{{ displayDate }}</dt>' +
+        '                                <dd>{{ title }} {{#location}}({{ . }}){{/location}}</dd>' +
+        '                            </dl>';
+
+
+    // get today's date (remove everything other than the date itself)
+    var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today.setMilliseconds(0);
+
+    renderedHTML = '';
+    for (eventId = 0; eventId < jsonData.length; eventId++) {
+        eventObj = jsonData[eventId];
+
+        // if the event ended in the past, add 'past' class
+        var endDate;
+        if (eventObj.endDate) {
+            var endDate = new Date(eventObj.endDate); // get the end date of the event
+            if (today > endDate) { // event ended in the past
+                eventObj.pastClass = "past";
+            }
+        }
+
+        renderedHTML += Mustache.render(htmlTemplate, eventObj);
+    }
+
+    $parent.append(renderedHTML);
 };
 
 var renderProjects = function(jsonData) {
