@@ -477,7 +477,7 @@ var renderPublications = function(typesJsonData, jsonData) {
         '                </div>' +
         '                {{/acceptance}}' +
         '                {{#awards}}' +
-        '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{{ . }}}</div>' +
+        '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
         '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
@@ -555,6 +555,12 @@ var renderPublications = function(typesJsonData, jsonData) {
 
         for(publicationId = 0; publicationId < publicationGroup["rows"].length; publicationId++) {
             publication = publicationGroup["rows"][publicationId];
+
+            // Add related awards
+            var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedPublications", publication.id);
+            if(awards.length > 0) {
+                publication["awards"] = awards;
+            }
 
             if (publication.links) {
                 publication.links = addIconsToLinks(publication.links);
