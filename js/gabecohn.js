@@ -318,11 +318,11 @@ var renderProjects = function(jsonData) {
         '                            <span class="label label-info"><span class="glyphicon glyphicon-film"></span> {{ videoCount }}</span>' +
         '                        </div>' +
         '                        {{/videoCount}}' +
-        '                        {{#hasPress}}' +
-        '                        <div class="projects-has-press">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-globe"></span> In the news</span>' +
+        '                        {{#pressCount}}' +
+        '                        <div class="projects-press-count">' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-globe"></span> {{ pressCount }}</span>' +
         '                        </div>' +
-        '                        {{/hasPress}}' +
+        '                        {{/pressCount}}' +
         '                        <div class="projects-action-link">' +
         '                            Click to for details' +
         '                        </div>' +
@@ -348,14 +348,14 @@ var renderProjects = function(jsonData) {
         '                        {{#awards}}' +
         '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                        {{/awards}}' +
-        '                        {{#hasPress}}' +
-        '                            <div class="projects-press-heading"><h5>Featured in</h5></div>' +
+        '                        {{#hasFeaturedPress}}' +
+        '                            <div class="projects-press-heading"><h5>Featured Press In:</h5></div>' +
         '                            <div class="projects-press">' +
         '                                {{#press}}' +
-        '                                    <div class="projects-press-item" title="{{ title }}">{{ publication }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
+        '                                    <div class="projects-press-item" title="{{ title }}">{{#url}}<a href="{{{ . }}}">{{/url}}{{ publication }}{{#url}}</a>{{/url}} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                                {{/press}}' +
         '                            </div>' +
-        '                        {{/hasPress}}' +
+        '                        {{/hasFeaturedPress}}' +
         '                        {{#permalink}}' +
         '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
         '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
@@ -401,9 +401,21 @@ var renderProjects = function(jsonData) {
 
         // Add related press
         var press = getArrayElementsContainingAttributeInList(pressJSON, "relatedProjects", projectId);
-        if(press.length > 0) {
-            projectJSON["press"] = press;
-            projectJSON["hasPress"] = press.length;
+        if(press.length > 0) { // there is some related press
+            // get list of featured press
+            var featuredPress = [];
+            for (var i = 0; i < press.length; i += 1) {
+                if (press[i].featured) {
+                    featuredPress.push(press[i]);
+                }
+            }
+            if (featuredPress.length > 0) {
+                projectJSON["press"] = featuredPress;
+                projectJSON["hasFeaturedPress"] = true;
+                projectJSON["pressCount"] = featuredPress.length + " featured press";
+            } else { // no featured press, but there is related press
+                projectJSON["pressCount"] = "in the press";
+            }
         }
 
         // Add appropriate icons to links
