@@ -494,6 +494,14 @@ h1 .trail{
     font-weight: bold;
 }
 
+.section-talks .talks-award{
+    color:rgb(215,17,17);
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* TEACHING */
 .section-teaching .course{
     margin-bottom:50px;

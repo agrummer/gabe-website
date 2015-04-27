@@ -599,6 +599,9 @@ var renderTalks = function(jsonData) {
         '            <div class="col-md-6">' +
         '                <div class="talks-date">{{{ year }}}</div>' +
         '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
+        '                {{#awards}}' +
+        '                <div class="talks-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#links}}' +
@@ -611,6 +614,12 @@ var renderTalks = function(jsonData) {
     renderedHTML = '';
     for (talkId = 0; talkId < jsonData.length; talkId++) {
         talk = jsonData[talkId];
+
+        // Add related awards
+        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedTalks", talk.id);
+        if(awards.length > 0) {
+            talk["awards"] = awards;
+        }
 
         if (talk.links) {
             talk.links = addIconsToLinks(talk.links);
