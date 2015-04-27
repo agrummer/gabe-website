@@ -177,21 +177,22 @@ var getArrayElementWithAttribute = function(array, nameValue) {
     return undefined;
 };
 
-var getArrayElementsRelatedToProject = function(array, projectId) {
+// returns an array which is a subset of the passed array containing only those elements in which <attributeValue> is contained within <attributeName>, which is an array
+var getArrayElementsContainingAttributeInList = function(array, attributeName, attributeValue) {
     var results = [];
 
-    if (array && projectId) {
+    if (array && attributeName && attributeValue) {
         for (var i = 0; i < array.length; i += 1) {
-            if (array[i].relatedProjects) {
-                for (var k = 0; k < array[i].relatedProjects.length; k += 1) {
-                    if (array[i].relatedProjects[k] === projectId) {
+            if (array[i] && array[i][attributeName]) {
+                for (var k = 0; k < array[i][attributeName].length; k += 1) {
+                    if (array[i][attributeName][k] === attributeValue) {
                         results.push(array[i]);
                     }
                 }
             }
         }
     } else {
-        console.log("ERROR: Must provide valid array and projectId to lookup related items for project. array = " + array + ", projectId = " + projectId);
+        console.log("ERROR: Must provide valid array, attributeName, and attributeValue to perform lookup. {array = " + array + ", attributeName = " + attributeName + ", attributeValue = " + attributeValue + "}");
     }
 
     return results;
@@ -379,7 +380,7 @@ var renderProjects = function(jsonData) {
         }
 
         // Add related awards
-        var awards = getArrayElementsRelatedToProject(awardsJSON, projectId);
+        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedProjects", projectId);
         if(awards.length > 0) {
             projectJSON["awards"] = awards;
             projectJSON["awardCount"] = awards.length + " award";
@@ -389,7 +390,7 @@ var renderProjects = function(jsonData) {
         }
 
         // Add related publications
-        var publications = getArrayElementsRelatedToProject(publicationsJSON, projectId);
+        var publications = getArrayElementsContainingAttributeInList(publicationsJSON, "relatedProjects", projectId);
         if(publications.length > 0) {
             projectJSON["publications"] = publications;
             projectJSON["publicationCount"] = publications.length + " publication";
@@ -399,7 +400,7 @@ var renderProjects = function(jsonData) {
         }
 
         // Add related press
-        var press = getArrayElementsRelatedToProject(pressJSON, projectId);
+        var press = getArrayElementsContainingAttributeInList(pressJSON, "relatedProjects", projectId);
         if(press.length > 0) {
             projectJSON["press"] = press;
             projectJSON["hasPress"] = press.length;
