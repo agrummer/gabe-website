@@ -687,7 +687,7 @@ var pressJSON = [
         "pressLogo": "img/press/PopularMech.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
-        "relatedProjects": []
+        "relatedProjects": [ "proj_snupi" ]
     },
     {
         "title": "Sensors Use Building's Electrical Wiring as Antenna",
