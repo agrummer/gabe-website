@@ -435,8 +435,17 @@ h1 .trail{
 }
 
 .section-projects .projects-project .projects-publication-item {
-    font-size: 8pt;
     margin-bottom: 15px;
+}
+
+.section-projects .projects-project .projects-publication-item .glyphicon {
+    float: left;
+    margin-right: 5px;
+}
+
+.section-projects .projects-project .projects-publication-body {
+    display: table-cell;
+    font-size: 8pt;
 }
 
 .section-projects .projects-project .projects-publication-count {
