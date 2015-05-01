@@ -26,6 +26,15 @@ $(function () {
         $body.addClass("msie");
     }
 
+    // pre-sort press and awards JSON structs
+    if (window['pressJSON']) {
+        pressJSON = sortListByDate(pressJSON);
+    }
+    if (window['awardsJSON']) {
+        awardsJSON = sortListByDate(awardsJSON);
+    }
+
+    // render page from JSON
     if (window['eventsJSON']) {
         renderEvents(eventsJSON);
     }
@@ -162,6 +171,16 @@ var addIconsToLinks = function(links) {
     }
     return links;
 }
+
+// Helper function to sort a list in reverse chronological order using 'sortDate' attribute
+var sortListByDate = function(list) {
+    list.sort(function(a,b) {
+        if (a.sortDate < b.sortDate) return 1;
+        if (a.sortDate > b.sortDate) return -1;
+        return 0;
+    });
+    return list;
+};
 
 // Helper method to find an element within an array which has an attribute of a specified name and value
 var getArrayElementWithAttribute = function(array, nameValue) {
@@ -643,6 +662,7 @@ var renderTalks = function(jsonData) {
     $parent.append(renderedHTML);
 };
 
+// assumes that jsonData has been previously sorted in reverse chronological order
 var renderFeaturedPress = function(jsonData) {
     var i, $parent = $(".press-featured-parent"),
         htmlTemplate,
@@ -708,19 +728,6 @@ var renderFeaturedPress = function(jsonData) {
         }
     }
 
-    for (i = 0; i < pressProjectGroups.length; i++) {
-        for (var s = 0; s < pressProjectGroups[i].sources.length; s++) {
-            pressProjectGroups[i].sources[s].rows.sort(function(a, b){
-                if (a.sortDate > b.sortDate) {
-                    return 1;
-                } else if (a.sortDate < b.sortDate) {
-                    return -1;
-                }
-                return 0;
-            });
-        }
-    }
-
     // Render the HTML for the page
     renderedHTML = '';
 
@@ -747,6 +754,7 @@ var renderFeaturedPress = function(jsonData) {
     $parent.append(renderedHTML);
 };
 
+// assumes that jsonData has been previously sorted in reverse chronological order
 var renderAllPress = function(jsonData) {
     var i, j,
         $parent = $(".press-parent"),
