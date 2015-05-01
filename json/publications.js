@@ -1,40 +1,34 @@
 /* Publication Type JSON structure
- *  Defines the different types of publications and how to sort them.
+ *  Defines the different types of publications, the name to be displayed, and the order that they should be shown.
+ *  The publication types will be shown in the same order that they are listed in this array.
  *  Each type object contains the following:
  *      name - the name of the type used in the "type" field of the projects JSON structure
  *      displayName - name of group displayed on the page
- *      sortOrder - order in which the groups are displayed on the page, low numbers first
  */
 var publicationTypesJSON = [
     {
         "name": "conference",
-        "displayName": "Conference Publications",
-        "sortOrder": 10
+        "displayName": "Conference Publications"
     },
     {
         "name": "journal",
-        "displayName": "Journal and Magazine Publications",
-        "sortOrder": 20
+        "displayName": "Journal and Magazine Publications"
     },
     {
         "name": "workshop",
-        "displayName": "Workshop Publications",
-        "sortOrder": 30
+        "displayName": "Workshop Publications"
     },
     {
         "name": "thesis",
-        "displayName": "Thesis",
-        "sortOrder": 40
+        "displayName": "Thesis"
     },
     {
         "name": "other",
-        "displayName": "Other Articles",
-        "sortOrder": 50
+        "displayName": "Other Articles"
     },
     {
         "name": "report",
-        "displayName": "Technical Reports",
-        "sortOrder": 60
+        "displayName": "Technical Reports"
     }
 ];
 

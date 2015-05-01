@@ -291,18 +291,6 @@ var renderProjects = function(jsonData) {
         return;
     }
 
-    /* Projects JSON structure
-     The projects should appear in the order of the objects in the JSON structure.
-     Each project object contains the following:
-     id - string, for referencing this project in other JSON objects and the id of the <div>
-     the URL for the thumbnail will be "img/projects/<id>.jpg" where <id> is replaced with the id
-     always starts with proj_
-     title - string, title of Project to display
-     date - string, as it should appear on the page (not used for sorting)
-     shortDesc - string (with HTML), short description that is shown when the project is collapsed
-     longDesc - string (with HTML), long description that is shown when the project is expanded
-     */
-
     projectTemplate = '' +
         '<div class="projects-anchor">' +
         '    <a name="{{ id }}"></a>' +
@@ -457,7 +445,6 @@ var renderPublications = function(typesJsonData, jsonData) {
         publication,
         publicationType,
         publicationGroup,
-        publicationGroups = [],
         publicationId,
         renderedHTML;
 
@@ -519,51 +506,21 @@ var renderPublications = function(typesJsonData, jsonData) {
         '        </div>';
 
 
-    // Group publications by publication.type
+    // create a container to hold all publications, grouped by type
+    var publicationGroups = new Array(typesJsonData.length);
+    for (var i = 0; i < typesJsonData.length; i += 1) {
+        publicationGroups[i] = {"type": typesJsonData[i].name, "title": typesJsonData[i].displayName, "rows": []};
+    }
+
+    // Group publications by type
     for (var i = 0; i < jsonData.length; i += 1) {
         publicationGroup = getArrayElementWithAttribute(publicationGroups, {"name":"type", "value":jsonData[i].type});
         if (publicationGroup) {
             publicationGroup["rows"].push(jsonData[i]);
         } else {
-            publicationGroup = {"type":jsonData[i].type, "rows":[jsonData[i]]};
-            publicationGroups.push(publicationGroup);
+            console.log("Unexpected publication type '" + jsonData[i].type + "' for publication id: " + jsonData[i].id);
         }
     }
-
-    // Sort types by their sortOrder attribute
-    typesJsonData.sort(function(a, b){
-        if (a.sortOrder > b.sortOrder) {
-            return 1;
-        }
-        if (a.sortOrder < b.sortOrder) {
-            return -1;
-        }
-        return 0;
-    });
-
-    // Sort groups by the sort order defined in types json data
-    publicationGroups.sort(function(a, b){
-        var aType = getArrayElementWithAttribute(typesJsonData, {"name":"name", "value": a.type}),
-            bType = getArrayElementWithAttribute(typesJsonData, {"name":"name", "value": b.type});
-
-        if (!aType) {
-            console.log("No publication type found with name: " + a.type);
-            return 1;
-        }
-        if (!bType) {
-            console.log("No publication type found with name: " + b.type);
-            return -1;
-        }
-
-        if (aType.sortOrder > bType.sortOrder) {
-            return 1;
-        }
-        if (aType.sortOrder > bType.sortOrder) {
-            return -1;
-        }
-        return 0;
-    });
-
 
     // Render HTML from templates
     renderedHTML = '';
@@ -572,15 +529,6 @@ var renderPublications = function(typesJsonData, jsonData) {
 
     for(var groupId = 0; groupId < publicationGroups.length; groupId += 1) {
         publicationGroup = publicationGroups[groupId];
-        publicationType = getArrayElementWithAttribute(typesJsonData, {"name":"name", "value": publicationGroup.type});
-
-        publicationGroup["id"] = groupId;
-        if (publicationType) {
-            publicationGroup["title"] = publicationType.displayName;
-        } else {
-            console.log("No publication type found with name: " + publicationGroup.type);
-            publicationGroup["title"] = publicationGroup.type;
-        }
 
         renderedHTML += Mustache.render(htmlGroupStartTemplate, publicationGroup);
 
