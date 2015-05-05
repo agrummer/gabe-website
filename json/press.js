@@ -7,7 +7,7 @@
  *      sortDate - string in the form YYYY-MM-DD. Used to sort awards by date
  *      displayDate - string, date to be displayed
  *      featured - string, subject of the article to display as a heading in the "Featured Press" section if featured, use null if not featured
- *      pressLogo - string, filename of logo to display in "Featured Press" section (if featured != null)
+ *      pressLogo - string, filename of logo to display in "Featured Press" section (if featured != null). The logo image file must be located in img/press/
  *      relatedPublications - an array of publication id (pub_id) strings. This is currently ignored.
  *      relatedTalks - an array of talk id (talk_id) strings. This is currently ignored.
  *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list press for each project.
@@ -21,7 +21,7 @@ var pressJSON = [
         "sortDate": "2014-07-18",
         "displayDate": "Jul 2014",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/wired.jpg",
+        "pressLogo": "wired.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -34,7 +34,7 @@ var pressJSON = [
         "sortDate": "2014-03-00",
         "displayDate": "Mar 2014",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/SeattleBusinessMag.png",
+        "pressLogo": "SeattleBusinessMag.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -47,7 +47,7 @@ var pressJSON = [
         "sortDate": "2014-02-26",
         "displayDate": "Feb 2014",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/GeekWire.png",
+        "pressLogo": "GeekWire.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -60,7 +60,7 @@ var pressJSON = [
         "sortDate": "2014-01-23",
         "displayDate": "Jan 2014",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/MIT_TR.png",
+        "pressLogo": "MIT_TR.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -164,7 +164,7 @@ var pressJSON = [
         "sortDate": "2014-01-13",
         "displayDate": "Jan 2014",
         "featured": "SNUPI",
-        "pressLogo": "img/press/CCC.png",
+        "pressLogo": "CCC.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -203,7 +203,7 @@ var pressJSON = [
         "sortDate": "2013-11-15",
         "displayDate": "Nov 2013",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/xconomy.jpg",
+        "pressLogo": "xconomy.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -229,7 +229,7 @@ var pressJSON = [
         "sortDate": "2013-11-04",
         "displayDate": "Nov 2013",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/GeekWire.png",
+        "pressLogo": "GeekWire.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -255,7 +255,7 @@ var pressJSON = [
         "sortDate": "2013-09-16",
         "displayDate": "Sep 2013",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/PSBJ.gif",
+        "pressLogo": "PSBJ.gif",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -281,7 +281,7 @@ var pressJSON = [
         "sortDate": "2013-04-24",
         "displayDate": "Apr 2013",
         "featured": "uTouch",
-        "pressLogo": "img/press/MIT_TR.png",
+        "pressLogo": "MIT_TR.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_utouch" ]
@@ -307,7 +307,7 @@ var pressJSON = [
         "sortDate": "2012-12-11",
         "displayDate": "Dec 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/xconomy.jpg",
+        "pressLogo": "xconomy.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -320,7 +320,7 @@ var pressJSON = [
         "sortDate": "2012-12-11",
         "displayDate": "Dec 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/SeattleTimes.jpg",
+        "pressLogo": "SeattleTimes.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -333,7 +333,7 @@ var pressJSON = [
         "sortDate": "2012-12-11",
         "displayDate": "Dec 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/SeattleBusinessMag.png",
+        "pressLogo": "SeattleBusinessMag.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -346,7 +346,7 @@ var pressJSON = [
         "sortDate": "2012-12-11",
         "displayDate": "Dec 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/PSBJ.gif",
+        "pressLogo": "PSBJ.gif",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -372,7 +372,7 @@ var pressJSON = [
         "sortDate": "2012-09-28",
         "displayDate": "Sep 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "img/press/GeekWire.png",
+        "pressLogo": "GeekWire.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -385,7 +385,7 @@ var pressJSON = [
         "sortDate": "2012-05-25",
         "displayDate": "May 2012",
         "featured": "Humantenna",
-        "pressLogo": "img/press/CCC.png",
+        "pressLogo": "CCC.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -398,7 +398,7 @@ var pressJSON = [
         "sortDate": "2012-05-15",
         "displayDate": "May 2012",
         "featured": "Humantenna",
-        "pressLogo": "img/press/NewScientist.jpg",
+        "pressLogo": "NewScientist.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -424,7 +424,7 @@ var pressJSON = [
         "sortDate": "2012-05-09",
         "displayDate": "May 2012",
         "featured": "Humantenna",
-        "pressLogo": "img/press/IDG.jpg",
+        "pressLogo": "IDG.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -450,7 +450,7 @@ var pressJSON = [
         "sortDate": "2012-05-07",
         "displayDate": "May 2012",
         "featured": "Humantenna",
-        "pressLogo": "img/press/PCMag.gif",
+        "pressLogo": "PCMag.gif",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -463,7 +463,7 @@ var pressJSON = [
         "sortDate": "2012-05-07",
         "displayDate": "May 2012",
         "featured": "Humantenna",
-        "pressLogo": "img/press/PCWorld.png",
+        "pressLogo": "PCWorld.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -476,7 +476,7 @@ var pressJSON = [
         "sortDate": "2011-10-20",
         "displayDate": "Oct 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/GeekWire.png",
+        "pressLogo": "GeekWire.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -489,7 +489,7 @@ var pressJSON = [
         "sortDate": "2011-09-10",
         "displayDate": "Sep 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/NYT.jpg",
+        "pressLogo": "NYT.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -554,7 +554,7 @@ var pressJSON = [
         "sortDate": "2011-05-13",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/WSJ.jpg",
+        "pressLogo": "WSJ.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -593,7 +593,7 @@ var pressJSON = [
         "sortDate": "2011-05-11",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/TIME.jpg",
+        "pressLogo": "TIME.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -606,7 +606,7 @@ var pressJSON = [
         "sortDate": "2011-05-12",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/discovery.jpg",
+        "pressLogo": "discovery.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -632,7 +632,7 @@ var pressJSON = [
         "sortDate": "2011-05-11",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/engadget.png",
+        "pressLogo": "engadget.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -645,7 +645,7 @@ var pressJSON = [
         "sortDate": "2011-05-10",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/gizmodo.png",
+        "pressLogo": "gizmodo.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -658,7 +658,7 @@ var pressJSON = [
         "sortDate": "2011-05-10",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/NewScientist.jpg",
+        "pressLogo": "NewScientist.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -671,7 +671,7 @@ var pressJSON = [
         "sortDate": "2011-05-03",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "img/press/MIT_TR.png",
+        "pressLogo": "MIT_TR.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -684,7 +684,7 @@ var pressJSON = [
         "sortDate": "2010-12-00",
         "displayDate": "Dec 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/PopularMech.jpg",
+        "pressLogo": "PopularMech.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -697,7 +697,7 @@ var pressJSON = [
         "sortDate": "2010-09-21",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/MIT_TR.png",
+        "pressLogo": "MIT_TR.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -723,7 +723,7 @@ var pressJSON = [
         "sortDate": "2010-09-15",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/PSBJ.gif",
+        "pressLogo": "PSBJ.gif",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -736,7 +736,7 @@ var pressJSON = [
         "sortDate": "2010-09-15",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/SeattleTimes.jpg",
+        "pressLogo": "SeattleTimes.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -749,7 +749,7 @@ var pressJSON = [
         "sortDate": "2010-09-15",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/PopularSci.jpg",
+        "pressLogo": "PopularSci.jpg",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -788,7 +788,7 @@ var pressJSON = [
         "sortDate": "2010-09-16",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/slashdot.svg",
+        "pressLogo": "slashdot.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -853,7 +853,7 @@ var pressJSON = [
         "sortDate": "2010-09-16",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "img/press/CACM.png",
+        "pressLogo": "CACM.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]

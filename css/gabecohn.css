@@ -528,17 +528,37 @@ h1 .trail{
 
 /* PRESS */
 
-.section-press .press-featured-date{
-    display: inline;
-}
-
 .section-press .press-featured-subject{
     margin-bottom: 20px;
     font-size: 16pt;
+    text-align: center;
 }
 
 .section-press .press-featured-source{
-    font-size: 9pt;
+    display: inline-block;
+}
+
+.section-press .press-featured-logo{
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.section-press .press-featured-logo-img{
+    width: 200px;
+}
+
+.section-press .press-featured-dates{
+    display: block;
+    float:left;
+    width: 100%;
+    text-align: center;
+}
+
+.section-press .press-featured-date{
+    display: inline;
 }
 
 /* PRESS FULL-PAGE */

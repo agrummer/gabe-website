@@ -359,7 +359,7 @@ var renderProjects = function(jsonData) {
         '                            <div class="projects-press-heading"><h5>Featured Press In:</h5></div>' +
         '                            <div class="projects-press">' +
         '                                {{#press}}' +
-        '                                    <div class="projects-press-item" title="{{ title }}">{{#url}}<a href="{{{ . }}}">{{/url}}{{ publication }}{{#url}}</a>{{/url}} <span class="text-muted"> - {{ displayDate }}</span></div>' +
+        '                                    <div class="projects-press-item" title="{{ title }} ({{ displayDate }})">{{#url}}<a href="{{{ . }}}">{{/url}}{{ publication }}{{#url}}</a>{{/url}} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                                {{/press}}' +
         '                            </div>' +
         '                        {{/hasFeaturedPress}}' +
@@ -629,12 +629,14 @@ var renderFeaturedPress = function(jsonData) {
         '    <h4>{{ subject }}</h4>' +
         '    {{#sources}}' + 
         '    <div class="press-featured-source">' +
-        '        <h5>{{ name }}</h5>' +
-        '        {{#rows}}' + 
-        '        <div class="press-featured-date">' +
-        '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
+        '        <div class="press-featured-logo">{{#url}}<a href="{{ . }}">{{/url}}<img class="press-featured-logo-img" src="img/press/{{ logo }}" alt="{{ name }}" title="{{ title }} ({{ date }})">{{#url}}</a>{{/url}}</div>' +
+        '        <div class="press-featured-dates">' + 
+        '            {{#rows}}' + 
+        '            <div class="press-featured-date" title="{{ title }} ({{ date }})">' +
+        '                {{#url}}<a href="{{ . }}">{{/url}}<span class="label label-info">{{ displayDate }}</span>{{#url}}</a>{{/url}}' +
+        '            </div>' +
+        '            {{/rows}}' +
         '        </div>' +
-        '        {{/rows}}' +
         '    </div>' +
         '    {{/sources}}' +
         '</div>';
