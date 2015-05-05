@@ -614,10 +614,6 @@ var renderTalks = function(jsonData) {
 var renderFeaturedPress = function(jsonData) {
     var i, $parent = $(".press-featured-parent"),
         htmlTemplate,
-        htmlRowStartTemplate,
-        htmlRowEndTemplate,
-        htmlSourceStartTemplate,
-        htmlSourceEndTemplate,
         pressProjectGroup,
         pressProjectGroups = [],
         pressSourceGroup,
@@ -628,21 +624,20 @@ var renderFeaturedPress = function(jsonData) {
         return;
     }
 
-    htmlRowStartTemplate = '' +
-        '<div class="row press-featured-subject">' +
-        '    <h4>{{ subject }}</h4>';
-    htmlRowEndTemplate = '</div>';
-
-    htmlSourceStartTemplate = '' +
-        '<div class="press-featured-source">' +
-        '    <h5>{{ name }}</h5>';
-    htmlSourceEndTemplate = '</div>';
-
     htmlTemplate = '' +
+        '<div class="row press-featured-subject">' +
+        '    <h4>{{ subject }}</h4>' +
+        '    {{#sources}}' + 
+        '    <div class="press-featured-source">' +
+        '        <h5>{{ name }}</h5>' +
+        '        {{#rows}}' + 
         '        <div class="press-featured-date">' +
         '            <a href="{{ url }}"><span class="label label-info">{{ displayDate }}</span></a>' +
-        '        </div>';
-
+        '        </div>' +
+        '        {{/rows}}' +
+        '    </div>' +
+        '    {{/sources}}' +
+        '</div>';
 
     // Group press by project and source
     for (i = 0; i < jsonData.length; i++) {
@@ -650,12 +645,21 @@ var renderFeaturedPress = function(jsonData) {
             pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"subject", "value":jsonData[i].featured});
             if (pressProjectGroup) {
                 if (pressProjectGroup.sources) {
-                    pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"name", "value":jsonData[i].publication});
-                    if (pressSourceGroup) {
+                    pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"logo", "value":jsonData[i].pressLogo});
+                    if (pressSourceGroup) { // source already exists in list
                         pressSourceGroup.rows.push(jsonData[i]);
+                        if (!pressSourceGroup.url) { // there's no link for the newest row, so add this row as the one that is linked if the logo is clicked
+                            pressSourceGroup.url = jsonData[i].url;
+                            pressSourceGroup.title = jsonData[i].title;
+                            pressSourceGroup.date = jsonData[i].displayDate;
+                        }
                     } else {
                         pressSourceGroup = {
+                            "logo": jsonData[i].pressLogo,
                             "name": jsonData[i].publication,
+                            "url": jsonData[i].url, // url of newest pub (will goto if link is clicked)
+                            "title": jsonData[i].title, // title of newest pub
+                            "date": jsonData[i].displayDate, // date of newest pub
                             "rows": [jsonData[i]]
                         };
                         pressProjectGroup.sources.push(pressSourceGroup);
@@ -666,7 +670,11 @@ var renderFeaturedPress = function(jsonData) {
                     "subject": jsonData[i].featured,
                     "sources":[
                         {
+                            "logo": jsonData[i].pressLogo,
                             "name": jsonData[i].publication,
+                            "url": jsonData[i].url, // url of newest pub (will goto if link is clicked)
+                            "title": jsonData[i].title, // title of newest pub
+                            "date": jsonData[i].displayDate, // date of newest pub
                             "rows": [jsonData[i]]
                         }
                     ]
@@ -680,23 +688,7 @@ var renderFeaturedPress = function(jsonData) {
     renderedHTML = '';
 
     for (var k = 0; k < pressProjectGroups.length; k++) {
-        var sources = pressProjectGroups[k].sources;
-
-        renderedHTML += Mustache.render(htmlRowStartTemplate, pressProjectGroups[k]);
-
-        for (var j = 0; j < sources.length; j += 1) {
-            var source = sources[j];
-            renderedHTML += Mustache.render(htmlSourceStartTemplate, source);
-
-            for (var p = 0; p < source.rows.length; p += 1) {
-                var press = source.rows[p];
-                renderedHTML += Mustache.render(htmlTemplate, press);
-            }
-
-            renderedHTML += Mustache.render(htmlSourceEndTemplate, source);
-        }
-
-        renderedHTML += Mustache.render(htmlRowEndTemplate, pressProjectGroups[k]);
+        renderedHTML += Mustache.render(htmlTemplate, pressProjectGroups[k]);
     }
 
     $parent.append(renderedHTML);
