@@ -129,11 +129,11 @@ h2,h3,h4,h5,h6{
 
 #home .timeline{
     font-size:8pt;
-    padding:20px 20px 20px 20px;
+    padding:20px 20px 25px 20px;
 }
 
 #home .timeline dl{
-    margin: 0 0 30px 0;
+    margin: 0;
 }
 
 #home .timeline dl dt{
@@ -148,7 +148,7 @@ h2,h3,h4,h5,h6{
 }
 
 #home .timeline .past {
-    color: grey;
+    color:#B0B0B0;
 }
 
 
@@ -275,7 +275,7 @@ section{
 }
 
 .section-body .index{
-    color: rgb(231,238,244);
+    color: rgb(182,201,217);
     letter-spacing: 2px;
     font-weight:bold;
     font-size:18pt;
@@ -310,7 +310,7 @@ section{
 }
 
 h1 .trail{
-    color:rgb(237,237,237);
+    color:rgb(177,179,186);
 }
 
 .section-footer{
@@ -347,7 +347,7 @@ h1 .trail{
 }
 
 .section-projects .projects-anchor{
-    height: 30px;
+    height: 15px;
 }
 
 .section-projects .panel {
@@ -387,7 +387,7 @@ h1 .trail{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-projects .projects-project .projects-action-link{
@@ -401,11 +401,12 @@ h1 .trail{
 }
 
 .section-projects .projects-project .projects-summary{
-    
+    text-align: justify;
 }
 
 .section-projects .projects-project .projects-description{
-    margin-bottom:10px;
+    margin-bottom:30px;
+    text-align: justify;
 }
 
 .section-projects .projects-project .projects-press-heading h5{
@@ -413,8 +414,12 @@ h1 .trail{
 }
 
 .section-projects .projects-project .projects-press{
-    font-size: 9pt;
-    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.section-projects .projects-press-item {
+    font-size: 8pt;
+    margin-bottom: 5px;
 }
 
 .section-projects .projects-project .projects-permalink {
@@ -429,6 +434,20 @@ h1 .trail{
     margin-bottom: 5px;
 }
 
+.section-projects .projects-project .projects-publication-item {
+    margin-bottom: 15px;
+}
+
+.section-projects .projects-project .projects-publication-item .glyphicon {
+    float: left;
+    margin-right: 5px;
+}
+
+.section-projects .projects-project .projects-publication-body {
+    display: table-cell;
+    font-size: 8pt;
+}
+
 .section-projects .projects-project .projects-publication-count {
     margin-bottom: 5px;
 }
@@ -440,18 +459,22 @@ h1 .trail{
 
 /* PUBLICATIONS */
 .section-publications .publications-anchor{
-    height: 30px;
+    height: 0px;
 }
 
 .section-publications .publication{
-    margin-bottom: 25px;
+    margin-bottom: 35px;
+}
+
+.section-publications .authorHighlight{
+    font-weight: bold;
 }
 
 .section-publications .publications-date{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-publications .publications-award{
@@ -463,21 +486,33 @@ h1 .trail{
 }
 
 .section-publications .publications-acceptance{
-    color: grey;
+    color: #808080;
     font-size: 9pt;
     margin-top: 10px;
 }
 
 /* TALKS */
 .section-talks .talk{
-    margin-bottom:50px;
+    margin-bottom:35px;
 }
 
 .section-talks .talks-date{
     font-size: 8pt;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
+}
+
+.section-talks .authorHighlight{
+    font-weight: bold;
+}
+
+.section-talks .talks-award{
+    color:rgb(215,17,17);
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 /* TEACHING */
@@ -486,54 +521,64 @@ h1 .trail{
 }
 
 .section-teaching .course .role{
-    color:grey;
+    color:#808080;
     font-size:9pt;
 }
 
 
 /* PRESS */
 
-.section-press .press-highlight{
-    margin-top:5px;
-    margin-bottom:20px;
-}
-
-.section-press .press-highlight .press-date{
-    font-size: 8pt;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:lightgrey;
-}
-
-.section-press .press-highlight .press-project{
+.section-press .press-featured-subject{
     font-size: 16pt;
+    text-align: center;
 }
 
-.section-press .press-highlight .press-source{
-    font-size: 10pt;
+.section-press .press-featured-source{
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 10px 10px 10px 10px;
+}
+
+.section-press .press-featured-logo{
+    display: block;
+}
+
+.section-press .press-featured-dates{
+    display: block;
+    float:left;
+    width: 100%;
+    text-align: center;
+}
+
+.section-press .press-featured-date{
+    display: inline;
 }
 
 /* PRESS FULL-PAGE */
 
+.section-press .press-title{
+    font-size: large;
+}
+
 .section-press .press-article{
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 
 .section-press .press-article .press-date{
-    font-size: 8pt;
+    font-size: x-small;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:lightgrey;
+    color:#808080;
 }
 
 .section-press .press-article .press-author{
-    font-size: 8pt;
+    display:inline;
 }
 
-.section-press .press-article .press-source{
+.section-press .press-article .press-publication{
+    display:inline;
     font-style:italic;
-    font-size: 8pt;
 }
 
 /* FOOTER */
