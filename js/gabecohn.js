@@ -625,20 +625,22 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     htmlTemplate = '' +
-        '<div class="row press-featured-subject">' +
-        '    <h4>{{ subject }}</h4>' +
-        '    {{#sources}}' + 
-        '    <div class="press-featured-source">' +
-        '        <div class="press-featured-logo">{{#url}}<a href="{{ . }}">{{/url}}<img class="press-featured-logo-img" src="img/press/{{ logo }}" alt="{{ name }}" title="{{ title }} ({{ date }})">{{#url}}</a>{{/url}}</div>' +
-        '        <div class="press-featured-dates">' + 
-        '            {{#rows}}' + 
-        '            <div class="press-featured-date" title="{{ title }} ({{ date }})">' +
-        '                {{#url}}<a href="{{ . }}">{{/url}}<span class="label label-info">{{ displayDate }}</span>{{#url}}</a>{{/url}}' +
+        '<div class="panel panel-default">' +
+        '    <div class="panel-heading"><h2 class="panel-title">{{ subject }}</h2></div>' +
+        '    <div class="panel-body"><div class="row press-featured-subject">' +
+        '        {{#sources}}' + 
+        '        <div class="press-featured-source">' +
+        '            <div class="press-featured-logo">{{#url}}<a href="{{ . }}">{{/url}}<img class="press-featured-logo-img" src="img/press/{{ logo }}" alt="{{ name }}" title="{{ title }} ({{ date }})">{{#url}}</a>{{/url}}</div>' +
+        '            <div class="press-featured-dates">' + 
+        '                {{#rows}}' + 
+        '                <div class="press-featured-date" title="{{ title }} ({{ date }})">' +
+        '                    {{#url}}<a href="{{ . }}">{{/url}}<span class="label label-info">{{ displayDate }}</span>{{#url}}</a>{{/url}}' +
+        '                </div>' +
+        '                {{/rows}}' +
         '            </div>' +
-        '            {{/rows}}' +
         '        </div>' +
-        '    </div>' +
-        '    {{/sources}}' +
+        '        {{/sources}}' +
+        '    </div></div>' +
         '</div>';
 
     // Group press by project and source

@@ -529,7 +529,6 @@ h1 .trail{
 /* PRESS */
 
 .section-press .press-featured-subject{
-    margin-bottom: 20px;
     font-size: 16pt;
     text-align: center;
 }
@@ -537,15 +536,11 @@ h1 .trail{
 .section-press .press-featured-source{
     display: inline-block;
     vertical-align: bottom;
-    padding: 0px 10px 40px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .section-press .press-featured-logo{
     display: block;
-}
-
-.section-press .press-featured-logo-img{
-    width: 200px;
 }
 
 .section-press .press-featured-dates{

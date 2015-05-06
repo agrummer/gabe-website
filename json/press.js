@@ -320,7 +320,7 @@ var pressJSON = [
         "sortDate": "2012-12-11",
         "displayDate": "Dec 2012",
         "featured": "SNUPI Technologies / WallyHome",
-        "pressLogo": "SeattleTimes.jpg",
+        "pressLogo": "SeattleTimes.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
@@ -489,7 +489,7 @@ var pressJSON = [
         "sortDate": "2011-09-10",
         "displayDate": "Sep 2011",
         "featured": "Humantenna",
-        "pressLogo": "NYT.jpg",
+        "pressLogo": "NYT.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -606,7 +606,7 @@ var pressJSON = [
         "sortDate": "2011-05-12",
         "displayDate": "May 2011",
         "featured": "Humantenna",
-        "pressLogo": "discovery.jpg",
+        "pressLogo": "discovery.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_humantenna" ]
@@ -736,7 +736,7 @@ var pressJSON = [
         "sortDate": "2010-09-15",
         "displayDate": "Sep 2010",
         "featured": "SNUPI",
-        "pressLogo": "SeattleTimes.jpg",
+        "pressLogo": "SeattleTimes.png",
         "relatedPublications": [],
         "relatedTalks": [],
         "relatedProjects": [ "proj_snupi" ]
