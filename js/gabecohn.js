@@ -1,8 +1,6 @@
 /*jslint browser: true*/
 /*global $, jQuery, console, alert*/
 
-var NAVBAR_VERTICAL_OFFSET = 70;
-
 $(function () {
     "use strict";
 
@@ -116,37 +114,52 @@ $(function () {
     });
 
     $(window).load(function(){
-        if(window.location.href.indexOf("#") >= 0) {
-            handleAnchor(window.location.href.substring(window.location.href.indexOf("#")+1));
-        }
+        handleAnchor();
 
         $('[data-spy="scroll"]').each(function () {
             var $spy = $(this).scrollspy('refresh');
         });
     });
 
+    // handle anchors on clicks
+    window.addEventListener("hashchange", handleAnchor);
 
 });
 
-var handleAnchor = function(anchor) {
-    var $target = $("a[name=" + anchor + "]"),
-        $project = $("#project-" + anchor);
+var handleAnchor = function() {
+    var hash = window.location.hash;
+    hash = typeof(hash) == "string" ? hash : $(this).attr("hash");
 
-    if(!$target) {
-        $target = $("#" + anchor);
+    if(!hash) {
+        return;
     }
 
-    // adjust for page offset when jumping to page anchors
-    if ($target && $target.length > 0) {
+    var anchor = hash.substring(1); // remove hash sign (#)
+    var $target = $("a[name=" + anchor + "]");
+    if (!$target) {
+        $target = $(hash);
+    }
+
+    // Compute navbar height
+    var navbarHeight = parseFloat($("nav#navbar").css("height"));
+    var navbarVeriticalOffset = navbarHeight + 15; // use an additional 15 pixels of padding
+    
+    // Older browsers without pushState might flicker here, as they momentarily
+    // jump to the wrong position (IE < 10)
+    if($target.length) {
         $('html, body').animate({
-            scrollTop: ($target.offset().top - NAVBAR_VERTICAL_OFFSET)
+            scrollTop: $target.offset().top - navbarVeriticalOffset
         }, 500);
+        if(history && "pushState" in history) {
+            history.pushState({}, document.title, window.location.pathname + hash);
+        }
     }
 
-    // expand any collapsed elements
-    if($project) {
-        $project.find(".collapse").collapse("show");
-    }
+    // expand project if target is a project
+    var $project_anchor = $("#project-" + anchor);    
+    if($project_anchor) {
+        $project_anchor.find(".collapse").collapse("show");
+    }  
 }
 
 var addIconsToLinks = function(links) {
