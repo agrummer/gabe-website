@@ -638,7 +638,16 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     htmlTemplate = '' +
+        '<div class="subnav well">' +
+        '    <ul class="subnav">' +
+        '        {{#projects}}' +
+        '            <li><a href="#press-{{ id }}">{{ subject }}</a></li>' +
+        '        {{/projects}}' +
+        '    </ul>' +
+        '</div>' +
+        '{{#projects}}' +
         '<div class="panel panel-default">' +
+        '    <a name="press-{{ id }}"></a>' +
         '    <div class="panel-heading"><h2 class="panel-title">{{ subject }}</h2></div>' +
         '    <div class="panel-body"><div class="row press-featured-subject">' +
         '        {{#sources}}' + 
@@ -654,7 +663,8 @@ var renderFeaturedPress = function(jsonData) {
         '        </div>' +
         '        {{/sources}}' +
         '    </div></div>' +
-        '</div>';
+        '</div>' +
+        '{{/projects}}';
 
     // Group press by project and source
     for (i = 0; i < jsonData.length; i++) {
@@ -701,12 +711,15 @@ var renderFeaturedPress = function(jsonData) {
         }
     }
 
+    // add id values to each group
+    for (i = 0; i < pressProjectGroups.length; i++) {
+        pressProjectGroups[i]["id"] = i; // just use index in list
+    }
+
     // Render the HTML for the page
     renderedHTML = '';
-
-    for (var k = 0; k < pressProjectGroups.length; k++) {
-        renderedHTML += Mustache.render(htmlTemplate, pressProjectGroups[k]);
-    }
+    var pressProjectData = { "projects": pressProjectGroups };
+    renderedHTML += Mustache.render(htmlTemplate, pressProjectData);
 
     $parent.append(renderedHTML);
 };
@@ -738,6 +751,7 @@ var renderAllPress = function(jsonData) {
     htmlNavTemplate += '</div>';
 
     htmlGroupStartTemplate =  '<div id="press-{{ year }}" class="panel panel-default">';
+    htmlGroupStartTemplate += '    <a name="press-{{ year }}"></a>';
     htmlGroupStartTemplate += '    <div class="panel-heading">';
     htmlGroupStartTemplate += '        <h2 class="panel-title">{{ year }}</h2>';
     htmlGroupStartTemplate += '    </div>';
