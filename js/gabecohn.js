@@ -625,23 +625,19 @@ var renderTalks = function(jsonData) {
 
 // assumes that jsonData has been previously sorted in reverse chronological order
 var renderFeaturedPress = function(jsonData) {
-    var i, $parent = $(".press-featured-parent"),
-        htmlTemplate,
-        pressProjectGroup,
-        pressProjectGroups = [],
-        pressSourceGroup,
-        renderedHTML;
+    var i;
 
+    var $parent = $(".press-featured-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    htmlTemplate = '' +
+    var htmlTemplate = '' +
         '<div class="subnav well">' +
         '    <ul class="subnav">' +
         '        {{#projects}}' +
-        '            <li><a href="#press-{{ id }}">{{ subject }}</a></li>' +
+        '         <li><a href="#press-{{ id }}">{{ subject }}</a></li>' +
         '        {{/projects}}' +
         '    </ul>' +
         '</div>' +
@@ -667,6 +663,9 @@ var renderFeaturedPress = function(jsonData) {
         '{{/projects}}';
 
     // Group press by project and source
+    var pressProjectGroups = [];
+    var pressProjectGroup;
+    var pressSourceGroup;
     for (i = 0; i < jsonData.length; i++) {
         if (jsonData[i].featured) {
             pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"subject", "value":jsonData[i].featured});
@@ -717,10 +716,7 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     // Render the HTML for the page
-    renderedHTML = '';
-    var pressProjectData = { "projects": pressProjectGroups };
-    renderedHTML += Mustache.render(htmlTemplate, pressProjectData);
-
+    var renderedHTML = Mustache.render(htmlTemplate, { "projects": pressProjectGroups });
     $parent.append(renderedHTML);
 };
 
