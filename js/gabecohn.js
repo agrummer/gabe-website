@@ -297,33 +297,33 @@ var renderProjects = function(jsonData) {
         '                        <img class="img-thumbnail" src="img/projects/{{ id }}.jpg" alt="{{ id }}">' +
         '                    </div>' +
         '                    <div class="col-md-8">' +
-        '                        <div class="projects-date">{{{ date }}}</div>' +
+        '                        <div class="row-item-date">{{{ date }}}</div>' +
         '                        <div class="projects-title">{{{ title }}}</div>' +
         '                        <div class="projects-summary">{{{ shortDesc }}}</div>' +
         '                    </div>' +
         '                    <div class="col-md-2">' +
         '                        {{#awardCount}}' +
-        '                        <div class="projects-award-count">' +
+        '                        <div class="badge-info projects-award-count">' +
         '                            <span class="label label-info"><span class="glyphicon glyphicon-star-empty"></span> {{ awardCount }}</span>' +
         '                        </div>' +
         '                        {{/awardCount}}' +
         '                        {{#publicationCount}}' +
-        '                        <div class="projects-publication-count">' +
+        '                        <div class="badge-info projects-publication-count">' +
         '                            <span class="label label-info"><span class="glyphicon glyphicon-file"></span> {{ publicationCount }}</span>' +
         '                        </div>' +
         '                        {{/publicationCount}}' +
         '                        {{#videoCount}}' +
-        '                        <div class="projects-video-count">' +
+        '                        <div class="badge-info projects-video-count">' +
         '                            <span class="label label-info"><span class="glyphicon glyphicon-film"></span> {{ videoCount }}</span>' +
         '                        </div>' +
         '                        {{/videoCount}}' +
         '                        {{#pressCount}}' +
-        '                        <div class="projects-press-count">' +
+        '                        <div class="badge-info projects-press-count">' +
         '                            <span class="label label-info"><span class="glyphicon glyphicon-globe"></span> {{ pressCount }}</span>' +
         '                        </div>' +
         '                        {{/pressCount}}' +
         '                        <div class="projects-action-link">' +
-        '                            Click to for details' +
+        '                            Click for details' +
         '                        </div>' +
         '                    </div>' +
         '                </div>' +
@@ -452,22 +452,22 @@ var renderPublications = function(typesJsonData, jsonData) {
         '    <div class="panel-body">' +
         '        <div class="container">' +
         '        {{#rows}}' +
-        '        <div class="publication row">' +
+        '        <div class="row pub-item publication">' +
         '            <a name="{{ id }}"></a>' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
-        '                <div class="publications-date">{{{ year }}}</div>' +
+        '                <div class="row-item-date">{{{ year }}}</div>' +
         '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
         '                {{#acceptance}}' +
-        '                <div class="publications-acceptance">' +
+        '                <div class="pub-item-acceptance">' +
         '                    [Acceptance Rate: {{ . }}]' +
         '                </div>' +
         '                {{/acceptance}}' +
         '                {{#awards}}' +
-        '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
         '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
@@ -530,17 +530,17 @@ var renderTalks = function(jsonData) {
         '    <div class="panel-body">' +
         '        <div class="container">' +
         '        {{#talks}}' +
-        '        <div class="talk row">' +
+        '        <div class="row pub-item talk">' +
         '            <a name="{{ id }}"></a>' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
         '            </div>' +
         '            <div class="col-md-6">' +
-        '                <div class="talks-date">{{{ year }}}</div>' +
+        '                <div class="row-item-date">{{{ year }}}</div>' +
         '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
         '                {{#awards}}' +
-        '                <div class="talks-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
         '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
@@ -693,7 +693,7 @@ var renderAllPress = function(jsonData) {
         '    <div class="panel-body">' +
         '        {{#press}}' +
         '        <div class="press-article">' +
-        '            <div class="press-date">{{ displayDate }}</div>' +
+        '            <div class="row-item-date">{{ displayDate }}</div>' +
         '            <div class="press-title">' +
         '                {{#url}}<a href="{{{ . }}}">{{/url}}{{ title }}{{#url}}</a>{{/url}}' +
         '            </div> ' +
