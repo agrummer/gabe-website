@@ -544,18 +544,17 @@ var renderPublications = function(typesJsonData, jsonData) {
 };
 
 var renderTalks = function(jsonData) {
-    var $parent = $(".talks-parent"),
-        htmlTemplate,
-        talk,
-        talkId,
-        renderedHTML;
-
+    var $parent = $(".talks-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    htmlTemplate = '' +
+    var htmlTemplate = '' +
+        '<div class="panel panel-default">' +
+        '    <div class="panel-body">' +
+        '        <div class="container">' +
+        '        {{#talks}}' +
         '        <div class="talks-anchor">' +
         '            <a name="{{ id }}"></a>' +
         '        </div>' +
@@ -576,26 +575,28 @@ var renderTalks = function(jsonData) {
         '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
         '                {{/links}}' +
         '            </div>' +
-        '        </div>';
+        '        </div>' +
+        '        {{/talks}}' +
+        '        </div>' +
+        '    </div>' +
+        '</div>';
 
-
-    renderedHTML = '';
-    for (talkId = 0; talkId < jsonData.length; talkId++) {
-        talk = jsonData[talkId];
-
-        // Add related awards
-        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedTalks", talk.id);
+    // Add linked data
+    for (var i = 0; i < jsonData.length; i++) {
+        // add related awards
+        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedTalks", jsonData[i].id);
         if(awards.length > 0) {
-            talk["awards"] = awards;
+            jsonData[i]["awards"] = awards;
         }
 
-        if (talk.links) {
-            talk.links = addIconsToLinks(talk.links);
+        // add icons to links
+        if (jsonData[i].links) {
+            jsonData[i].links = addIconsToLinks(jsonData[i].links);
         }
-
-        renderedHTML += Mustache.render(htmlTemplate, talk);
     }
 
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, { "talks": jsonData });
     $parent.append(renderedHTML);
 };
 
