@@ -231,51 +231,42 @@ var getArrayElementsContainingAttributeInList = function(array, attributeName, a
 };
 
 var renderEvents = function(jsonData) {
-    var $parent = $(".timeline-parent"),
-        htmlTemplate,
-        eventObj,
-        eventId,
-        renderedHTML;
-
+    var $parent = $(".timeline-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    htmlTemplate = '' +
+    var htmlTemplate = '' +
+        '                            {{#events}}' +
         '                            <dl class="dl-horizontal {{ pastClass }}">' +
         '                                <dt>{{ displayDate }}</dt>' +
         '                                <dd>{{ title }} {{#location}}({{ . }}){{/location}}</dd>' +
-        '                            </dl>';
+        '                            </dl>' +
+        '                            {{/events}}';
 
-
-    // get today's date (remove everything other than the date itself)
+    // Get today's date (remove everything other than the date itself)
     var today = new Date();
     today.setHours(0);
     today.setMinutes(0);
     today.setSeconds(0);
     today.setMilliseconds(0);
 
-    renderedHTML = '';
-    for (eventId = 0; eventId < jsonData.length; eventId++) {
-        eventObj = jsonData[eventId];
-
-        // if the event ended in the past, add 'past' class
-        var endDate;
-        if (eventObj.endDate) {
-            var endDate = new Date(eventObj.endDate); // get the end date of the event
+    // Add 'past' class if the event ended in the past
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].endDate) {
+            var endDate = new Date(jsonData[i].endDate); // get the end date of the event
             if (today > endDate) { // event ended in the past
-                eventObj.pastClass = "past";
+                jsonData[i].pastClass = "past";
             }
         }
-
-        renderedHTML += Mustache.render(htmlTemplate, eventObj);
     }
 
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, { "events": jsonData });
     $parent.append(renderedHTML);
 
-
-    // modify the spacing between the events in the list so that they fit perfectly in the same height as the 'contact' column
+    // Modify the spacing between the events in the list so that they fit perfectly in the same height as the 'contact' column
     var contactHeight = parseFloat($("#home .contact").css("height"));
     var timelinePaddingTop = parseFloat($("#home .timeline").css("padding-top"));
     var timelinePaddingBot = parseFloat($("#home .timeline").css("padding-bottom"));
