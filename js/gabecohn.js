@@ -286,10 +286,8 @@ var renderProjects = function(jsonData) {
     }
 
     var projectTemplate = '' +
-        '<div class="projects-anchor">' +
-        '    <a name="{{ id }}"></a>' +
-        '</div>' +
         '<div id="project-{{ id }}" class="projects-project panel-group">' +
+        '<a name="{{ id }}"></a>' +
         '<div class="panel panel-default">' +
         '    <a data-toggle="collapse" data-parent="#project-{{ id }}" href="#project-{{ id }}-body">' +
         '        <div class="panel-heading">' +
@@ -446,20 +444,16 @@ var renderPublications = function(typesJsonData, jsonData) {
         '    </ul>' +
         '</div>' +
         '{{#pubGroups}}' +
-        '<div class="publications-anchor">' +
-        '    <a name="publications-{{ type }}"></a>' +
-        '</div>' +
         '<div class="panel panel-default">' +
+        '    <a name="publications-{{ type }}"></a>' +
         '    <div class="panel-heading">' +
         '        <h2 class="panel-title">{{ title }}</h2>' +
         '    </div>' +
         '    <div class="panel-body">' +
         '        <div class="container">' +
         '        {{#rows}}' +
-        '        <div class="publications-anchor">' +
-        '            <a name="{{ id }}"></a>' +
-        '        </div>' +
         '        <div class="publication row">' +
+        '            <a name="{{ id }}"></a>' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
@@ -536,10 +530,8 @@ var renderTalks = function(jsonData) {
         '    <div class="panel-body">' +
         '        <div class="container">' +
         '        {{#talks}}' +
-        '        <div class="talks-anchor">' +
-        '            <a name="{{ id }}"></a>' +
-        '        </div>' +
         '        <div class="talk row">' +
+        '            <a name="{{ id }}"></a>' +
         '            <div class="index col-md-1">{{ index }}</div>' +
         '            <div class="col-md-2">' +
         '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +

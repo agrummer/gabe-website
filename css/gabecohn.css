@@ -346,8 +346,8 @@ h1 .trail{
     
 }
 
-.section-projects .projects-anchor{
-    height: 15px;
+.section-projects .projects-project {
+    padding-top: 15px;
 }
 
 .section-projects .panel {
@@ -458,10 +458,6 @@ h1 .trail{
 
 
 /* PUBLICATIONS */
-.section-publications .publications-anchor{
-    height: 0px;
-}
-
 .section-publications .publication{
     margin-bottom: 35px;
 }
