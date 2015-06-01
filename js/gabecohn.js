@@ -722,91 +722,61 @@ var renderFeaturedPress = function(jsonData) {
 
 // assumes that jsonData has been previously sorted in reverse chronological order
 var renderAllPress = function(jsonData) {
-    var i, j,
-        $parent = $(".press-parent"),
-        htmlNavTemplate,
-        htmlTemplate,
-        htmlGroupStartTemplate,
-        htmlGroupEndTemplate,
-        years,
-        pressGroup,
-        pressGroups = [],
-        renderedHTML;
+    var i;
 
+    var $parent = $(".press-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    htmlNavTemplate =  '<div class="subnav well">';
-    htmlNavTemplate += '    <ul class="subnav">';
-    htmlNavTemplate += '        {{#years}}';
-    htmlNavTemplate += '            <li><a href="#press-{{ . }}">{{ . }}</a></li>';
-    htmlNavTemplate += '        {{/years}}';
-    htmlNavTemplate += '    </ul>';
-    htmlNavTemplate += '</div>';
+    var htmlTemplate = '' +
+        '<div class="subnav well">' +
+        '    <ul class="subnav">' +
+        '        {{#years}}' +
+        '        <li><a href="#press-{{ year }}">{{ year }}</a></li>' +
+        '        {{/years}}' +
+        '    </ul>' +
+        '</div>' +
+        '{{#years}}' +
+        '<div id="press-{{ year }}" class="panel panel-default">' +
+        '    <a name="press-{{ year }}"></a>' +
+        '    <div class="panel-heading">' +
+        '        <h2 class="panel-title">{{ year }}</h2>' +
+        '    </div>' +
+        '    <div class="panel-body">' +
+        '        {{#press}}' +
+        '        <div class="press-article">' +
+        '            <div class="press-date">{{ displayDate }}</div>' +
+        '            <div class="press-title">' +
+        '                {{#url}}<a href="{{{ . }}}">{{/url}}{{ title }}{{#url}}</a>{{/url}}' +
+        '            </div> ' +
+        '            <div class="press-author">{{ author }}{{#author}}, {{/author}}</div><div class="press-publication">{{ publication }}</div>' +
+        '        </div>' +
+        '        {{/press}}' +
+        '    </div>' +
+        '</div>' +
+        '{{/years}}';
 
-    htmlGroupStartTemplate =  '<div id="press-{{ year }}" class="panel panel-default">';
-    htmlGroupStartTemplate += '    <a name="press-{{ year }}"></a>';
-    htmlGroupStartTemplate += '    <div class="panel-heading">';
-    htmlGroupStartTemplate += '        <h2 class="panel-title">{{ year }}</h2>';
-    htmlGroupStartTemplate += '    </div>';
-    htmlGroupStartTemplate += '    <div class="panel-body">';
-
-    htmlTemplate =  '<div class="press-article">';
-    htmlTemplate += '    <div class="press-date">{{ displayDate }}</div>';
-    htmlTemplate += '    <div class="press-title">';
-    htmlTemplate += '        {{#url}}<a href="{{{ . }}}">{{/url}}{{ title }}{{#url}}</a>{{/url}}';
-    htmlTemplate += '    </div> ';
-    htmlTemplate += '    <div class="press-author">{{ author }}{{#author}}, {{/author}}</div><div class="press-publication">{{ publication }}</div>';
-    htmlTemplate += '</div>';
-
-    htmlGroupEndTemplate =  '    </div>';
-    htmlGroupEndTemplate += '</div>';
-
-    years = parseDistinctYears(jsonData, "sortDate");
-
-    renderedHTML = Mustache.render(htmlNavTemplate, {"years":years});
-
-    for (i = 0; i < years.length; i++) {
-        renderedHTML += Mustache.render(htmlGroupStartTemplate, {"year":years[i]});
-
-        for (j = 0; j < jsonData.length; j++) {
-            var year = parseYear(jsonData[j].sortDate);
-            if (year != null && year === years[i]) {
-                renderedHTML += Mustache.render(htmlTemplate, jsonData[j]);
+    // Group press by year
+    var pressGroupedByYear = [];
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].sortDate && jsonData[i].sortDate.length > 4) {
+            var year = jsonData[i].sortDate.substr(0,4);
+            var yearGroup = getArrayElementWithAttribute(pressGroupedByYear, {"name":"year", "value":year});
+            if (yearGroup) {
+                yearGroup.press.push(jsonData[i]);
+            } else { // create new year group in list
+                yearGroup = {
+                    "year": year,
+                    "press": [ jsonData[i] ]
+                };
+                pressGroupedByYear.push(yearGroup);
             }
         }
-
-        renderedHTML += Mustache.render(htmlGroupEndTemplate, {"year":years[i]});
     }
 
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, {"years": pressGroupedByYear});
     $parent.append(renderedHTML);
-
-};
-
-var parseDistinctYears = function(objects, attributeName){
-    var years = [];
-
-    for (var i = 0; i < objects.length; i ++) {
-        if (objects[i][attributeName]) {
-            var year = parseYear(objects[i][attributeName]);
-
-            if (year != null) {
-                if (years.indexOf(year) === -1) {
-                    years.push(year);
-                }
-            }
-
-        }
-    }
-
-    return years;
-};
-
-var parseYear = function (sortDateString) {
-    if (sortDateString && sortDateString.length > 4) {
-        return sortDateString.substr(0, 4);
-    }
-    return null;
 };
