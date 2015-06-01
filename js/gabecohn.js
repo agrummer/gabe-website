@@ -292,19 +292,13 @@ var renderEvents = function(jsonData) {
 };
 
 var renderProjects = function(jsonData) {
-    var $parent = $(".projects-parent"),
-        projectTemplate,
-        projectJSON,
-        p,
-        projectId,
-        renderedHTML;
-
+    var $parent = $(".projects-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    projectTemplate = '' +
+    var projectTemplate = '' +
         '<div class="projects-anchor">' +
         '    <a name="{{ id }}"></a>' +
         '</div>' +
@@ -389,10 +383,10 @@ var renderProjects = function(jsonData) {
         '</div>' +
         '</div>';
 
-    renderedHTML = '';
-    for(p = 0; p < jsonData.length; p++) {
-        projectJSON = jsonData[p];
-        projectId = projectJSON["id"];
+    var renderedHTML = '';
+    for(var p = 0; p < jsonData.length; p++) {
+        var projectJSON = jsonData[p];
+        var projectId = projectJSON["id"];
 
         // Create permalink
         if(projectId) {
