@@ -450,31 +450,21 @@ var renderProjects = function(jsonData) {
 };
 
 var renderPublications = function(typesJsonData, jsonData) {
-    var $parent = $(".publications-parent"),
-        htmlTemplate,
-        htmlNavTemplate,
-        htmlGroupStartTemplate,
-        htmlGroupEndTemplate,
-        publication,
-        publicationType,
-        publicationGroup,
-        publicationId,
-        renderedHTML;
-
+    var $parent = $(".publications-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
         return;
     }
 
-    htmlNavTemplate  = '<div class="subnav well">';
-    htmlNavTemplate += '    <ul class="subnav">';
-    htmlNavTemplate += '        {{#types}}';
-    htmlNavTemplate += '            <li><a href="#publications-{{ name }}">{{ displayName }}</a></li>';
-    htmlNavTemplate += '        {{/types}}';
-    htmlNavTemplate += '    </ul>';
-    htmlNavTemplate += '</div>';
-
-    htmlGroupStartTemplate = '' +
+    var htmlTemplate = '' +
+        '<div class="subnav well">' +
+        '    <ul class="subnav">' +
+        '        {{#pubGroups}}' +
+        '        <li><a href="#publications-{{ type }}">{{ title }}</a></li>' +
+        '        {{/pubGroups}}' +
+        '    </ul>' +
+        '</div>' +
+        '{{#pubGroups}}' +
         '<div class="publications-anchor">' +
         '    <a name="publications-{{ type }}"></a>' +
         '</div>' +
@@ -483,14 +473,8 @@ var renderPublications = function(typesJsonData, jsonData) {
         '        <h2 class="panel-title">{{ title }}</h2>' +
         '    </div>' +
         '    <div class="panel-body">' +
-        '        <div class="container">';
-
-    htmlGroupEndTemplate = '' +
-        '        </div>' +
-        '    </div>' +
-        '</div>';
-
-    htmlTemplate = '' +
+        '        <div class="container">' +
+        '        {{#rows}}' +
         '        <div class="publications-anchor">' +
         '            <a name="{{ id }}"></a>' +
         '        </div>' +
@@ -516,18 +500,37 @@ var renderPublications = function(typesJsonData, jsonData) {
         '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
         '                {{/links}}' +
         '            </div>' +
-        '        </div>';
+        '        </div>' +
+        '        {{/rows}}' +
+        '        </div>' +
+        '    </div>' +
+        '</div>' +
+        '{{/pubGroups}}';
 
-
-    // create a container to hold all publications, grouped by type
+    // Create a container to hold all publications, grouped by type
     var publicationGroups = new Array(typesJsonData.length);
-    for (var i = 0; i < typesJsonData.length; i += 1) {
+    for (var i = 0; i < typesJsonData.length; i++) {
         publicationGroups[i] = {"type": typesJsonData[i].name, "title": typesJsonData[i].displayName, "rows": []};
     }
 
-    // Group publications by type
-    for (var i = 0; i < jsonData.length; i += 1) {
-        publicationGroup = getArrayElementWithAttribute(publicationGroups, {"name":"type", "value":jsonData[i].type});
+    // Add linked data and Group publications by type
+    for (var i = 0; i < jsonData.length; i++) {
+        // *** First, add linked data ***
+
+        // add related awards
+        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedPublications", jsonData[i].id);
+        if(awards.length > 0) {
+            jsonData[i]["awards"] = awards;
+        }
+
+        // add icons to links
+        if (jsonData[i].links) {
+            jsonData[i].links = addIconsToLinks(jsonData[i].links);
+        }
+
+
+        // *** Then, add publication to the correct group ***
+        var publicationGroup = getArrayElementWithAttribute(publicationGroups, {"name":"type", "value":jsonData[i].type});
         if (publicationGroup) {
             publicationGroup["rows"].push(jsonData[i]);
         } else {
@@ -535,35 +538,8 @@ var renderPublications = function(typesJsonData, jsonData) {
         }
     }
 
-    // Render HTML from templates
-    renderedHTML = '';
-
-    renderedHTML += Mustache.render(htmlNavTemplate, {"types":typesJsonData});
-
-    for(var groupId = 0; groupId < publicationGroups.length; groupId += 1) {
-        publicationGroup = publicationGroups[groupId];
-
-        renderedHTML += Mustache.render(htmlGroupStartTemplate, publicationGroup);
-
-        for(publicationId = 0; publicationId < publicationGroup["rows"].length; publicationId++) {
-            publication = publicationGroup["rows"][publicationId];
-
-            // Add related awards
-            var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedPublications", publication.id);
-            if(awards.length > 0) {
-                publication["awards"] = awards;
-            }
-
-            if (publication.links) {
-                publication.links = addIconsToLinks(publication.links);
-            }
-
-            renderedHTML += Mustache.render(htmlTemplate, publication);
-        }
-
-        renderedHTML += Mustache.render(htmlGroupEndTemplate, publicationGroup);
-    }
-
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, { "pubGroups": publicationGroups });
     $parent.append(renderedHTML);
 };
 
