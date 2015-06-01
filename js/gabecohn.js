@@ -625,8 +625,6 @@ var renderTalks = function(jsonData) {
 
 // assumes that jsonData has been previously sorted in reverse chronological order
 var renderFeaturedPress = function(jsonData) {
-    var i;
-
     var $parent = $(".press-featured-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
@@ -666,7 +664,7 @@ var renderFeaturedPress = function(jsonData) {
     var pressProjectGroups = [];
     var pressProjectGroup;
     var pressSourceGroup;
-    for (i = 0; i < jsonData.length; i++) {
+    for (var i = 0; i < jsonData.length; i++) {
         if (jsonData[i].featured) {
             pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"subject", "value":jsonData[i].featured});
             if (pressProjectGroup) {
@@ -711,7 +709,7 @@ var renderFeaturedPress = function(jsonData) {
     }
 
     // add id values to each group
-    for (i = 0; i < pressProjectGroups.length; i++) {
+    for (var i = 0; i < pressProjectGroups.length; i++) {
         pressProjectGroups[i]["id"] = i; // just use index in list
     }
 
@@ -722,8 +720,6 @@ var renderFeaturedPress = function(jsonData) {
 
 // assumes that jsonData has been previously sorted in reverse chronological order
 var renderAllPress = function(jsonData) {
-    var i;
-
     var $parent = $(".press-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
@@ -777,6 +773,6 @@ var renderAllPress = function(jsonData) {
     }
 
     // Render the HTML for the page
-    var renderedHTML = Mustache.render(htmlTemplate, {"years": pressGroupedByYear});
+    var renderedHTML = Mustache.render(htmlTemplate, { "years": pressGroupedByYear });
     $parent.append(renderedHTML);
 };
