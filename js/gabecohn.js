@@ -4,10 +4,6 @@
 $(function () {
     "use strict";
 
-//    $.getJSON("json/projects.json", function(json) {
-//        renderProjects(json);
-//    });
-
     // detect and apply Internet Explorer (IE) class (for IE 9-11)
     var $body = $('body'),
         isIE9 = !!navigator.userAgent.match(/MSIE 9\./),
