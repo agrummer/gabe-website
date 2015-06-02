@@ -483,6 +483,11 @@ h1 .trail{
     text-decoration: none;
 }
 
+.section-teaching .course .panel-body{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .section-teaching .course-title{
     font-size:16pt;
     color:rgb(103,140,195);
@@ -490,7 +495,7 @@ h1 .trail{
 }
 
 .section-teaching .course-instance {
-    padding-left: 30px;
+    padding-left: 15px;
     margin-bottom: 5px; 
     color:#808080;
     font-size:9pt;
@@ -501,7 +506,7 @@ h1 .trail{
 }
 
 .section-teaching .course-desc {
-    padding: 10px 30px 5px 30px;
+    padding: 10px 5px 5px 0px;
     color: #464646;
     text-align: justify;
 }
