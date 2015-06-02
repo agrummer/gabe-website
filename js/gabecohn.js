@@ -45,6 +45,10 @@ $(function () {
         renderTalks(talksJSON);
     }
 
+    if (window['teachingJSON']) {
+        renderTeaching(teachingJSON);
+    }
+
     if (window['pressJSON']) {
         renderFeaturedPress(pressJSON);
         renderAllPress(pressJSON);
@@ -570,6 +574,55 @@ var renderTalks = function(jsonData) {
 
     // Render the HTML for the page
     var renderedHTML = Mustache.render(htmlTemplate, { "talks": jsonData });
+    $parent.append(renderedHTML);
+};
+
+var renderTeaching = function(jsonData) {
+    var $parent = $(".teaching-parent");
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        return;
+    }
+
+    var htmlTemplate = '' +
+        '<div class="subnav well">' +
+        '    <ul class="subnav">' +
+        '        {{#groups}}' +
+        '        <li><a href="#teaching-{{ id }}">{{ sectionTitle }}</a></li>' +
+        '        {{/groups}}' +
+        '    </ul>' +
+        '</div>' +
+        '{{#groups}}' +
+        '<div id="teaching-{{ id }}" class="panel panel-default">' +
+        '    <a name="teaching-{{ id }}"></a>' +
+        '    <div class="panel-heading">' +
+        '        <h2 class="panel-title">{{ sectionTitle }}</h2>' +
+        '    </div>' +
+        '    <div class="panel-body">' +
+        '        {{#courses}}' +
+        '        <div class="panel panel-default course">' +
+        '            <a name="{{ id }}" href="{{ link }}">' +
+        '            <div class="panel-body">' +
+        '                <div class="course-title">{{ title }}</div>' +
+        '                {{#instances}}' +
+        '                <div class="course-instance"><span class="course-name">{{ course }}:</span> <span class="course-term">{{ terms }}</span></div>' +
+        '                {{/instances}}' +
+        '                <div class="course-desc">{{ desc }}</div>' +
+        '            </div>' +
+        '            </a>' +
+        '        </div>' +
+        '        {{/courses}}' +
+        '    </div>' +
+        '</div>' +
+        '{{/groups}}';
+
+    // add id values to each group
+    for (var i = 0; i < jsonData.length; i++) {
+        jsonData[i]["id"] = i; // just use index in list
+    }
+
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, { "groups": jsonData });
     $parent.append(renderedHTML);
 };
 
