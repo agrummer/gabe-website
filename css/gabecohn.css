@@ -58,6 +58,20 @@ h2,h3,h4,h5,h6{
     background-color:rgba(103,140,195,0.1);
 }
 
+.navbar .navbar-brand {
+    color:rgb(103,140,195);
+    text-transform: none;
+    font-size: 19pt;
+    display: none;
+}
+
+.navbar button.navbar-toggle {
+    border-color: #808080;
+}
+
+.navbar button.navbar-toggle .icon-bar {
+    background-color: #808080;
+}
 
 /* HOME */
 

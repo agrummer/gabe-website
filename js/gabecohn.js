@@ -114,6 +114,7 @@ $(function () {
     });
 
     $(window).load(function(){
+        updateNavbar();
         handleAnchor();
 
         $('[data-spy="scroll"]').each(function () {
@@ -123,12 +124,22 @@ $(function () {
 
     $(window).resize(function() {
         adjustEventSpacing();
+        updateNavbar();
     });
 
     // handle anchors on clicks
     window.addEventListener("hashchange", handleAnchor);
 
 });
+
+var updateNavbar = function() {
+    // only show brand if navbar is collapsed
+    if (window.outerWidth < 768) {
+        $(".navbar-brand").show();
+    } else {
+        $(".navbar-brand").hide();
+    }
+};
 
 var handleAnchor = function() {
     var hash = window.location.hash;
