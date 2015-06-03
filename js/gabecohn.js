@@ -307,6 +307,7 @@ var renderEvents = function(jsonData) {
     var $parent = $(".timeline-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderEvents: parent not found");
         return;
     }
 
@@ -372,6 +373,7 @@ var renderProjects = function(jsonData) {
     var $parent = $(".projects-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderProjects: parent not found");
         return;
     }
 
@@ -522,6 +524,7 @@ var renderPublications = function(typesJsonData, jsonData) {
     var $parent = $(".publications-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderPublications: parent not found");
         return;
     }
 
@@ -612,6 +615,7 @@ var renderTalks = function(jsonData) {
     var $parent = $(".talks-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderTalks: parent not found");
         return;
     }
 
@@ -667,6 +671,7 @@ var renderTeaching = function(jsonData) {
     var $parent = $(".teaching-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderTeaching: parent not found");
         return;
     }
 
@@ -717,6 +722,7 @@ var renderFeaturedPress = function(jsonData) {
     var $parent = $(".press-featured-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderFeaturedPress: parent not found");
         return;
     }
 
@@ -812,6 +818,7 @@ var renderAllPress = function(jsonData) {
     var $parent = $(".press-parent");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderAllPress: parent not found");
         return;
     }
 
