@@ -20,6 +20,9 @@ $(function () {
         $body.addClass("msie");
     }
 
+    // Render navbar
+    renderNavbar();
+
     // pre-sort press and awards JSON structs
     if (window['pressJSON']) {
         pressJSON = sortListByDate(pressJSON);
@@ -135,9 +138,9 @@ $(function () {
 var updateNavbar = function() {
     // only show brand if navbar is collapsed
     if (window.outerWidth < 768) {
-        $(".navbar-brand").show();
+        $("#navbar .navbar-brand").show();
     } else {
-        $(".navbar-brand").hide();
+        $("#navbar .navbar-brand").hide();
     }
 };
 
@@ -243,6 +246,61 @@ var getArrayElementsContainingAttributeInList = function(array, attributeName, a
     }
 
     return results;
+};
+
+var renderNavbar = function() {
+    var $parent = $("nav#navbar");
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        console.log("renderNavbar: parent not found");
+        return;
+    }
+
+    var navHtml = '' +
+        '<div class="container-fluid">' +
+        '    <div class="navbar-header">' +
+        '        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-body">' +
+        '            <span class="icon-bar"></span>' +
+        '            <span class="icon-bar"></span>' +
+        '            <span class="icon-bar"></span>' +
+        '        </button>' +
+        '        <a class="navbar-brand" href="/">Gabe A. Cohn</a>' +
+        '    </div>' +
+        '    <div id="navbar-body" class="collapse navbar-collapse">' +
+        '        <ul id="nav-left" class="nav navbar-nav">' +
+        '            <li class="nav-home"><a href="/">Home</a></li>' +
+        '            <li class="nav-projects"><a href="/#projects">Projects</a></li>' +
+        '            <li class="nav-publications"><a href="/#publications">Publications</a></li>' +
+        '            <li class="nav-talks"><a href="/#talks">Talks</a></li>' +
+        '            <li class="nav-teaching"><a href="/#teaching">Teaching</a></li>' +
+        '            <li class="nav-press"><a href="/#press">Press</a></li>' +
+        '            <li class="nav-cv"><a href="/pdf/Cohn_CV.pdf" target="_blank">CV</a></li>' +
+        '        </ul>' +
+        '    </div>' +
+        '</div>';
+
+    // add navbar to page
+    $parent.html(navHtml);
+
+    // if home page, then remove '/' from hrefs (so that scrollspy works)
+    if (window.location.pathname === "/") {
+        console.log("homepage");
+        $("nav#navbar #navbar-body li a").each(function() {
+            var href = $(this).attr("href"); // get current href
+            if (href === "/") { // Home section is an exception
+                href = "#home"; // needs to be changed to "#home"
+            } else {
+                href = href.substr(1); // remove leading slash
+            }
+            $(this).attr("href", href); 
+        });
+    }
+
+    // set active section of page in navbar
+    var activeSection = $parent.attr("data-active");
+    if (activeSection && activeSection.length > 0) {
+        $("nav#navbar #navbar-body li." + activeSection).addClass("active");
+    }
 };
 
 var renderEvents = function(jsonData) {
