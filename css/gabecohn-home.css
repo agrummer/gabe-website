@@ -56,6 +56,10 @@ section{
     background:url(../img/press-img.jpg) 50% 0 no-repeat #000;
 }
 
+#all-press-img{
+    background:url(../img/press-img.jpg) 50% 80% no-repeat #000;
+}
+
 .section-intro{
     color:rgb(100,100,100);
     margin:25px 0 0 0;
@@ -474,20 +478,20 @@ ul.subnav {
 
 /* ALL PRESS LIST */
 
-.section-press .press-title{
+.section-all-press .press-title{
     font-size: large;
 }
 
-.section-press .press-article{
+.section-all-press .press-article{
     margin-top:15px;
     margin-bottom:15px;
 }
 
-.section-press .press-article .press-author{
+.section-all-press .press-article .press-author{
     display:inline;
 }
 
-.section-press .press-article .press-publication{
+.section-all-press .press-article .press-publication{
     display:inline;
     font-style:italic;
 }
