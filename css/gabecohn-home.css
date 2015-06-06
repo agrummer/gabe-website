@@ -112,6 +112,14 @@
     padding:180px 40px 50px 40px;
 }
 
+#home .introduction .emphasis {
+    font-weight: bold;
+}
+
+#home .introduction .plain-only {
+    display: none;
+}
+
 #home .introduction .intro-message{
     text-align:justify;
 }

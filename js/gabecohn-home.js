@@ -13,6 +13,10 @@ $(function () {
     }
 
     // render page from JSON
+    if (window['bioJSON']) {
+        renderIntro(bioJSON);
+    }
+
     if (window['eventsJSON']) {
         renderEvents(eventsJSON);
     }
@@ -53,6 +57,24 @@ $(function () {
         adjustEventSpacing();
     });
 });
+
+var renderIntro = function(jsonData) {
+    var $parent = $("#home .introduction");
+    if (!$parent || $parent.length === 0) {
+        // HTML container not found on the current page
+        console.log("renderIntro: parent not found");
+        return;
+    }
+
+    var htmlTemplate = '' +
+        '                        <h1>{{ homepage-name }}</h1>' +
+        '                        <p class="lead">{{{ homepage-lead }}}</p>' +
+        '                        <p class="intro-message">{{{ homepage-affiliation }}}{{{ bio }}}</p>';
+
+    // Render the HTML for the page
+    var renderedHTML = Mustache.render(htmlTemplate, jsonData);
+    $parent.append(renderedHTML);
+};
 
 var renderEvents = function(jsonData) {
     var $parent = $(".timeline-parent");
