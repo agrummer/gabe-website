@@ -18,6 +18,10 @@ h2,h3,h4,h5,h6{
     color:rgb(103,140,195);
 }
 
+h1 .trail{
+    color:rgb(177,179,186);
+}
+
 .label {
     text-transform: uppercase;
     font-size: 8pt;
@@ -72,6 +76,114 @@ h2,h3,h4,h5,h6{
     background-color: #808080;
 }
 
+
+/* SECTIONS */
+
+section{
+    max-width:1600px;
+    margin-left:auto;
+    margin-right:auto;
+    
+    background-color:rgba(255,255,255,0.6);
+    border-width:1px;
+    border-style:solid;
+    border-color:rgba(103,140,195,0.4);
+}
+
+.section-divider{
+    width:100px;
+    margin: 0 auto 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.section-divider.next-section-link{
+    opacity:0.5;
+}
+
+.section-divider.next-section-link:hover{
+    opacity:1;
+}
+
+.section-img{
+    width:100%;
+    max-width:1600px;
+    min-height:200px;
+    height:200px;
+}
+
+.section-intro{
+    color:rgb(100,100,100);
+    margin:25px 0 0 0;
+    text-align: justify;
+}
+
+.section-body{
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom: 40px;
+}
+
+.section-body .container{
+    width:100%;
+}
+
+.section-body h3{
+    text-align:center;
+    margin:25px;
+    background-image:url(../img/headline-bg.png);
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.section-body .index{
+    color: rgb(182,201,217);
+    letter-spacing: 2px;
+    font-weight:bold;
+    font-size:18pt;
+}
+
+.section-body .panel {
+    background-color:#FFF;
+    border-width:1px;
+    border-style:solid;
+    border-color:rgba(103,140,195,0.4);
+}
+
+.section-body .panel-heading{
+    background-color:rgb(103,140,195);
+    border-width:1px;
+    border-style:solid;
+    border-color:rgba(103,140,195,0.4);
+}
+
+.section-body .panel-title{
+    color:#FFF;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-footer{
+    margin: 25px auto 25px auto;
+    text-align: center;
+}
+
+/* SUB-NAV */
+
+div.subnav {
+    width:100%;
+    margin-bottom:20px;
+}
+ul.subnav {
+    font-size:9pt;
+    margin:0;
+    padding:0;
+}
+.subnav li{
+    display:inline;
+    margin-right:20px;
+}
 
 /* FOOTER */
 
