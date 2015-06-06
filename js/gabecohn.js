@@ -20,8 +20,9 @@ $(function () {
         $body.addClass("msie");
     }
 
-    // Render navbar
+    // Render navbar and footer
     renderNavbar();
+    renderFooter();
 
     // pre-sort press and awards JSON structs
     if (window['pressJSON']) {
@@ -300,6 +301,24 @@ var renderNavbar = function() {
     if (activeSection && activeSection.length > 0) {
         $("nav#navbar #navbar-body li." + activeSection).addClass("active");
     }
+};
+
+var renderFooter = function() {
+    $("footer#footer #copyright").each(function() {
+        var start = $(this).attr("data-start-date");
+        var end = $(this).attr("data-end-date");
+        var copyStr = '&copy; ';
+        if (start && start.length > 0) {
+            copyStr += start + ' &ndash; ';
+        }
+        if (!end || end.length === 0) { // use today
+            var today = new Date();
+            end = today.getFullYear();
+        }
+        copyStr += end + ' Gabe A. Cohn';
+        
+        $(this).html(copyStr);
+    });
 };
 
 var renderEvents = function(jsonData) {

@@ -582,7 +582,8 @@ footer{
     padding:20px;
 }
 
-footer p{
+footer div{
     margin:0;
     padding:0;
+    font-size: 9pt;
 }
