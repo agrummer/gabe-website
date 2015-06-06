@@ -1,0 +1,22 @@
+/* BIO PAGE SYTLE */
+
+/* FORMATTED BIO */
+
+.section-bio p.bio {
+    text-align:justify;
+}
+
+.section-bio p.bio .emphasis {
+    font-weight: bold;
+}
+
+.section-bio p.bio .plain-only {
+    display: none;
+}
+
+
+/* PLAIN-TEXT BIO */
+
+.bio-plain p.bio {
+    font-family: monospace;
+}
