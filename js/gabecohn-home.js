@@ -37,6 +37,10 @@ $(function () {
         renderFeaturedPress(pressJSON);
     }
 
+    // ppply moving images
+    applyMovingImages();
+    applyMovingBkgrnd();
+
     $('body').scrollspy({ target: '#navbar' });
 
     $(window).load(function(){

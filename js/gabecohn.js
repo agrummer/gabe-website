@@ -23,62 +23,6 @@ $(function () {
     renderNavbar();
     renderFooter();
 
-    $('div[data-type="background"]').each(function () {
-        var $bgobj = $(this);
-     
-        $(window).scroll(function () {
-            var yPos,
-                coords,
-                minY;
-            
-            yPos = -($(window).scrollTop() / $bgobj.data('speed'));
-            
-            if ($bgobj.data('image-height')) {
-                minY = -($bgobj.data('image-height') - $bgobj.height());
-                if (yPos < minY) {
-                    yPos = minY;
-                }
-            }
-            
-            coords = '50% ' + yPos + 'px';
- 
-            $bgobj.css({ backgroundPosition: coords });
-        });
-    });
-    
-    $('div[data-type="moving"]').each(function () {
-        var $bgobj = $(this);
-     
-        $(window).scroll(function () {
-            var yPos,
-                coords,
-                minY,
-                divY = $bgobj.offset().top,
-                windowHeight = $(window).height(),
-                divHeight = $bgobj.height(),
-                imgHeight = $bgobj.data('image-height');
-            
-            if (!imgHeight) {
-                imgHeight = divHeight;
-            }
-                
-            yPos = -(1 - ((divY + windowHeight) - ($(window).scrollTop() + windowHeight)) / (windowHeight)) * (imgHeight - divHeight);
-            
-            if (yPos > 0) {
-                yPos = 0;
-            }
-            
-            minY = -($bgobj.data('image-height') - divHeight);
-            if (yPos < minY) {
-                yPos = minY;
-            }
-            
-            coords = '50% ' + yPos + 'px';
- 
-            $bgobj.css({ backgroundPosition: coords });
-        });
-    });
-
     $(window).load(function(){
         updateNavbar();
         handleAnchor();
@@ -275,5 +219,65 @@ var renderFooter = function() {
         copyStr += end + ' Gabe A. Cohn';
         
         $(this).html(copyStr);
+    });
+};
+
+var applyMovingImages = function() {
+    $('div[data-type="moving"]').each(function () {
+        var $bgobj = $(this);
+     
+        $(window).scroll(function () {
+            var yPos,
+                coords,
+                minY,
+                divY = $bgobj.offset().top,
+                windowHeight = $(window).height(),
+                divHeight = $bgobj.height(),
+                imgHeight = $bgobj.data('image-height');
+            
+            if (!imgHeight) {
+                imgHeight = divHeight;
+            }
+                
+            yPos = -(1 - ((divY + windowHeight) - ($(window).scrollTop() + windowHeight)) / (windowHeight)) * (imgHeight - divHeight);
+            
+            if (yPos > 0) {
+                yPos = 0;
+            }
+            
+            minY = -($bgobj.data('image-height') - divHeight);
+            if (yPos < minY) {
+                yPos = minY;
+            }
+            
+            coords = '50% ' + yPos + 'px';
+ 
+            $bgobj.css({ backgroundPosition: coords });
+        });
+    });
+};
+
+var applyMovingBkgrnd = function() {
+    $('div[data-type="background"]').each(function () {
+        var $bgobj = $(this);
+     
+        $(window).scroll(function () {
+            var yPos,
+                coords,
+                minY;
+            
+            yPos = -($(window).scrollTop() / $bgobj.data('speed'));
+            
+            if ($bgobj.data('image-height')) {
+                minY = -($bgobj.data('image-height') - $bgobj.height());
+                if (yPos < minY) {
+                    yPos = minY;
+                }
+            }
+            
+            coords = '50% ' + yPos + 'px';
+ 
+            $bgobj.css({ backgroundPosition: coords });
+        });
     });
 };
