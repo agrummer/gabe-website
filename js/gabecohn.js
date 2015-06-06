@@ -284,7 +284,6 @@ var renderNavbar = function() {
 
     // if home page, then remove '/' from hrefs (so that scrollspy works)
     if (window.location.pathname === "/") {
-        console.log("homepage");
         $("nav#navbar #navbar-body li a").each(function() {
             var href = $(this).attr("href"); // get current href
             if (href === "/") { // Home section is an exception
