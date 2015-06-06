@@ -15,6 +15,18 @@ $(function () {
         $(this).replaceWith(text);
     });
 
+    // add headshot image dimensions
+    $('img').load(function() {
+        $('.bio-img span.img-size').append(function() {
+            var width = $('#headshot').prop("naturalWidth");
+            var height = $('#headshot').prop("naturalHeight");
+            var text = "Full resolution image";
+            if (width && height) {
+                text += ": [ " + width + " x " + height + " ]";
+            }
+            return text;
+        });
+    });
 });
 
 var renderBio = function(jsonData) {
