@@ -36,6 +36,14 @@ h1 .trail{
     margin-bottom: 0;
 }
 
+.stretch_text{
+    white-space: nowrap;
+}
+
+.justify{
+    text-align:justify;
+}
+
 /* NAV */
 
 .navbar{

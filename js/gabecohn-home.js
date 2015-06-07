@@ -41,7 +41,7 @@ $(function () {
         renderFeaturedPress(pressJSON);
     }
 
-    // ppply moving images
+    // apply moving images
     applyMovingImages();
     applyMovingBkgrnd();
 
@@ -67,8 +67,8 @@ var renderIntro = function(jsonData) {
     }
 
     var htmlTemplate = '' +
-        '                        <h1>{{ homepage-name }}</h1>' +
-        '                        <p class="lead">{{{ homepage-lead }}}</p>' +
+        '                        <h1 class="stretch-text">{{ homepage-name }}</h1>' +
+        '                        <p class="lead stretch-text">{{{ homepage-lead }}}</p>' +
         '                        <p class="intro-message">{{{ homepage-affiliation }}}{{{ bio }}}</p>';
 
     // Render the HTML for the page
