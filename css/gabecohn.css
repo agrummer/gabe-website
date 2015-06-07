@@ -32,6 +32,9 @@ h1 .trail{
     background-color: rgb(103,140,195);
 }
 
+.panel-group {
+    margin-bottom: 0;
+}
 
 /* NAV */
 
