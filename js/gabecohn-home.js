@@ -169,27 +169,27 @@ var renderProjects = function(jsonData) {
         '                    <div class="col-md-2">' +
         '                        {{#awardCount}}' +
         '                        <div class="badge-info projects-award-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-star-empty"></span> {{ awardCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> {{ awardCount }}</span>' +
         '                        </div>' +
         '                        {{/awardCount}}' +
         '                        {{#publicationCount}}' +
         '                        <div class="badge-info projects-publication-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-file"></span> {{ publicationCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> {{ publicationCount }}</span>' +
         '                        </div>' +
         '                        {{/publicationCount}}' +
         '                        {{#talkCount}}' +
         '                        <div class="badge-info projects-talk-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-blackboard"></span> {{ talkCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> {{ talkCount }}</span>' +
         '                        </div>' +
         '                        {{/talkCount}}' +
         '                        {{#videoCount}}' +
         '                        <div class="badge-info projects-video-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-film"></span> {{ videoCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> {{ videoCount }}</span>' +
         '                        </div>' +
         '                        {{/videoCount}}' +
         '                        {{#pressCount}}' +
         '                        <div class="badge-info projects-press-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-globe"></span> {{ pressCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> {{ pressCount }}</span>' +
         '                        </div>' +
         '                        {{/pressCount}}' +
         '                        <div class="projects-action-link">' +
@@ -207,15 +207,15 @@ var renderProjects = function(jsonData) {
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ longDesc }}}</div>' +
         '                        {{#publications}}' +
-        '                            <div class="projects-publication-item"><div class="glyphicon glyphicon-file"></div><div class="projects-publication-body">{{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div></div>' +
+        '                            <div class="projects-publication-item"><div class="glyphicon glyphicon-file" aria-hidden="true"></div><div class="projects-publication-body">{{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div></div>' +
         '                        {{/publications}}' +
         '                        {{#links}}' +
-        '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</a></div>' +
+        '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}" aria-hidden="true"></span> {{ title }}</a></div>' +
         '                        {{/links}}' +
         '                    </div>' +
         '                    <div class="col-md-4">' +
         '                        {{#awards}}' +
-        '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
+        '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                        {{/awards}}' +
         '                        {{#hasFeaturedPress}}' +
         '                            <div class="projects-press-heading"><h5>Featured Press In:</h5></div>' +
@@ -227,7 +227,7 @@ var renderProjects = function(jsonData) {
         '                        {{/hasFeaturedPress}}' +
         '                        {{#permalink}}' +
         '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
-        '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
+        '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Permalink</a>' +
         '                            </div>' +
         '                        {{/permalink}}' +
         '                    </div>' +
@@ -357,12 +357,12 @@ var renderPublications = function(typesJsonData, jsonData) {
         '                </div>' +
         '                {{/acceptance}}' +
         '                {{#awards}}' +
-        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> {{ shortName }}</div>' +
         '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#links}}' +
-        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
+        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}" aria-hidden="true"></span> {{ title }}</span></div></a>' +
         '                {{/links}}' +
         '            </div>' +
         '        </div>' +
@@ -431,12 +431,12 @@ var renderTalks = function(jsonData) {
         '                <div class="row-item-date">{{{ year }}}</div>' +
         '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
         '                {{#awards}}' +
-        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
+        '                <div class="pub-item-award"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> {{ shortName }}</div>' +
         '                {{/awards}}' +
         '            </div>' +
         '            <div class="col-md-3">' +
         '                {{#links}}' +
-        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
+        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}" aria-hidden="true"></span> {{ title }}</span></div></a>' +
         '                {{/links}}' +
         '            </div>' +
         '        </div>' +
