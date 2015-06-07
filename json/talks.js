@@ -14,12 +14,26 @@
  *      publication - string (with HTML), all text in the citation that appears after the title
  *      links - an array of the following object. Links are to appear in the order listed
  *          title - string, display text
- *          type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+ *          type - string, one of the following {doc, slides, video, recording, dl, pub, talk, proj, web}. The type determines the icon to show
  *          url - string, URL of the link (use #proj_id if a project link)
  *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list talks for each project.
  *      relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list talks for each publication.
  */
 var talksJSON = [
+        {
+        "id": "talk_T15",
+        "index": "T.15",
+        "type": "invited",
+        "link": null,
+        "year": "2015",
+        "sortDate": "2015-05-22",
+        "authors": "<span class=\"authorHighlight\">Cohn, G.</span>",
+        "title": "Redefining Noise: Finding Unintended Signals Everywhere",
+        "publication": "<em>MobiSys 2015 Workshop on Physical Analytics</em>, Florence, Italy, May 22, 2015.",
+        "links": [ 
+        ],
+        "relatedProjects": [ "proj_humantenna", "proj_sefs", "proj_utouch" ]
+    },
     {
         "id": "talk_T14",
         "index": "T.14",
@@ -51,7 +65,7 @@ var talksJSON = [
         "publication": "<em>Cornell University</em> (Feb. 13), <em>Stanford University</em> (Feb. 18), <em>University of California Berkeley</em> (Feb. 20), <em>University of Wisconsin Madison</em> (Mar. 3), <em>University of Illinois Urbana-Champaign</em> (Mar. 5), <em>Microsoft Research</em> (Mar. 12), <em>University of Wisconsin Madison</em> (Mar. 17), <em>Princeton University</em> (Mar. 25), <em>Harvard University</em> (Mar. 27), <em>Massachusetts Institute of Technology</em> (Mar. 31), <em>University of California Los Angeles</em> (April 3), <em>Columbia University</em> (April 7), 2014.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna", "proj_sefs", "proj_gassense"]
     },
     {
         "id": "talk_T12",
@@ -89,7 +103,7 @@ var talksJSON = [
         "publication": "<em>Georgia Tech Invited Talk</em>, Atlanta, GA, Nov. 5, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna" ]
     },
     {
         "id": "talk_T10",
@@ -103,7 +117,7 @@ var talksJSON = [
         "publication": "<em>Hack Things Meetup</em>, Seattle, WA, Aug. 2, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi" ]
     },
     {
         "id": "talk_T9",
@@ -117,7 +131,7 @@ var talksJSON = [
         "publication": "<em>University of Washington Arch 498D: Creating Responsive Environments</em>, Guest Lecture, Seattle, WA, Jan. 22, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_snupi" ]
     },
     {
         "id": "talk_T8",
@@ -150,7 +164,7 @@ var talksJSON = [
         "publication": "<em>Disney Research Pittsburgh</em>, Pittsburgh, PA, Sept. 7, 2012.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_sefs", "proj_snupi" ]
     },
     {
         "id": "talk_C8",
@@ -212,7 +226,7 @@ var talksJSON = [
         "publication": "<em>University of Washington INFO 463: Input and Interaction</em>, Guest Lecture, Seattle, WA, May 23, 2012.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_heatwave" ]
     },
     {
         "id": "talk_T4",
@@ -250,8 +264,8 @@ var talksJSON = [
                 "url": "pdf/Cohn_Humantenna_chi12_talk.pdf"
             },
             {
-                "title": "Talk Video",
-                "type": "video",
+                "title": "Talk Recording",
+                "type": "recording",
                 "url": "https://youtu.be/IkaYsGrgdbU"
             },
             {
@@ -279,8 +293,8 @@ var talksJSON = [
                 "url": "pdf/Cohn_NoiseCommand_chi11_talk.pdf"
             },
             {
-                "title": "Talk Video",
-                "type": "video",
+                "title": "Talk Recording",
+                "type": "recording",
                 "url": "https://youtu.be/x0GvoYdAy6U"
             },
             {
@@ -303,7 +317,7 @@ var talksJSON = [
         "publication": "<em>University of Washington EE 592 Seminar</em>, Seattle, WA, Feb. 18, 2011.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna" ]
     },
     {
         "id": "talk_T2",

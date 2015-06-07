@@ -1,4 +1,4 @@
-/* CUSTOM SITE SYLING */
+/* SITE-WIDE SYLE */
 
 body{
     padding-top: 50px;
@@ -18,6 +18,10 @@ h2,h3,h4,h5,h6{
     color:rgb(103,140,195);
 }
 
+h1 .trail{
+    color:rgb(177,179,186);
+}
+
 .label {
     text-transform: uppercase;
     font-size: 8pt;
@@ -28,7 +32,9 @@ h2,h3,h4,h5,h6{
     background-color: rgb(103,140,195);
 }
 
-
+.panel-group {
+    margin-bottom: 0;
+}
 
 /* NAV */
 
@@ -58,139 +64,19 @@ h2,h3,h4,h5,h6{
     background-color:rgba(103,140,195,0.1);
 }
 
-
-/* HOME */
-
-#home-img{
-    width:100%;
-    max-width:1600px;
-    background:url(../img/home-img.jpg) 50% 0 no-repeat fixed #000;
-    min-height:940px;
-    height:940px;
-}
-
-#home .content{
-    position:absolute;
-    top:0;
-    left:50%;
-    max-width:1600px;
-}
-
-#home .content-inner{
-    width:100%;
-    max-width:600px;
-    min-height:941px;
-    
-    background-color:rgba(255,255,255,0.95);
-    border-bottom-color:rgb(103,140,195);
-    border-bottom-width:8px;
-    border-bottom-style:solid;
-}
-
-#home .introduction{
-    padding:180px 40px 50px 40px;
-}
-
-#home .introduction .intro-message{
-    text-align:justify;
-}
-
-.curtain{
-    
-}
-
-#home h1{
-    margin:0px;
-    padding:0px;
-    line-height:70px;
-}
-
-/* hack for IE */
-.msie #home h1{
-    font-size:75px;
-}
-.msie #home .lead{
-    font-size:25px;
-}
-
-#home .lead{
-    margin:0px;
-    padding:0px;
-    font-size:26px;
-    letter-spacing:1px;
+.navbar .navbar-brand {
     color:rgb(103,140,195);
+    text-transform: none;
+    font-size: 19pt;
+    display: none;
 }
 
-#home .row{
-    margin-left:0px;
-    margin-right:0px;
+.navbar button.navbar-toggle {
+    border-color: #808080;
 }
 
-
-#home .timeline{
-    font-size:8pt;
-    padding:20px 20px 25px 20px;
-}
-
-#home .timeline dl{
-    margin: 0;
-}
-
-#home .timeline dl dt{
-    width:90px;
-    text-transform:uppercase;
-    color:rgb(103,140,195);
-    font-size:11px;
-}
-
-#home .timeline dl dd{
-    margin-left:100px;
-}
-
-#home .timeline .past {
-    color:#B0B0B0;
-}
-
-
-
-#home .contact{
-    font-size:12px;
-    background-color:rgba(103,140,195,0.1);
-    padding:20px 40px 5px 40px;
-    border-left: solid 2px rgb(103,140,195);
-}
-
-#home .contact strong {
-    color:rgb(103,140,195);
-    text-transform:uppercase;
-    font-size:11px;
-}
-
-#home .contact .bio-links dl dt {
-    width:32px;
-}
-
-#home .contact .bio-links dl dd {
-    margin-left: 42px;
-    line-height: 30px;
-    font-size:10pt;
-}
-
-
-/* SUB-NAV */
-
-div.subnav {
-    width:100%;
-    margin-bottom:20px;
-}
-ul.subnav {
-    font-size:9pt;
-    margin:0;
-    padding:0;
-}
-.subnav li{
-    display:inline;
-    margin-right:20px;
+.navbar button.navbar-toggle .icon-bar {
+    background-color: #808080;
 }
 
 
@@ -229,26 +115,6 @@ section{
     height:200px;
 }
 
-#projects-img{
-    background:url(../img/projects-img.jpg) 50% 0 no-repeat #000;
-}
-
-#publications-img{
-    background:url(../img/publications-img.jpg) 50% 0 no-repeat #000;
-}
-
-#talks-img{
-    background:url(../img/talks-img.jpg) 50% 0 no-repeat #000;
-}
-
-#teaching-img{
-    background:url(../img/teaching-img.jpg) 50% 0 no-repeat #000;
-}
-
-#press-img{
-    background:url(../img/press-img.jpg) 50% 0 no-repeat #000;
-}
-
 .section-intro{
     color:rgb(100,100,100);
     margin:25px 0 0 0;
@@ -281,14 +147,6 @@ section{
     font-size:18pt;
 }
 
-.section-body .thumbnail{
-
-}
-
-.section-body .thumbnail img{
-
-}
-
 .section-body .panel {
     background-color:#FFF;
     border-width:1px;
@@ -309,276 +167,25 @@ section{
     letter-spacing:2px;
 }
 
-h1 .trail{
-    color:rgb(177,179,186);
-}
-
 .section-footer{
     margin: 25px auto 25px auto;
     text-align: center;
 }
 
-.badge-publication{
+/* SUB-NAV */
+
+div.subnav {
+    width:100%;
+    margin-bottom:20px;
+}
+ul.subnav {
     font-size:9pt;
-    letter-spacing:1px;
-    font-weight:bold;
-    margin-bottom: 10px;
+    margin:0;
+    padding:0;
 }
-
-.badge-award{
-    font-size:8pt;
-    text-transform:uppercase;
-    color:rgb(215,17,17);
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
-.badge-video{
-    font-size:8pt;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:10px;
-}
-
-
-/* PROJECTS */
-.section-projects{
-    
-}
-
-.section-projects .projects-anchor{
-    height: 15px;
-}
-
-.section-projects .panel {
-    margin-bottom:0;
-}
-
-.section-projects .panel .panel-heading {
-    background-color: white;
-}
-
-.section-projects .panel .panel-heading:hover {
-    background-color: rgb(230,240,255);
-}
-
-.section-projects .projects-project{
-    margin-top:0;
-}
-
-.section-projects .projects-project .thumbnail-container {
-    width: 130px;
-    height: 130px;
-    padding: 0;
-}
-
-.section-projects .projects-project .thumbnail {
-    width: 120px;
-    height: 120px;
-}
-
-.section-projects .projects-project .projects-title{
-    font-size:16pt;
-    color:rgb(103,140,195);
-    
-}
-
-.section-projects .projects-project .projects-date{
-    font-size: 8pt;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#808080;
-}
-
-.section-projects .projects-project .projects-action-link{
-    font-size: 8pt;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.section-projects .projects-project .projects-org{
-    
-}
-
-.section-projects .projects-project .projects-summary{
-    text-align: justify;
-}
-
-.section-projects .projects-project .projects-description{
-    margin-bottom:30px;
-    text-align: justify;
-}
-
-.section-projects .projects-project .projects-press-heading h5{
-    font-weight: bold;
-}
-
-.section-projects .projects-project .projects-press{
-    padding-left: 15px;
-}
-
-.section-projects .projects-press-item {
-    font-size: 8pt;
-    margin-bottom: 5px;
-}
-
-.section-projects .projects-project .projects-permalink {
-    text-align: right;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 8pt;
-    margin-bottom: 10px;
-}
-
-.section-projects .projects-project .projects-award-count {
-    margin-bottom: 5px;
-}
-
-.section-projects .projects-project .projects-publication-item {
-    margin-bottom: 15px;
-}
-
-.section-projects .projects-project .projects-publication-item .glyphicon {
-    float: left;
-    margin-right: 5px;
-}
-
-.section-projects .projects-project .projects-publication-body {
-    display: table-cell;
-    font-size: 8pt;
-}
-
-.section-projects .projects-project .projects-publication-count {
-    margin-bottom: 5px;
-}
-
-.section-projects .projects-project .projects-video-count {
-    margin-bottom: 5px;
-}
-
-
-/* PUBLICATIONS */
-.section-publications .publications-anchor{
-    height: 0px;
-}
-
-.section-publications .publication{
-    margin-bottom: 35px;
-}
-
-.section-publications .authorHighlight{
-    font-weight: bold;
-}
-
-.section-publications .publications-date{
-    font-size: 8pt;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#808080;
-}
-
-.section-publications .publications-award{
-    color:rgb(215,17,17);
-    text-transform: uppercase;
-    font-size: 8pt;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.section-publications .publications-acceptance{
-    color: #808080;
-    font-size: 9pt;
-    margin-top: 10px;
-}
-
-/* TALKS */
-.section-talks .talk{
-    margin-bottom:35px;
-}
-
-.section-talks .talks-date{
-    font-size: 8pt;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#808080;
-}
-
-.section-talks .authorHighlight{
-    font-weight: bold;
-}
-
-.section-talks .talks-award{
-    color:rgb(215,17,17);
-    text-transform: uppercase;
-    font-size: 8pt;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* TEACHING */
-.section-teaching .course{
-    margin-bottom:50px;
-}
-
-.section-teaching .course .role{
-    color:#808080;
-    font-size:9pt;
-}
-
-
-/* PRESS */
-
-.section-press .press-featured-subject{
-    font-size: 16pt;
-    text-align: center;
-}
-
-.section-press .press-featured-source{
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 10px 10px 10px 10px;
-}
-
-.section-press .press-featured-logo{
-    display: block;
-}
-
-.section-press .press-featured-dates{
-    display: block;
-    float:left;
-    width: 100%;
-    text-align: center;
-}
-
-.section-press .press-featured-date{
-    display: inline;
-}
-
-/* PRESS FULL-PAGE */
-
-.section-press .press-title{
-    font-size: large;
-}
-
-.section-press .press-article{
-    margin-top:15px;
-    margin-bottom:15px;
-}
-
-.section-press .press-article .press-date{
-    font-size: x-small;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#808080;
-}
-
-.section-press .press-article .press-author{
+.subnav li{
     display:inline;
-}
-
-.section-press .press-article .press-publication{
-    display:inline;
-    font-style:italic;
+    margin-right:20px;
 }
 
 /* FOOTER */
@@ -589,7 +196,8 @@ footer{
     padding:20px;
 }
 
-footer p{
+footer div{
     margin:0;
     padding:0;
+    font-size: 9pt;
 }

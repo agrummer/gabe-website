@@ -49,7 +49,7 @@ var publicationTypesJSON = [
  *      acceptance - string or NULL, acceptance rate message to display. If NULL, no acceptance rate is displayed.
  *      links - an array of the following object. Links are to appear in the order listed
  *          title - string, display text
- *          type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+ *          type - string, one of the following {doc, slides, video, recording, dl, pub, talk, proj, web}. The type determines the icon to show
  *          url - string, URL of the link (use #proj_id if a project link)
  *      relatedProjects - an array of project id (proj_id) strings. This allows the projects section of the page to list publication for each project.
  */
@@ -144,8 +144,8 @@ var publicationsJSON = [
                 "url": "http://www.youtube.com/watch?v=hfAk1Vnj6hM"
             },
             {
-                "title": "Talk Video",
-                "type": "video",
+                "title": "Talk Recording",
+                "type": "recording",
                 "url": "https://youtu.be/IkaYsGrgdbU"
             },
             {
@@ -178,8 +178,8 @@ var publicationsJSON = [
                 "url": "pdf/Cohn_NoiseCommand_chi11.pdf"
             },
             {
-                "title": "Talk Video",
-                "type": "video",
+                "title": "Talk Recording",
+                "type": "recording",
                 "url": "https://youtu.be/x0GvoYdAy6U"
             },
             {

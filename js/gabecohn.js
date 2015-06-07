@@ -4,127 +4,47 @@
 $(function () {
     "use strict";
 
-//    $.getJSON("json/projects.json", function(json) {
-//        renderProjects(json);
-//    });
-
     // detect and apply Internet Explorer (IE) class (for IE 9-11)
-    var $body = $('body'),
-        isIE9 = !!navigator.userAgent.match(/MSIE 9\./),
-        isIE10 = !!navigator.userAgent.match(/MSIE 10\./),
-        isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
+    var isIE9 = !!navigator.userAgent.match(/MSIE 9\./);
+    var isIE10 = !!navigator.userAgent.match(/MSIE 10\./);
+    var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
     if (isIE9) {
-        $body.addClass("ie9");
+        $('body').addClass("ie9");
     } else if (isIE10) {
-        $body.addClass("ie10");
+        $('body').addClass("ie10");
     } else if (isIE11) {
-        $body.addClass("ie11");
+        $('body').addClass("ie11");
     }
     if (isIE9 || isIE10 || isIE11) {
-        $body.addClass("msie");
+        $('body').addClass("msie");
     }
 
-    // pre-sort press and awards JSON structs
-    if (window['pressJSON']) {
-        pressJSON = sortListByDate(pressJSON);
-    }
-    if (window['awardsJSON']) {
-        awardsJSON = sortListByDate(awardsJSON);
-    }
-
-    // render page from JSON
-    if (window['eventsJSON']) {
-        renderEvents(eventsJSON);
-    }
-
-    if (window['projectsJSON']) {
-        renderProjects(projectsJSON);
-    }
-
-    if (window['publicationTypesJSON'] && window['publicationsJSON']) {
-        renderPublications(publicationTypesJSON, publicationsJSON);
-    }
-
-    if (window['talksJSON']) {
-        renderTalks(talksJSON);
-    }
-
-    if (window['pressJSON']) {
-        renderFeaturedPress(pressJSON);
-        renderAllPress(pressJSON);
-    }
-
-
-    $body.scrollspy({ target: '#navbar' });
-
-    $('div[data-type="background"]').each(function () {
-        var $bgobj = $(this);
-     
-        $(window).scroll(function () {
-            var yPos,
-                coords,
-                minY;
-            
-            yPos = -($(window).scrollTop() / $bgobj.data('speed'));
-            
-            if ($bgobj.data('image-height')) {
-                minY = -($bgobj.data('image-height') - $bgobj.height());
-                if (yPos < minY) {
-                    yPos = minY;
-                }
-            }
-            
-            coords = '50% ' + yPos + 'px';
- 
-            $bgobj.css({ backgroundPosition: coords });
-        });
-    });
-    
-    $('div[data-type="moving"]').each(function () {
-        var $bgobj = $(this);
-     
-        $(window).scroll(function () {
-            var yPos,
-                coords,
-                minY,
-                divY = $bgobj.offset().top,
-                windowHeight = $(window).height(),
-                divHeight = $bgobj.height(),
-                imgHeight = $bgobj.data('image-height');
-            
-            if (!imgHeight) {
-                imgHeight = divHeight;
-            }
-                
-            yPos = -(1 - ((divY + windowHeight) - ($(window).scrollTop() + windowHeight)) / (windowHeight)) * (imgHeight - divHeight);
-            
-            if (yPos > 0) {
-                yPos = 0;
-            }
-            
-            minY = -($bgobj.data('image-height') - divHeight);
-            if (yPos < minY) {
-                yPos = minY;
-            }
-            
-            coords = '50% ' + yPos + 'px';
- 
-            $bgobj.css({ backgroundPosition: coords });
-        });
-    });
+    // Render navbar and footer
+    renderNavbar();
+    renderFooter();
 
     $(window).load(function(){
+        updateNavbar();
         handleAnchor();
+    });
 
-        $('[data-spy="scroll"]').each(function () {
-            var $spy = $(this).scrollspy('refresh');
-        });
+    $(window).resize(function() {
+        updateNavbar();
     });
 
     // handle anchors on clicks
     window.addEventListener("hashchange", handleAnchor);
 
 });
+
+var updateNavbar = function() {
+    // only show brand if navbar is collapsed
+    if (window.outerWidth < 768) {
+        $("#navbar .navbar-brand").show();
+    } else {
+        $("#navbar .navbar-brand").hide();
+    }
+};
 
 var handleAnchor = function() {
     var hash = window.location.hash;
@@ -172,10 +92,11 @@ var addIconsToLinks = function(links) {
                     case "link": links[i].icon = "link"; break;
                     case "proj": links[i].icon = "tag"; break;
                     case "pub": links[i].icon = "file"; break;
-                    case "slides": links[i].icon = "file"; break;
+                    case "slides": links[i].icon = "blackboard"; break;
                     case "star": links[i].icon = "star-empty"; break;
-                    case "talk": links[i].icon = "film"; break;
+                    case "talk": links[i].icon = "blackboard"; break;
                     case "video": links[i].icon = "film"; break;
+                    case "recording": links[i].icon = "facetime-video"; break;
                     case "web": links[i].icon = "globe"; break;
                     default: links[i].icon = "file";
                 }
@@ -230,587 +151,134 @@ var getArrayElementsContainingAttributeInList = function(array, attributeName, a
     return results;
 };
 
-var renderEvents = function(jsonData) {
-    var $parent = $(".timeline-parent"),
-        htmlTemplate,
-        eventObj,
-        eventId,
-        renderedHTML;
-
+var renderNavbar = function() {
+    var $parent = $("nav#navbar");
     if (!$parent || $parent.length === 0) {
         // HTML container not found on the current page
+        console.log("renderNavbar: parent not found");
         return;
     }
 
-    htmlTemplate = '' +
-        '                            <dl class="dl-horizontal {{ pastClass }}">' +
-        '                                <dt>{{ displayDate }}</dt>' +
-        '                                <dd>{{ title }} {{#location}}({{ . }}){{/location}}</dd>' +
-        '                            </dl>';
+    var navHtml = '' +
+        '<div class="container-fluid">' +
+        '    <div class="navbar-header">' +
+        '        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-body">' +
+        '            <span class="icon-bar"></span>' +
+        '            <span class="icon-bar"></span>' +
+        '            <span class="icon-bar"></span>' +
+        '        </button>' +
+        '        <a class="navbar-brand" href="/">Gabe A. Cohn</a>' +
+        '    </div>' +
+        '    <div id="navbar-body" class="collapse navbar-collapse">' +
+        '        <ul id="nav-left" class="nav navbar-nav">' +
+        '            <li class="nav-home"><a href="/">Home</a></li>' +
+        '            <li class="nav-projects"><a href="/#projects">Projects</a></li>' +
+        '            <li class="nav-publications"><a href="/#publications">Publications</a></li>' +
+        '            <li class="nav-talks"><a href="/#talks">Talks</a></li>' +
+        '            <li class="nav-teaching"><a href="/#teaching">Teaching</a></li>' +
+        '            <li class="nav-press"><a href="/#press">Press</a></li>' +
+        '            <li class="nav-cv"><a href="/pdf/Cohn_CV.pdf" target="_blank">CV</a></li>' +
+        '        </ul>' +
+        '    </div>' +
+        '</div>';
 
+    // add navbar to page
+    $parent.html(navHtml);
 
-    // get today's date (remove everything other than the date itself)
-    var today = new Date();
-    today.setHours(0);
-    today.setMinutes(0);
-    today.setSeconds(0);
-    today.setMilliseconds(0);
-
-    renderedHTML = '';
-    for (eventId = 0; eventId < jsonData.length; eventId++) {
-        eventObj = jsonData[eventId];
-
-        // if the event ended in the past, add 'past' class
-        var endDate;
-        if (eventObj.endDate) {
-            var endDate = new Date(eventObj.endDate); // get the end date of the event
-            if (today > endDate) { // event ended in the past
-                eventObj.pastClass = "past";
+    // if home page, then remove '/' from hrefs (so that scrollspy works)
+    if (window.location.pathname === "/") {
+        $("nav#navbar #navbar-body li a").each(function() {
+            var href = $(this).attr("href"); // get current href
+            if (href === "/") { // Home section is an exception
+                href = "#home"; // needs to be changed to "#home"
+            } else {
+                href = href.substr(1); // remove leading slash
             }
-        }
-
-        renderedHTML += Mustache.render(htmlTemplate, eventObj);
-    }
-
-    $parent.append(renderedHTML);
-
-
-    // modify the spacing between the events in the list so that they fit perfectly in the same height as the 'contact' column
-    var contactHeight = parseFloat($("#home .contact").css("height"));
-    var timelinePaddingTop = parseFloat($("#home .timeline").css("padding-top"));
-    var timelinePaddingBot = parseFloat($("#home .timeline").css("padding-bottom"));
-    var timelineHeight = parseFloat($("#home .timeline-parent").css("height"));
-    var heightToFill = contactHeight - timelinePaddingTop - timelinePaddingBot - timelineHeight;
-    if (heightToFill > 0) {
-        var numEvents = $("#home .timeline-parent dl").length;
-        var paddingBetweenEvents = heightToFill / (numEvents - 1);
-
-        $("#home .timeline-parent dl:not(:last-child)").each(function() { // set bottom margin on all events except for the last one
-            $(this).css("margin-bottom", paddingBetweenEvents + "px");
+            $(this).attr("href", href); 
         });
     }
+
+    // set active section of page in navbar
+    var activeSection = $parent.attr("data-active");
+    if (activeSection && activeSection.length > 0) {
+        $("nav#navbar #navbar-body li." + activeSection).addClass("active");
+    }
 };
 
-var renderProjects = function(jsonData) {
-    var $parent = $(".projects-parent"),
-        projectTemplate,
-        projectJSON,
-        p,
-        projectId,
-        renderedHTML;
-
-    if (!$parent || $parent.length === 0) {
-        // HTML container not found on the current page
-        return;
-    }
-
-    projectTemplate = '' +
-        '<div class="projects-anchor">' +
-        '    <a name="{{ id }}"></a>' +
-        '</div>' +
-        '<div id="project-{{ id }}" class="projects-project panel-group">' +
-        '<div class="panel panel-default">' +
-        '    <a data-toggle="collapse" data-parent="#project-{{ id }}" href="#project-{{ id }}-body">' +
-        '        <div class="panel-heading">' +
-        '            <div class="container">' +
-        '                <div class="row">' +
-        '                    <div class="projects-thumbnail col-md-2">' +
-        '                        <img class="img-thumbnail" src="img/projects/{{ id }}.jpg" alt="{{ id }}">' +
-        '                    </div>' +
-        '                    <div class="col-md-8">' +
-        '                        <div class="projects-date">{{{ date }}}</div>' +
-        '                        <div class="projects-title">{{{ title }}}</div>' +
-        '                        <div class="projects-summary">{{{ shortDesc }}}</div>' +
-        '                    </div>' +
-        '                    <div class="col-md-2">' +
-        '                        {{#awardCount}}' +
-        '                        <div class="projects-award-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-star-empty"></span> {{ awardCount }}</span>' +
-        '                        </div>' +
-        '                        {{/awardCount}}' +
-        '                        {{#publicationCount}}' +
-        '                        <div class="projects-publication-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-file"></span> {{ publicationCount }}</span>' +
-        '                        </div>' +
-        '                        {{/publicationCount}}' +
-        '                        {{#videoCount}}' +
-        '                        <div class="projects-video-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-film"></span> {{ videoCount }}</span>' +
-        '                        </div>' +
-        '                        {{/videoCount}}' +
-        '                        {{#pressCount}}' +
-        '                        <div class="projects-press-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-globe"></span> {{ pressCount }}</span>' +
-        '                        </div>' +
-        '                        {{/pressCount}}' +
-        '                        <div class="projects-action-link">' +
-        '                            Click to for details' +
-        '                        </div>' +
-        '                    </div>' +
-        '                </div>' +
-        '            </div>' +
-        '        </div>' +
-        '    </a>' +
-        '    <div id="project-{{ id }}-body" class="panel-collapse collapse">' +
-        '        <div class="panel-body">' +
-        '            <div class="container">' +
-        '                <div class="row">' +
-        '                    <div class="col-md-8">' +
-        '                        <div class="projects-description">{{{ longDesc }}}</div>' +
-        '                        {{#publications}}' +
-        '                            <div class="projects-publication-item"><div class="glyphicon glyphicon-file"></div><div class="projects-publication-body">{{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div></div>' +
-        '                        {{/publications}}' +
-        '                        {{#links}}' +
-        '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</a></div>' +
-        '                        {{/links}}' +
-        '                    </div>' +
-        '                    <div class="col-md-4">' +
-        '                        {{#awards}}' +
-        '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
-        '                        {{/awards}}' +
-        '                        {{#hasFeaturedPress}}' +
-        '                            <div class="projects-press-heading"><h5>Featured Press In:</h5></div>' +
-        '                            <div class="projects-press">' +
-        '                                {{#press}}' +
-        '                                    <div class="projects-press-item" title="{{ title }} ({{ displayDate }})">{{#url}}<a href="{{{ . }}}">{{/url}}{{ publication }}{{#url}}</a>{{/url}} <span class="text-muted"> - {{ displayDate }}</span></div>' +
-        '                                {{/press}}' +
-        '                            </div>' +
-        '                        {{/hasFeaturedPress}}' +
-        '                        {{#permalink}}' +
-        '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
-        '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link"></span> Permalink</a>' +
-        '                            </div>' +
-        '                        {{/permalink}}' +
-        '                    </div>' +
-        '                </div>' +
-        '            </div>' +
-        '        </div>' +
-        '    </div>' +
-        '</div>' +
-        '</div>';
-
-    renderedHTML = '';
-    for(p = 0; p < jsonData.length; p++) {
-        projectJSON = jsonData[p];
-        projectId = projectJSON["id"];
-
-        // Create permalink
-        if(projectId) {
-            projectJSON["permalink"] = "http://www.gabeacohn.com/#" + projectId;
+var renderFooter = function() {
+    $("footer#footer #copyright").each(function() {
+        var start = $(this).attr("data-start-date");
+        var end = $(this).attr("data-end-date");
+        var copyStr = '&copy; ';
+        if (start && start.length > 0) {
+            copyStr += start + ' &ndash; ';
         }
+        if (!end || end.length === 0) { // use today
+            var today = new Date();
+            end = today.getFullYear();
+        }
+        copyStr += end + ' Gabe A. Cohn';
+        
+        $(this).html(copyStr);
+    });
+};
 
-        // Add related awards
-        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedProjects", projectId);
-        if(awards.length > 0) {
-            projectJSON["awards"] = awards;
-            projectJSON["awardCount"] = awards.length + " award";
-            if(awards.length > 1){
-                projectJSON["awardCount"] += "s";
+var applyMovingImages = function() {
+    $('div[data-type="moving"]').each(function () {
+        var $bgobj = $(this);
+     
+        $(window).scroll(function () {
+            var yPos,
+                coords,
+                minY,
+                divY = $bgobj.offset().top,
+                windowHeight = $(window).height(),
+                divHeight = $bgobj.height(),
+                imgHeight = $bgobj.data('image-height');
+            
+            if (!imgHeight) {
+                imgHeight = divHeight;
             }
-        }
-
-        // Add related publications
-        var publications = getArrayElementsContainingAttributeInList(publicationsJSON, "relatedProjects", projectId);
-        if(publications.length > 0) {
-            projectJSON["publications"] = publications;
-            projectJSON["publicationCount"] = publications.length + " publication";
-            if(publications.length > 1){
-                projectJSON["publicationCount"] += "s";
+                
+            yPos = -(1 - ((divY + windowHeight) - ($(window).scrollTop() + windowHeight)) / (windowHeight)) * (imgHeight - divHeight);
+            
+            if (yPos > 0) {
+                yPos = 0;
             }
-        }
+            
+            minY = -($bgobj.data('image-height') - divHeight);
+            if (yPos < minY) {
+                yPos = minY;
+            }
+            
+            coords = '50% ' + yPos + 'px';
+ 
+            $bgobj.css({ backgroundPosition: coords });
+        });
+    });
+};
 
-        // Add related press
-        var press = getArrayElementsContainingAttributeInList(pressJSON, "relatedProjects", projectId);
-        if(press.length > 0) { // there is some related press
-            // get list of featured press
-            var featuredPress = [];
-            for (var i = 0; i < press.length; i += 1) {
-                if (press[i].featured) {
-                    featuredPress.push(press[i]);
+var applyMovingBkgrnd = function() {
+    $('div[data-type="background"]').each(function () {
+        var $bgobj = $(this);
+     
+        $(window).scroll(function () {
+            var yPos,
+                coords,
+                minY;
+            
+            yPos = -($(window).scrollTop() / $bgobj.data('speed'));
+            
+            if ($bgobj.data('image-height')) {
+                minY = -($bgobj.data('image-height') - $bgobj.height());
+                if (yPos < minY) {
+                    yPos = minY;
                 }
             }
-            if (featuredPress.length > 0) {
-                projectJSON["press"] = featuredPress;
-                projectJSON["hasFeaturedPress"] = true;
-                projectJSON["pressCount"] = featuredPress.length + " featured press";
-            } else { // no featured press, but there is related press
-                projectJSON["pressCount"] = "in the press";
-            }
-        }
-
-        // Add appropriate icons to links
-        if (projectJSON.links) {
-            projectJSON.links = addIconsToLinks(projectJSON.links);
-        }
-
-        renderedHTML += Mustache.render(projectTemplate, projectJSON);
-    }
-
-    $parent.append(renderedHTML);
-};
-
-var renderPublications = function(typesJsonData, jsonData) {
-    var $parent = $(".publications-parent"),
-        htmlTemplate,
-        htmlNavTemplate,
-        htmlGroupStartTemplate,
-        htmlGroupEndTemplate,
-        publication,
-        publicationType,
-        publicationGroup,
-        publicationId,
-        renderedHTML;
-
-    if (!$parent || $parent.length === 0) {
-        // HTML container not found on the current page
-        return;
-    }
-
-    htmlNavTemplate  = '<div class="subnav well">';
-    htmlNavTemplate += '    <ul class="subnav">';
-    htmlNavTemplate += '        {{#types}}';
-    htmlNavTemplate += '            <li><a href="#publications-{{ name }}">{{ displayName }}</a></li>';
-    htmlNavTemplate += '        {{/types}}';
-    htmlNavTemplate += '    </ul>';
-    htmlNavTemplate += '</div>';
-
-    htmlGroupStartTemplate = '' +
-        '<div class="publications-anchor">' +
-        '    <a name="publications-{{ type }}"></a>' +
-        '</div>' +
-        '<div class="panel panel-default">' +
-        '    <div class="panel-heading">' +
-        '        <h2 class="panel-title">{{ title }}</h2>' +
-        '    </div>' +
-        '    <div class="panel-body">' +
-        '        <div class="container">';
-
-    htmlGroupEndTemplate = '' +
-        '        </div>' +
-        '    </div>' +
-        '</div>';
-
-    htmlTemplate = '' +
-        '        <div class="publications-anchor">' +
-        '            <a name="{{ id }}"></a>' +
-        '        </div>' +
-        '        <div class="publication row">' +
-        '            <div class="index col-md-1">{{ index }}</div>' +
-        '            <div class="col-md-2">' +
-        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/publications/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
-        '            </div>' +
-        '            <div class="col-md-6">' +
-        '                <div class="publications-date">{{{ year }}}</div>' +
-        '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
-        '                {{#acceptance}}' +
-        '                <div class="publications-acceptance">' +
-        '                    [Acceptance Rate: {{ . }}]' +
-        '                </div>' +
-        '                {{/acceptance}}' +
-        '                {{#awards}}' +
-        '                <div class="publications-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
-        '                {{/awards}}' +
-        '            </div>' +
-        '            <div class="col-md-3">' +
-        '                {{#links}}' +
-        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
-        '                {{/links}}' +
-        '            </div>' +
-        '        </div>';
-
-
-    // create a container to hold all publications, grouped by type
-    var publicationGroups = new Array(typesJsonData.length);
-    for (var i = 0; i < typesJsonData.length; i += 1) {
-        publicationGroups[i] = {"type": typesJsonData[i].name, "title": typesJsonData[i].displayName, "rows": []};
-    }
-
-    // Group publications by type
-    for (var i = 0; i < jsonData.length; i += 1) {
-        publicationGroup = getArrayElementWithAttribute(publicationGroups, {"name":"type", "value":jsonData[i].type});
-        if (publicationGroup) {
-            publicationGroup["rows"].push(jsonData[i]);
-        } else {
-            console.log("Unexpected publication type '" + jsonData[i].type + "' for publication id: " + jsonData[i].id);
-        }
-    }
-
-    // Render HTML from templates
-    renderedHTML = '';
-
-    renderedHTML += Mustache.render(htmlNavTemplate, {"types":typesJsonData});
-
-    for(var groupId = 0; groupId < publicationGroups.length; groupId += 1) {
-        publicationGroup = publicationGroups[groupId];
-
-        renderedHTML += Mustache.render(htmlGroupStartTemplate, publicationGroup);
-
-        for(publicationId = 0; publicationId < publicationGroup["rows"].length; publicationId++) {
-            publication = publicationGroup["rows"][publicationId];
-
-            // Add related awards
-            var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedPublications", publication.id);
-            if(awards.length > 0) {
-                publication["awards"] = awards;
-            }
-
-            if (publication.links) {
-                publication.links = addIconsToLinks(publication.links);
-            }
-
-            renderedHTML += Mustache.render(htmlTemplate, publication);
-        }
-
-        renderedHTML += Mustache.render(htmlGroupEndTemplate, publicationGroup);
-    }
-
-    $parent.append(renderedHTML);
-};
-
-var renderTalks = function(jsonData) {
-    var $parent = $(".talks-parent"),
-        htmlTemplate,
-        talk,
-        talkId,
-        renderedHTML;
-
-    if (!$parent || $parent.length === 0) {
-        // HTML container not found on the current page
-        return;
-    }
-
-    htmlTemplate = '' +
-        '        <div class="talks-anchor">' +
-        '            <a name="{{ id }}"></a>' +
-        '        </div>' +
-        '        <div class="talk row">' +
-        '            <div class="index col-md-1">{{ index }}</div>' +
-        '            <div class="col-md-2">' +
-        '                {{#link}}<a href="{{ . }}">{{/link}}<img class="img-thumbnail" src="img/talks/{{ id }}.jpg" alt="{{ id }}"/>{{#link}}</a>{{/link}}' +
-        '            </div>' +
-        '            <div class="col-md-6">' +
-        '                <div class="talks-date">{{{ year }}}</div>' +
-        '                {{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}' +
-        '                {{#awards}}' +
-        '                <div class="talks-award"><span class="glyphicon glyphicon-star-empty"></span> {{ shortName }}</div>' +
-        '                {{/awards}}' +
-        '            </div>' +
-        '            <div class="col-md-3">' +
-        '                {{#links}}' +
-        '                    <a href="{{ url }}"><div class="badge-publication"><span class="label label-info"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ title }}</span></div></a>' +
-        '                {{/links}}' +
-        '            </div>' +
-        '        </div>';
-
-
-    renderedHTML = '';
-    for (talkId = 0; talkId < jsonData.length; talkId++) {
-        talk = jsonData[talkId];
-
-        // Add related awards
-        var awards = getArrayElementsContainingAttributeInList(awardsJSON, "relatedTalks", talk.id);
-        if(awards.length > 0) {
-            talk["awards"] = awards;
-        }
-
-        if (talk.links) {
-            talk.links = addIconsToLinks(talk.links);
-        }
-
-        renderedHTML += Mustache.render(htmlTemplate, talk);
-    }
-
-    $parent.append(renderedHTML);
-};
-
-// assumes that jsonData has been previously sorted in reverse chronological order
-var renderFeaturedPress = function(jsonData) {
-    var i, $parent = $(".press-featured-parent"),
-        htmlTemplate,
-        pressProjectGroup,
-        pressProjectGroups = [],
-        pressSourceGroup,
-        renderedHTML;
-
-    if (!$parent || $parent.length === 0) {
-        // HTML container not found on the current page
-        return;
-    }
-
-    htmlTemplate = '' +
-        '<div class="subnav well">' +
-        '    <ul class="subnav">' +
-        '        {{#projects}}' +
-        '            <li><a href="#press-{{ id }}">{{ subject }}</a></li>' +
-        '        {{/projects}}' +
-        '    </ul>' +
-        '</div>' +
-        '{{#projects}}' +
-        '<div class="panel panel-default">' +
-        '    <a name="press-{{ id }}"></a>' +
-        '    <div class="panel-heading"><h2 class="panel-title">{{ subject }}</h2></div>' +
-        '    <div class="panel-body"><div class="row press-featured-subject">' +
-        '        {{#sources}}' + 
-        '        <div class="press-featured-source">' +
-        '            <div class="press-featured-logo">{{#url}}<a href="{{ . }}">{{/url}}<img class="press-featured-logo-img" src="img/press/{{ logo }}" alt="{{ name }}" title="{{ title }} ({{ date }})">{{#url}}</a>{{/url}}</div>' +
-        '            <div class="press-featured-dates">' + 
-        '                {{#rows}}' + 
-        '                <div class="press-featured-date" title="{{ title }} ({{ date }})">' +
-        '                    {{#url}}<a href="{{ . }}">{{/url}}<span class="label label-info">{{ displayDate }}</span>{{#url}}</a>{{/url}}' +
-        '                </div>' +
-        '                {{/rows}}' +
-        '            </div>' +
-        '        </div>' +
-        '        {{/sources}}' +
-        '    </div></div>' +
-        '</div>' +
-        '{{/projects}}';
-
-    // Group press by project and source
-    for (i = 0; i < jsonData.length; i++) {
-        if (jsonData[i].featured) {
-            pressProjectGroup = getArrayElementWithAttribute(pressProjectGroups, {"name":"subject", "value":jsonData[i].featured});
-            if (pressProjectGroup) {
-                if (pressProjectGroup.sources) {
-                    pressSourceGroup = getArrayElementWithAttribute(pressProjectGroup.sources, {"name":"logo", "value":jsonData[i].pressLogo});
-                    if (pressSourceGroup) { // source already exists in list
-                        pressSourceGroup.rows.push(jsonData[i]);
-                        if (!pressSourceGroup.url) { // there's no link for the newest row, so add this row as the one that is linked if the logo is clicked
-                            pressSourceGroup.url = jsonData[i].url;
-                            pressSourceGroup.title = jsonData[i].title;
-                            pressSourceGroup.date = jsonData[i].displayDate;
-                        }
-                    } else {
-                        pressSourceGroup = {
-                            "logo": jsonData[i].pressLogo,
-                            "name": jsonData[i].publication,
-                            "url": jsonData[i].url, // url of newest pub (will goto if link is clicked)
-                            "title": jsonData[i].title, // title of newest pub
-                            "date": jsonData[i].displayDate, // date of newest pub
-                            "rows": [jsonData[i]]
-                        };
-                        pressProjectGroup.sources.push(pressSourceGroup);
-                    }
-                }
-            } else {
-                pressProjectGroup = {
-                    "subject": jsonData[i].featured,
-                    "sources":[
-                        {
-                            "logo": jsonData[i].pressLogo,
-                            "name": jsonData[i].publication,
-                            "url": jsonData[i].url, // url of newest pub (will goto if link is clicked)
-                            "title": jsonData[i].title, // title of newest pub
-                            "date": jsonData[i].displayDate, // date of newest pub
-                            "rows": [jsonData[i]]
-                        }
-                    ]
-                };
-                pressProjectGroups.push(pressProjectGroup);
-            }
-        }
-    }
-
-    // add id values to each group
-    for (i = 0; i < pressProjectGroups.length; i++) {
-        pressProjectGroups[i]["id"] = i; // just use index in list
-    }
-
-    // Render the HTML for the page
-    renderedHTML = '';
-    var pressProjectData = { "projects": pressProjectGroups };
-    renderedHTML += Mustache.render(htmlTemplate, pressProjectData);
-
-    $parent.append(renderedHTML);
-};
-
-// assumes that jsonData has been previously sorted in reverse chronological order
-var renderAllPress = function(jsonData) {
-    var i, j,
-        $parent = $(".press-parent"),
-        htmlNavTemplate,
-        htmlTemplate,
-        htmlGroupStartTemplate,
-        htmlGroupEndTemplate,
-        years,
-        pressGroup,
-        pressGroups = [],
-        renderedHTML;
-
-    if (!$parent || $parent.length === 0) {
-        // HTML container not found on the current page
-        return;
-    }
-
-    htmlNavTemplate =  '<div class="subnav well">';
-    htmlNavTemplate += '    <ul class="subnav">';
-    htmlNavTemplate += '        {{#years}}';
-    htmlNavTemplate += '            <li><a href="#press-{{ . }}">{{ . }}</a></li>';
-    htmlNavTemplate += '        {{/years}}';
-    htmlNavTemplate += '    </ul>';
-    htmlNavTemplate += '</div>';
-
-    htmlGroupStartTemplate =  '<div id="press-{{ year }}" class="panel panel-default">';
-    htmlGroupStartTemplate += '    <a name="press-{{ year }}"></a>';
-    htmlGroupStartTemplate += '    <div class="panel-heading">';
-    htmlGroupStartTemplate += '        <h2 class="panel-title">{{ year }}</h2>';
-    htmlGroupStartTemplate += '    </div>';
-    htmlGroupStartTemplate += '    <div class="panel-body">';
-
-    htmlTemplate =  '<div class="press-article">';
-    htmlTemplate += '    <div class="press-date">{{ displayDate }}</div>';
-    htmlTemplate += '    <div class="press-title">';
-    htmlTemplate += '        {{#url}}<a href="{{{ . }}}">{{/url}}{{ title }}{{#url}}</a>{{/url}}';
-    htmlTemplate += '    </div> ';
-    htmlTemplate += '    <div class="press-author">{{ author }}{{#author}}, {{/author}}</div><div class="press-publication">{{ publication }}</div>';
-    htmlTemplate += '</div>';
-
-    htmlGroupEndTemplate =  '    </div>';
-    htmlGroupEndTemplate += '</div>';
-
-    years = parseDistinctYears(jsonData, "sortDate");
-
-    renderedHTML = Mustache.render(htmlNavTemplate, {"years":years});
-
-    for (i = 0; i < years.length; i++) {
-        renderedHTML += Mustache.render(htmlGroupStartTemplate, {"year":years[i]});
-
-        for (j = 0; j < jsonData.length; j++) {
-            var year = parseYear(jsonData[j].sortDate);
-            if (year != null && year === years[i]) {
-                renderedHTML += Mustache.render(htmlTemplate, jsonData[j]);
-            }
-        }
-
-        renderedHTML += Mustache.render(htmlGroupEndTemplate, {"year":years[i]});
-    }
-
-    $parent.append(renderedHTML);
-
-};
-
-var parseDistinctYears = function(objects, attributeName){
-    var years = [];
-
-    for (var i = 0; i < objects.length; i ++) {
-        if (objects[i][attributeName]) {
-            var year = parseYear(objects[i][attributeName]);
-
-            if (year != null) {
-                if (years.indexOf(year) === -1) {
-                    years.push(year);
-                }
-            }
-
-        }
-    }
-
-    return years;
-};
-
-var parseYear = function (sortDateString) {
-    if (sortDateString && sortDateString.length > 4) {
-        return sortDateString.substr(0, 4);
-    }
-    return null;
+            
+            coords = '50% ' + yPos + 'px';
+ 
+            $bgobj.css({ backgroundPosition: coords });
+        });
+    });
 };

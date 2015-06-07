@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Gabe A. Cohn - Press</title>
+    <title>Gabe A. Cohn - Error</title>
 
     <!-- Copyright Gabe A. Cohn - Please do not copy or duplicate any part of this webpage without permission. -->
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
     <link rel="icon" type="image/ico" href="/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/mustache.js"></script>
     <script src="/js/gabecohn.js"></script>
-    <script src="/js/gabecohn-press.js"></script>
-    <script src="/json/press.js"></script>
+    <script src="/js/gabecohn-error.js"></script>
     <link rel="stylesheet" href="/css/gabecohn.css">
-    <link rel="stylesheet" href="css/gabecohn-home.css">
+    <style>
+        section.error {
+            min-height: 600px;
+        }
+        h1.error {
+            font-size: 60px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .errorname {
+            color:rgb(177,179,186);
+        }
+    </style>
 </head>
 
 <body>
 
-<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation" data-active="nav-press">
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Filled by site JS -->
 </nav>
 
-
-<!--        Begin Press-->
-<section class="section-all-press">
-    <div id="all-press-img" class="section-img"></div>
+<!--        Begin Body-->
+<section class="error">
     <div class="section-body">
-        <h1>Press <span class="trail">// Gabe Cohn</span></h1>
-
-        <div class="press-parent">
-            <!-- Filled by content from json doc -->
-        </div>
+        <h1 class="error"><span class="errorcode"></span> Error: <span class="errorname"></span></h1>
     </div>
 </section>
-<!--        End Press-->
-
+<!--        End Body-->
 
 <!--        Begin Footer-->
 <footer id="footer">
-    <div id="copyright" data-start-date="2013"></div>
-    <div><a href="http://www.agrummer.com" target="_blank">website by GRUMMER</a></div>
+    <div id="copyright"></div>
 </footer>
 <!--        End Footer-->
 

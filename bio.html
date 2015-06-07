@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Gabe A. Cohn - Press</title>
+    <title>Gabe A. Cohn - Bio</title>
 
     <!-- Copyright Gabe A. Cohn - Please do not copy or duplicate any part of this webpage without permission. -->
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
     <link rel="icon" type="image/ico" href="/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/mustache.js"></script>
     <script src="/js/gabecohn.js"></script>
-    <script src="/js/gabecohn-press.js"></script>
-    <script src="/json/press.js"></script>
+    <script src="/js/gabecohn-bio.js"></script>
+    <script src="/json/bio.js"></script>
     <link rel="stylesheet" href="/css/gabecohn.css">
-    <link rel="stylesheet" href="css/gabecohn-home.css">
+    <link rel="stylesheet" href="css/gabecohn-bio.css">
 </head>
 
 <body>
 
-<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation" data-active="nav-press">
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Filled by site JS -->
 </nav>
 
-
-<!--        Begin Press-->
-<section class="section-all-press">
-    <div id="all-press-img" class="section-img"></div>
+<!--        Begin Body-->
+<section class="section-bio">
     <div class="section-body">
-        <h1>Press <span class="trail">// Gabe Cohn</span></h1>
-
-        <div class="press-parent">
-            <!-- Filled by content from json doc -->
+        <h1>Bio <span class="trail">// Gabe A. Cohn</span></h1>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="bio-img">
+                    <img id="headshot" src="img/Cohn_Gabe_headshot.jpg" alt="Gabe Cohn Headshot">
+                    <div class="img-size"><a href="img/Cohn_Gabe_headshot.jpg"><span class="label label-info img-size"></span></a></div>
+                </div>
+                <div class="bio">
+                    <div class="bio-parent">
+                        <!-- Filled by content from json doc -->
+                    </div>
+                    <div class="plain-text-link"><a href="bio-plain.html"><span class="label label-info">Plain-text version of bio</span></a></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!--        End Press-->
-
+<!--        End Body-->
 
 <!--        Begin Footer-->
 <footer id="footer">
-    <div id="copyright" data-start-date="2013"></div>
-    <div><a href="http://www.agrummer.com" target="_blank">website by GRUMMER</a></div>
+    <div id="copyright"></div>
 </footer>
 <!--        End Footer-->
 
