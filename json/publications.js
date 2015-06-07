@@ -144,7 +144,7 @@ var publicationsJSON = [
                 "url": "http://www.youtube.com/watch?v=hfAk1Vnj6hM"
             },
             {
-                "title": "Talk Recoding",
+                "title": "Talk Recording",
                 "type": "recording",
                 "url": "https://youtu.be/IkaYsGrgdbU"
             },
