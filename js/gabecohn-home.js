@@ -179,7 +179,7 @@ var renderProjects = function(jsonData) {
         '                        {{/publicationCount}}' +
         '                        {{#talkCount}}' +
         '                        <div class="badge-info projects-talk-count">' +
-        '                            <span class="label label-info"><span class="glyphicon glyphicon-modal-window"></span> {{ talkCount }}</span>' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-blackboard"></span> {{ talkCount }}</span>' +
         '                        </div>' +
         '                        {{/talkCount}}' +
         '                        {{#videoCount}}' +
