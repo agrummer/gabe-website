@@ -67,8 +67,8 @@ var renderIntro = function(jsonData) {
     }
 
     var htmlTemplate = '' +
-        '                        <h1 class="stretch-text">{{ homepage-name }}</h1>' +
-        '                        <p class="lead stretch-text">{{{ homepage-lead }}}</p>' +
+        '                        <h1 class="stretch-text stretch-text-only-oneline">{{ homepage-name }}</h1>' +
+        '                        <p class="lead stretch-text stretch-text-only-oneline">{{{ homepage-lead }}}</p>' +
         '                        <p class="intro-message">{{{ homepage-affiliation }}}{{{ bio }}}</p>';
 
     // Render the HTML for the page

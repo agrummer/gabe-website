@@ -36,11 +36,11 @@ h1 .trail{
     margin-bottom: 0;
 }
 
-.stretch_text{
+.stretch-text-oneline {
     white-space: nowrap;
 }
 
-.justify{
+.stretch-text-multiline {
     text-align:justify;
 }
 

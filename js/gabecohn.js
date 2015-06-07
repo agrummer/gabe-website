@@ -26,12 +26,12 @@ $(function () {
     $(window).load(function(){
         updateNavbar();
         handleAnchor();
-        $(".stretch-text").each(stretchText);
+        handleStretchText();
     });
 
     $(window).resize(function() {
         updateNavbar();
-        $(".stretch-text").each(stretchText);
+        handleStretchText();
     });
 
     // handle anchors on clicks
@@ -153,29 +153,46 @@ var getArrayElementsContainingAttributeInList = function(array, attributeName, a
     return results;
 };
 
-// stretches text (by adjusting letter-spacing) to fill container horizonatally
-// modified from http://stackoverflow.com/questions/5976289/stretch-text-to-fit-width-of-div
-var stretchText = function() {
-    var elmt          = $(this),
-        cont_width    = elmt.width(),
-        txt           = elmt.html(),
-        one_line      = $('<span class="stretch_text">' + txt + '</span>'),
-        nb_char       = elmt.text().length,
-        spacing       = cont_width/nb_char,
-        txt_width;
+// handles elements with the class "stretch-text", in which the text needs to be stretched to
+// fill the line width (by adjusting letter-spacing if one-line, and by using justify is multi-line)
+// if elements are also part of the class "stretch-text-only-oneline", then no formatting changes
+// will occur if the text is multi-line
+// technique modified from http://stackoverflow.com/questions/5976289/stretch-text-to-fit-width-of-div
+var handleStretchText = function() {
 
-    elmt.html(one_line);
-    txt_width = one_line.width();
+    // first remove previous formatting from all '.stretch-text' objects
+    $('.stretch-text').each(function() {
+        $(this).removeClass('stretch-text-oneline stretch-text-multiline'); // remove previous formatting by this function
+        $(this).css('letter-spacing', '0'); // remove letter spacing
+    });
 
-    if (txt_width < cont_width){
-        var  char_width     = txt_width/nb_char,
-             ltr_spacing    = spacing - char_width + (spacing - char_width)/nb_char ; 
+    // apply formatting to each '.stretch-text' object
+    $('.stretch-text').each(function() {
+        var elmt          = $(this);
+        var cont_width    = elmt.width(); // container width
+        var nb_char       = elmt.text().length; // number of characters
+        var spacing       = cont_width/nb_char; // total space per character
 
-        one_line.css({'letter-spacing': ltr_spacing});
-    } else {
-        one_line.contents().unwrap();
-        elmt.addClass('justify');
-    }
+        // temporarily add span to get text width
+        elmt.html('<span class="stretch-text-oneline">' + elmt.html() + '</span>'); // wrap contents in span
+        var txt_width     = elmt.children('span.stretch-text-oneline').width(); // width of text
+        elmt.children('span.stretch-text-oneline').contents().unwrap(); // remove temporary span
+
+        // compute spacing and apply formatting
+        if (txt_width < cont_width){ // one line: need to add letter spacing
+            var  char_width     = txt_width/nb_char;
+            var  ltr_spacing    = spacing - char_width + (spacing - char_width)/nb_char ; 
+
+            // apply formatting
+            elmt.addClass('stretch-text-oneline');
+            elmt.css('letter-spacing', ltr_spacing);
+
+        } else { // multi-line: just need to justify
+            if (!elmt.hasClass('stretch-text-only-oneline')) {
+                elmt.addClass('stretch-text-multiline');
+            }
+        }
+    });
 };
 
 var renderNavbar = function() {
