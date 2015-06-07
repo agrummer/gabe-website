@@ -177,6 +177,11 @@ var renderProjects = function(jsonData) {
         '                            <span class="label label-info"><span class="glyphicon glyphicon-file"></span> {{ publicationCount }}</span>' +
         '                        </div>' +
         '                        {{/publicationCount}}' +
+        '                        {{#talkCount}}' +
+        '                        <div class="badge-info projects-talk-count">' +
+        '                            <span class="label label-info"><span class="glyphicon glyphicon-modal-window"></span> {{ talkCount }}</span>' +
+        '                        </div>' +
+        '                        {{/talkCount}}' +
         '                        {{#videoCount}}' +
         '                        <div class="badge-info projects-video-count">' +
         '                            <span class="label label-info"><span class="glyphicon glyphicon-film"></span> {{ videoCount }}</span>' +
@@ -260,6 +265,16 @@ var renderProjects = function(jsonData) {
             projectJSON["publicationCount"] = publications.length + " publication";
             if(publications.length > 1){
                 projectJSON["publicationCount"] += "s";
+            }
+        }
+
+        // Add related talks
+        var talks = getArrayElementsContainingAttributeInList(talksJSON, "relatedProjects", projectId);
+        if(talks.length > 0) {
+            projectJSON["talks"] = talks;
+            projectJSON["talkCount"] = talks.length + " talk";
+            if(talks.length > 1){
+                projectJSON["talkCount"] += "s";
             }
         }
 
