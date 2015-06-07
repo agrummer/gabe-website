@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gabe A. Cohn - MSP 430 Tutorial</title>
+
+    <!-- Copyright Gabe A. Cohn - Please do not copy or duplicate any part of this webpage without permission. -->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/mustache.js"></script>
+    <script src="/js/gabecohn.js"></script>
+    <link rel="stylesheet" href="/css/gabecohn.css">
+    <link rel="stylesheet" href="/css/gabecohn-teaching.css">
+</head>
+
+<body>
+
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation" data-active="nav-teaching">
+    <!-- Filled by site JS -->
+</nav>
+
+<!--        Begin Body-->
+<section class="teaching" id="msp430">
+    <div class="section-body">
+        <h1>MSP 430 Tutorial</h1>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>This <a href="msp430Tut.pdf">tutorial</a> covers the basics of the MSP 430 development platforms, provides several resources for developing MSP 430 projects.</p>
+
+                <div class="center"><a href="msp430Tut.pdf"><img src="../tn/msp430.jpg" alt="MSP 430 Tutorial Slides"></a></div>
+                <div class="slides_text"><a href="msp430Tut.pdf">MSP 430 Tutorial Slides</a></div>
+
+                <p class="note"><b>Note:</b> <span class="note">The MSP430 LaunchPad has been produced with different chips on it. Be aware of which chip you have (it is labeled on the top of the chip). The newer version of the LaunchPad ships with the MSP430G2553, but the older version had the MSP430G2231. Be aware that there are two different versions when looking through the forums as well.</span></p>
+            </div>
+        </div>
+
+        <div class="panel panel-default demo-code">
+            <a name="msp430-code"></a>
+            <div class="panel-heading">
+                <h2 class="panel-title">Demo Code</h2>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li><a href="msp430Demos_G2553.zip">Hello World, Interrupts, PWM, and ADC Demos (LaunchPad with MSP430G2553)</a> [zip]</li>
+                    <li><a href="msp430Demos_G2231.zip">Hello World, Interrupts, PWM, and ADC Demos (LaunchPad with MSP430G2231)</a> [zip]</li>
+                    <li><a href="capSenseDemo.zip">Capacitive Sensing Demo (LaunchPad)</a> [zip]</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default resources">
+            <a name="msp430-resources"></a>
+            <div class="panel-heading">
+                <h2 class="panel-title">Resources</h2>
+            </div>
+            <div class="panel-body">
+                <h4>General:</h4>
+                <ul>
+                    <li><a href="http://www.msp430.com/">MSP 430 Homepage</a></li>
+                    <li><a href="http://www.ti.com/msp430codeexamples">Code Examples</a></li>
+                </ul>
+                
+                <h4>Integrated Development Environments (IDE):</h4>
+                <ul>
+                    <li><a href="http://processors.wiki.ti.com/index.php/IAR_Embedded_Workbench_for_TI_MSP430">IAR Embedded Workbench Kickstart</a> (recommended for smaller projects)</li>
+                    <li><a href="http://processors.wiki.ti.com/index.php/Code_Composer_Studio_v4">Code Composer Studio (CSS)</a></li>
+                </ul>
+                
+                <h4>Development/Evaluation Boards:</h4>
+                <ul>
+                    <li><a href="http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_(MSP-EXP430G2)">LaunchPad</a>
+                    
+                    <br/><b>Note:</b> <span class="note">The MSP430 LaunchPad has been produced with different chips on it. Be aware of which chip you have (it is labeled on the top of the chip). The newer version of the LaunchPad ships with the MSP430G2553, but the older version had the MSP430G2231. Be aware that there are two different versions when looking through the forums as well.</span>
+
+                    <ul>
+                        <li><a href="http://www.ti.com/lit/pdf/slac432">Getting Started Guide</a> [pdf]</li>
+                        <li><a href="http://processors.wiki.ti.com/index.php/Getting_Started_with_the_MSP430_LaunchPad_Workshop">Getting Started Workshop</a></li>
+                        <li><a href="http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_Learning_Community">Learning Community</a></li>
+                        <li><a href="http://www.ti.com/lit/pdf/slau318">User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/lit/pdf/slau144">MSP430G2xxx Family User's Guide</a> [pdf]</li>
+                        <li>LaunchPad with MSP430G2553 (new):
+                        <ul>
+                            <li><a href="http://www.ti.com/lit/zip/slac485">Code Examples</a> [zip]</li>
+                            <li><a href="http://www.ti.com/lit/gpn/msp430g2553">MSP430G2553 Datasheet</a> [pdf]</li>
+                            <li><a href="msp430Demos_G2553.zip">Hello World, Interrupts, PWM, and ADC Demos (using MSP4302553)</a> [zip]</li>
+                        </ul>
+                        </li>
+                        <li>LaunchPad with MSP430G2231 (old):
+                        <ul>
+                            <li><a href="http://www.ti.com/lit/zip/slac463">Code Examples</a> [zip]</li>
+                            <li><a href="http://www.ti.com/lit/gpn/msp430g2231">MSP430G2231 Datasheet</a> [pdf]</li>
+                            <li><a href="msp430Demos_G2231.zip">Hello World, Interrupts, PWM, and ADC Demos (using MSP4302231)</a> [zip]</li>
+                        </ul>
+                        </li>
+                        <li>Capacitive Sensing Demo:
+                        <ul>
+                            <li><a href="http://blog.hodgepig.org/2010/09/16/launchpad-capacitive-sensing/">Simple Capacitive Sensing with MSP430</a> (demo shown in class)</li>
+                            <li><a href="capSenseDemo.zip">Simple Capacitive Sensing Demo Code in an IAR Project</a> [zip]</li>
+                            <li><a href="http://focus.ti.com/lit/an/slaa379/slaa379.pdf">MSP430 Capacitive Single-Touch Sensor Design Guide</a></li>
+                            <li><a href="http://focus.ti.com/lit/an/slaa363a/slaa363a.pdf">PCB-Based Capacitive Touch Sensing with MSP430</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="http://www.ti.com/tool/ez430-f2013">eZ430-F2013</a>
+                    <ul>
+                        <li><a href="http://processors.wiki.ti.com/index.php?title=EZ430-F2013">eZ430-F2013 Wiki</a></li>
+                        <li><a href="http://www.ti.com/lit/zip/slac080">Code Examples</a> [zip]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau176d">User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau144i">MSP430x2xxx Family User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/lit/gpn/msp430f2013">MSP430F2013 Datasheet</a> [pdf]</li>
+                    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="http://www.ti.com/tool/ez430-rf2500">eZ430-RF2500</a>
+                    <ul>
+                        <li><a href="http://processors.wiki.ti.com/index.php?title=EZ430-RF2500">eZ430-RF2500 Wiki</a></li>
+                        <li><a href="http://www.ti.com/lit/zip/slac123">Code Examples</a> [zip]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau227e">User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau144i">MSP430x2xxx Family User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/lit/gpn/msp430f2274">MSP430F2274 Datasheet</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/swrs040c">CC2500 2.4 GHz RF Transceiver Datasheet</a> [pdf]</li>
+                        <li><a href="http://e2e.ti.com/support/low_power_rf/f/156.aspx">TI E2E Community Support Forum</a></li>
+                        <li><a href="http://www.ti.com/corp/docs/landing/simpliciTI/index.htm?DCMP=hpa_rf_general&amp;HQS=NotApplicable+OT+simpliciti">SimpliciTI Wireless Protocol</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="http://www.ti.com/tool/ez430-chronos&DCMP=Chronos&HQS=Other+OT+chronos">eZ430-Chronos</a>
+                    <ul>
+                        <li><a href="http://www.ti.com/chronoswiki">eZ430-Chronos Wiki</a></li>
+                        <li><a href="http://www.ti.com/lit/zip/slac341">Drivers and Software (Windows)</a> [zip]</li>
+                        <li><a href="http://www.ti.com/lit/zip/slac279">Code Examples</a> [zip]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau292c">User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/litv/pdf/slau259b">CC430 Family User's Guide</a> [pdf]</li>
+                        <li><a href="http://www.ti.com/lit/gpn/cc430f6137">CC430F6137 Datasheet</a> [pdf]</li>
+                        <li><a href="http://e2e.ti.com/support/low_power_rf/f/156.aspx">TI E2E Community Support Forum</a></li>
+                        <li><a href="http://www.ti.com/corp/docs/landing/simpliciTI/index.htm?DCMP=hpa_rf_general&amp;HQS=NotApplicable+OT+simpliciti">SimpliciTI Wireless Protocol</a></li>
+                        <li><a href="http://www.bmwireless.com/index.php/bluerobin_bmwireless.html">BlueRobin Wireless Protocol</a></li>
+                        <li><a href="http://processors.wiki.ti.com/index.php/Chronos_Flying_Mouse">Chronos Flying Mouse Wiki:</a>
+                        <ul>
+                            <li><a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=a7b7a05e-6de6-4d3a-a423-37bf0912db84&amp;displaylang=en">Visual Studio 2010 C++ Runtime</a></li>
+                            <li><a href="https://netfiles.uiuc.edu/toole1/shared/flying_mouse_install.exe">Installer</a> [exe]</li>
+                            <li><a href="https://netfiles.uiuc.edu/toole1/shared/flying_mouse_source.exe">Source Code</a> [exe]</li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--        End Body-->
+
+<!--        Begin Footer-->
+<footer id="footer">
+    <div id="copyright" data-start-date="2010" data-end-date="2015"></div>
+</footer>
+<!--        End Footer-->
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-16037493-1");
+        pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+
+</body>
+</html>
