@@ -20,6 +20,20 @@
  *      relatedPublications - an array of publication id (pub_id) strings. This allows the publications section of the page to list talks for each publication.
  */
 var talksJSON = [
+        {
+        "id": "talk_T15",
+        "index": "T.15",
+        "type": "invited",
+        "link": null,
+        "year": "2015",
+        "sortDate": "2015-05-22",
+        "authors": "<span class=\"authorHighlight\">Cohn, G.</span>",
+        "title": "Redefining Noise: Finding Unintended Signals Everywhere",
+        "publication": "<em>MobiSys 2015 Workshop on Physical Analytics</em>, Florence, Italy, May 22, 2015.",
+        "links": [ 
+        ],
+        "relatedProjects": [ "proj_humantenna", "proj_sefs", "proj_utouch" ]
+    },
     {
         "id": "talk_T14",
         "index": "T.14",
