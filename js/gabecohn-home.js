@@ -268,6 +268,15 @@ var renderProjects = function(jsonData) {
             }
         }
 
+        // Add video count
+        if (projectJSON["videos"] && projectJSON["videos"].length > 0) {
+            var videos = projectJSON["videos"];
+            projectJSON["videoCount"] = videos.length + " video";
+            if(videos.length > 1){
+                projectJSON["videoCount"] += "s";
+            }
+        }
+
         // Add related talks
         var talks = getArrayElementsContainingAttributeInList(talksJSON, "relatedProjects", projectId);
         if(talks.length > 0) {
