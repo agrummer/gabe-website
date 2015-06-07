@@ -65,7 +65,7 @@ var talksJSON = [
         "publication": "<em>Cornell University</em> (Feb. 13), <em>Stanford University</em> (Feb. 18), <em>University of California Berkeley</em> (Feb. 20), <em>University of Wisconsin Madison</em> (Mar. 3), <em>University of Illinois Urbana-Champaign</em> (Mar. 5), <em>Microsoft Research</em> (Mar. 12), <em>University of Wisconsin Madison</em> (Mar. 17), <em>Princeton University</em> (Mar. 25), <em>Harvard University</em> (Mar. 27), <em>Massachusetts Institute of Technology</em> (Mar. 31), <em>University of California Los Angeles</em> (April 3), <em>Columbia University</em> (April 7), 2014.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna", "proj_sefs", "proj_gassense"]
     },
     {
         "id": "talk_T12",
@@ -103,7 +103,7 @@ var talksJSON = [
         "publication": "<em>Georgia Tech Invited Talk</em>, Atlanta, GA, Nov. 5, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna" ]
     },
     {
         "id": "talk_T10",
@@ -117,7 +117,7 @@ var talksJSON = [
         "publication": "<em>Hack Things Meetup</em>, Seattle, WA, Aug. 2, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi" ]
     },
     {
         "id": "talk_T9",
@@ -131,7 +131,7 @@ var talksJSON = [
         "publication": "<em>University of Washington Arch 498D: Creating Responsive Environments</em>, Guest Lecture, Seattle, WA, Jan. 22, 2013.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_snupi" ]
     },
     {
         "id": "talk_T8",
@@ -164,7 +164,7 @@ var talksJSON = [
         "publication": "<em>Disney Research Pittsburgh</em>, Pittsburgh, PA, Sept. 7, 2012.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_sefs", "proj_snupi" ]
     },
     {
         "id": "talk_C8",
@@ -226,7 +226,7 @@ var talksJSON = [
         "publication": "<em>University of Washington INFO 463: Input and Interaction</em>, Guest Lecture, Seattle, WA, May 23, 2012.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_humantenna", "proj_heatwave" ]
     },
     {
         "id": "talk_T4",
@@ -317,7 +317,7 @@ var talksJSON = [
         "publication": "<em>University of Washington EE 592 Seminar</em>, Seattle, WA, Feb. 18, 2011.",
         "links": [
         ],
-        "relatedProjects": [ ]
+        "relatedProjects": [ "proj_snupi", "proj_humantenna" ]
     },
     {
         "id": "talk_T2",
