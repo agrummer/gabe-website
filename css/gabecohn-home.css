@@ -248,11 +248,11 @@
 }
 
 .section-projects .projects-project .projects-description{
-    margin-bottom:30px;
     text-align: justify;
 }
 
-.section-projects .projects-project .projects-press-heading h5{
+.section-projects .projects-project .details-heading h5{
+    padding-top: 10px;
     font-weight: bold;
 }
 
@@ -277,16 +277,17 @@
     margin-bottom: 5px;
 }
 
-.section-projects .projects-project .projects-publication-item {
+.section-projects .projects-project .projects-details-item {
     margin-bottom: 15px;
+    padding-left: 15px;
 }
 
-.section-projects .projects-project .projects-publication-item .glyphicon {
+.section-projects .projects-project .projects-details-item .glyphicon {
     float: left;
     margin-right: 5px;
 }
 
-.section-projects .projects-project .projects-publication-body {
+.section-projects .projects-project .projects-details-body {
     display: table-cell;
     font-size: 8pt;
 }

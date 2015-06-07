@@ -206,9 +206,19 @@ var renderProjects = function(jsonData) {
         '                <div class="row">' +
         '                    <div class="col-md-8">' +
         '                        <div class="projects-description">{{{ longDesc }}}</div>' +
+        '                        {{#publicationCount}}<div class="details-heading projects-publications-heading"><h5>Publications:</h5></div>{{/publicationCount}}' +
         '                        {{#publications}}' +
-        '                            <div class="projects-publication-item"><div class="glyphicon glyphicon-file" aria-hidden="true"></div><div class="projects-publication-body">{{{ authors }}} <a href="{{ link }}"><strong>{{{ title }}}</strong></a>. {{{ publication }}}</div></div>' +
+        '                            <div class="projects-details-item"><div class="glyphicon glyphicon-file" aria-hidden="true"></div><div class="projects-details-body">{{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}</div></div>' +
         '                        {{/publications}}' +
+        '                        {{#talkCount}}<div class="details-heading projects-talks-heading"><h5>Talks:</h5></div>{{/talkCount}}' +
+        '                        {{#talks}}' +
+        '                            <div class="projects-details-item"><div class="glyphicon glyphicon-blackboard" aria-hidden="true"></div><div class="projects-details-body">{{{ authors }}} {{#link}}<a href="{{ . }}">{{/link}}<strong>{{{ title }}}</strong>{{#link}}</a>{{/link}}. {{{ publication }}}</div></div>' +
+        '                        {{/talks}}' +
+        '                        {{#videoCount}}<div class="details-heading projects-videos-heading"><h5>Videos:</h5></div>{{/videoCount}}' +
+        '                        {{#videos}}' +
+        '                            <div class="projects-details-item"><div class="glyphicon glyphicon-film" aria-hidden="true"></div><div class="projects-details-body"><a href="{{ url }}"><strong>{{ title }}</strong></a>. {{ desc }}</div></div>' +
+        '                        {{/videos}}' +
+        '                        {{#linkCount}}<div class="details-heading projects-links-heading"><h5>Related:</h5></div>{{/linkCount}}' +
         '                        {{#links}}' +
         '                            <div><a href="{{ url }}"><span class="glyphicon glyphicon-{{ icon }}" aria-hidden="true"></span> {{ title }}</a></div>' +
         '                        {{/links}}' +
@@ -218,7 +228,7 @@ var renderProjects = function(jsonData) {
         '                            <div class="badge-award" title="{{ longName }}"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> {{ shortName }} <span class="text-muted"> - {{ displayDate }}</span></div>' +
         '                        {{/awards}}' +
         '                        {{#hasFeaturedPress}}' +
-        '                            <div class="projects-press-heading"><h5>Featured Press In:</h5></div>' +
+        '                            <div class="details-heading projects-press-heading"><h5>Featured Press In:</h5></div>' +
         '                            <div class="projects-press">' +
         '                                {{#press}}' +
         '                                    <div class="projects-press-item" title="{{ title }} ({{ displayDate }})">{{#url}}<a href="{{{ . }}}">{{/url}}{{ publication }}{{#url}}</a>{{/url}} <span class="text-muted"> - {{ displayDate }}</span></div>' +
@@ -307,7 +317,8 @@ var renderProjects = function(jsonData) {
         }
 
         // Add appropriate icons to links
-        if (projectJSON.links) {
+        if (projectJSON.links && projectJSON.links.length > 0) {
+            projectJSON["linkCount"] = projectJSON.links.length;
             projectJSON.links = addIconsToLinks(projectJSON.links);
         }
 
