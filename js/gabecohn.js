@@ -92,10 +92,11 @@ var addIconsToLinks = function(links) {
                     case "link": links[i].icon = "link"; break;
                     case "proj": links[i].icon = "tag"; break;
                     case "pub": links[i].icon = "file"; break;
-                    case "slides": links[i].icon = "file"; break;
+                    case "slides": links[i].icon = "modal-window"; break;
                     case "star": links[i].icon = "star-empty"; break;
-                    case "talk": links[i].icon = "film"; break;
+                    case "talk": links[i].icon = "modal-window"; break;
                     case "video": links[i].icon = "film"; break;
+                    case "recording": links[i].icon = "facetime-video"; break;
                     case "web": links[i].icon = "globe"; break;
                     default: links[i].icon = "file";
                 }

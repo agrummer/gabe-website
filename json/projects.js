@@ -10,7 +10,7 @@
  *      longDesc - string (with HTML), long description that is shown when the project is expanded
  *      links - an array of the following object. Links are to appear in the order listed
  *          title - string, display text
- *          type - string, one of the following {doc, slides, video, dl, pub, talk, proj, web}. The type determines the icon to show
+ *          type - string, one of the following {doc, slides, video, recoding, dl, pub, talk, proj, web}. The type determines the icon to show
  *          url - string, URL of the link
  */
 var projectsJSON = [
