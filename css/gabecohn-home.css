@@ -219,17 +219,6 @@
     background-color: rgb(230,240,255);
 }
 
-.section-projects .projects-project .thumbnail-container {
-    width: 130px;
-    height: 130px;
-    padding: 0;
-}
-
-.section-projects .projects-project .thumbnail {
-    width: 120px;
-    height: 120px;
-}
-
 .section-projects .projects-project .projects-title{
     font-size:16pt;
     color:rgb(103,140,195);
@@ -307,11 +296,6 @@
 
 .section-teaching .course a {
     text-decoration: none;
-}
-
-.section-teaching .course .panel-body{
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .section-teaching .course-title{

@@ -502,11 +502,20 @@ var renderTeaching = function(jsonData) {
         '        <div class="panel panel-default course">' +
         '            <a name="{{ id }}" href="{{ link }}">' +
         '            <div class="panel-body">' +
-        '                <div class="course-title">{{ title }}</div>' +
-        '                {{#instances}}' +
-        '                <div class="course-instance"><span class="course-name">{{ course }}:</span> <span class="course-term">{{ terms }}</span></div>' +
-        '                {{/instances}}' +
-        '                <div class="course-desc">{{ desc }}</div>' +
+        '                <div class="container">' +
+        '                    <div class="row">' +
+        '                        <div class="teaching-thumbnail col-md-2">' + 
+        '                            <img class="img-thumbnail" src="img/teaching/{{ id }}.png" alt="{{ title }}">' +
+        '                        </div>' + 
+        '                        <div class="teaching-body col-md-10">' +
+        '                            <div class="course-title">{{ title }}</div>' +
+        '                            {{#instances}}' +
+        '                            <div class="course-instance"><span class="course-name">{{ course }}:</span> <span class="course-term">{{ terms }}</span></div>' +
+        '                            {{/instances}}' +
+        '                            <div class="course-desc">{{ desc }}</div>' +
+        '                       </div>' +
+        '                   </div>' +
+        '                </div>' +
         '            </div>' +
         '            </a>' +
         '        </div>' +
