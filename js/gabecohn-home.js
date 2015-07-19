@@ -235,6 +235,10 @@ var renderProjects = function(jsonData) {
         '                                {{/press}}' +
         '                            </div>' +
         '                        {{/hasFeaturedPress}}' +
+        '                    </div>' +
+        '                </div>' +
+        '                <div class="row">' +
+        '                    <div class="col-md-12">' +
         '                        {{#permalink}}' +
         '                            <div class="projects-permalink" title="{{ permalink }}"> ' +
         '                                <a href="{{ permalink }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Permalink</a>' +
