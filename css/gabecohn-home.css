@@ -83,6 +83,24 @@
 /* HOME */
 
 @media (min-width: 1000px) {
+    .mobile-only{
+        display: none;
+    }
+}
+@media (max-width: 999px) {
+    .mobile-only{
+        display: block;
+    }
+}
+
+#home-img-mobile{
+    background:url(../img/home-img_mobile.jpg) 50% 0 no-repeat #000;
+    width: 100%;
+    max-width: 1000px;
+    height: 733px;
+}
+
+@media (min-width: 1000px) {
     #home-img{
         width:100%;
         max-width:1600px;
@@ -93,12 +111,7 @@
 }
 @media (max-width: 999px) {
     #home-img{
-        padding-top: 600px;
         width:100%;
-        max-width:1600px;
-        background:url(../img/home-img_mobile.jpg) 50% 0 no-repeat #FFF;
-        min-height:1900px;
-        height:1900px;
     }
 }
 
